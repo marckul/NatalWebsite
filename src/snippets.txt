@@ -1,0 +1,27 @@
+<Row justifyContent="around">
+  <Card to="/oferta" src={imageMockup} alt="image mockup" small='Czy takim małym druczkeim coś tutaj napisać?'>
+    <CardTitle>Centralne Ogrzewanie</CardTitle>
+    <CardText>Dolorem labore facilis alias consequuntur, quas voluptates ratione, consequatur nobis quibusdam harum veritatis.</CardText>
+  </Card>
+
+  <Card to="/oferta" src={imageMockup} alt="image mockup" small='Czy takim małym druczkeim coś tutaj napisać?'>
+    <CardTitle>Instalacje WOD-KAN</CardTitle>
+    <CardText>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum exercitationem incidunt aperiam ratione autem a ullam debitis! Dolorem labore facilis alias consequuntur, quas voluptates ratione, consequatur nobis quibusdam harum veritatis.
+    </CardText>
+  </Card>
+
+  <Card to="/oferta" src={imageMockup} alt="image mockup" small='Czy takim małym druczkeim coś tutaj napisać?'>
+    <CardTitle>Fotowoltaika i Wentylacja</CardTitle>
+    <CardText>
+      Est beatae libero quia non tempora perferendis fugiat maxime? Aliquid eaque cupiditate nemo quia ad dolores unde. Est, quia totam. Laudantium neque, quod ea architecto sint sed eaque, cumque repellendus voluptates cupiditate in aliquid.
+    </CardText>
+  </Card>
+
+  <Card to="/oferta" src={imageMockup} alt="image mockup" small='Czy takim małym druczkeim coś tutaj napisać?'>
+    <CardTitle>Inne Inne</CardTitle>
+    <CardText>
+      Autem vitae tenetur debitis a aspernatur ut iusto, magni eos alias facilis sit perferendis dignissimos aliquam officia aliquid iste vel illo commodi? Eveniet qui voluptates amet eaque libero animi, est nobis ullam earum accusamus? Maiores iure ipsa hic commodi amet nihil sint.
+    </CardText>
+  </Card>    
+</Row>

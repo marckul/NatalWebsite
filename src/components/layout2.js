@@ -8,28 +8,23 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import Scrollspy from 'react-scrollspy'
 
-import Header from "./header"
+
+import Header2 from "./header2"
 import Footer from "./footer"
 import "../styles/layout.css"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const Layout2 = ({ children }) => {
+  
 
   return (
     <>
       <span id="page-top"></span>
-      <div className="main-layout-wrapper">
-        <Header siteTitle={`Natal Instalacje`} />
-        <main>
+      <div className="main-Layout2-wrapper">
+        <Header2 />
+
+        <main style={{marginTop: '10rem'}} >
           {children}
         </main>
       </div>
@@ -38,8 +33,5 @@ const Layout = ({ children }) => {
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
 
-export default Layout
+export default Layout2

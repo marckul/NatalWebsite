@@ -1,10 +1,17 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Natal Instalacje`,
+    description: `Instalacje Gazowe, Sanitarne,`, // TUTAJ POWINIEN ZNALEZC SIE OPIS STRONY
+    author: `@Marcin`,
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-anchor-links',
+      options: {
+        offset: -90,
+        duration: 500,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {

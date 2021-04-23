@@ -1,0 +1,30 @@
+import React from "react"
+import Layout2 from '../components/layout2'
+import Scrollspy from 'react-scrollspy'
+
+const Home = () => {
+  return (
+    <Layout2 >
+        <section id="top" className="container my-5 py-5">
+          <h2>section 1</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos exercitationem similique unde rem doloribus dolorem iste laudantium nobis perspiciatis in atque et inventore, minima repellendus. Neque explicabo veniam cupiditate facere accusamus exercitationem vero rerum itaque pariatur, enim ullam quasi vitae magni soluta repudiandae tenetur non ratione, impedit nemo amet beatae? Ut, tempore quia. Facere dicta quae atque veniam aspernatur quas et, odio, aliquam, quod ea neque eveniet commodi architecto rerum natus eaque quam? Est ea neque similique sequi porro, molestias praesentium voluptatem laborum laudantium a, aut quaerat accusamus dignissimos. Similique possimus aliquid iste, sint saepe impedit animi illo recusandae molestiae!
+          </p>
+        </section>
+        <section id="middle" className="container my-5 py-5">
+          <h2>section 2</h2>            
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos exercitationem similique unde rem doloribus dolorem iste laudantium nobis perspiciatis in atque et inventore, minima repellendus. Neque explicabo veniam cupiditate facere accusamus exercitationem vero rerum itaque pariatur, enim ullam quasi vitae magni soluta repudiandae tenetur non ratione, impedit nemo amet beatae? Ut, tempore quia. Facere dicta quae atque veniam aspernatur quas et, odio, aliquam, quod ea neque eveniet commodi architecto rerum natus eaque quam? Est ea neque similique sequi porro, molestias praesentium voluptatem laborum laudantium a, aut quaerat accusamus dignissimos. Similique possimus aliquid iste, sint saepe impedit animi illo recusandae molestiae!
+          </p>
+        </section>
+        <section id="section-3" className="container my-5 py-5">
+          <h2>section 3</h2>            
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos exercitationem similique unde rem doloribus dolorem iste laudantium nobis perspiciatis in atque et inventore, minima repellendus. Neque explicabo veniam cupiditate facere accusamus exercitationem vero rerum itaque pariatur, enim ullam quasi vitae magni soluta repudiandae tenetur non ratione, impedit nemo amet beatae? Ut, tempore quia. Facere dicta quae atque veniam aspernatur quas et, odio, aliquam, quod ea neque eveniet commodi architecto rerum natus eaque quam? Est ea neque similique sequi porro, molestias praesentium voluptatem laborum laudantium a, aut quaerat accusamus dignissimos. Similique possimus aliquid iste, sint saepe impedit animi illo recusandae molestiae!
+          </p>
+        </section>        
+    </Layout2>
+  )
+}
+
+export default Home

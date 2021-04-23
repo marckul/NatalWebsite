@@ -1,0 +1,155 @@
+
+// @import 'ignoreIt/_variables.scss';
+@import '_variables.scss';
+
+
+/* =============================
+  BASE ELEMENT STYLES
+================================ */
+
+/* tags --------------------- */
+
+p, h1, h2, h3, h4, h5, h6 {
+  hyphens: auto !important;
+}
+
+footer {
+  min-height: 10rem;
+  align-items: center;
+  justify-content: center;
+}
+
+
+html {
+  box-sizing: border-box;
+  // scroll-behavior: auto; ! NIE MOŻE byc z wtyczką gatsby-plugin-anchor-links
+}
+
+// HEADER
+#navbar-main { //to był .navbar
+  box-shadow: .1rem .1rem .2rem .1rem $hardShadow;
+  min-height: 5rem;
+  text-transform: uppercase !important;
+  
+  .navbar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;    
+    span {
+      display: block;
+      &:first-child {
+        font-size: 1.6rem;
+        text-transform: uppercase !important;
+        font-weight: 700;
+      }
+      &:last-child {
+        text-transform: uppercase !important;
+        font-weight: 300;
+        font-size: 1.0rem;
+      }
+    }
+  }
+}
+
+// LAYOUT
+#gatsby-focus-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+    
+  .main-layout-wrapper {
+    flex-grow: 5;
+  }
+}
+
+@import 'stylesModules/_carousel-hero.scss';
+
+
+/* =============================
+    KONTAKT
+----------------------------- */
+
+#main-wrapper {
+  background-image: url("https://media.istockphoto.com/photos/plumbers-tools-and-plumbing-materials-banner-with-copy-space-picture-id625280930");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  /* WAZNE ZESTAW 1*/
+  background-color: rgba(0, 0, 0, .6); 
+  background-blend-mode: luminosity; 
+  
+}
+
+#second-wrapper {
+  /* WAZNE ZESTAW 1*/
+  background-color: rgba(49, 49, 49, 0.6);
+
+  /* WAZNE ZESTAW 2*/
+  /* background-color: rgba(250, 250, 250, 0.7); */
+}
+
+#main {
+  color: white !important;
+  /* color: black !important; */
+}
+.full-height {
+  min-height: 90vh;
+}
+
+
+// MAPS
+.map-iframe-mysizes {
+  max-height: 60vmax;
+  &::before {
+    padding-top: 100%;
+  }
+  @media (orientation: landscape) {
+    max-height: 95vh;
+  }
+
+  @media (min-width: map-get($screen-size, lg)){
+    max-height: 60vmin;
+  }
+}
+
+
+
+
+/* =============================
+  COMPONENTS BUNDLE 
+================================ */
+
+// CARD
+.card {
+  
+  &#centralne-ogrzewanie a {
+    background-color: rgba(255, 192, 74, 0.5);
+  }
+
+  &#instalacje-wod-kan a {
+    background-color: rgba(139, 218, 255, .5);
+  }
+  
+  &#fotowoltaika-i-wentylacja a {
+    background-color: rgba(139, 218, 255, .5);
+  }
+
+  &#roboty-ziemne a {
+    background-color: rgba(139, 218, 255, .5);
+  }
+  
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 !important;    
+    mix-blend-mode: multiply;
+
+  }
+}
+
+
+

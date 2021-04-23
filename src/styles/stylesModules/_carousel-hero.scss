@@ -1,0 +1,41 @@
+
+
+
+#carousel-hero {
+  
+  .display-1 {
+    font-size: 4rem;
+  }
+
+  .carousel-item {
+    min-height: 100vh !important;
+    background-color: rgba(125, 127, 150, 1);
+    // mix-blend-mode: soft-light;
+    background-blend-mode: soft-light;
+  } 
+
+  @media (min-width: map-get($screen-size, md)) {
+    .carousel-item {
+      min-height: 100vmin !important;
+    } 
+  }
+  
+  @media (min-width: map-get($screen-size, lg)) {
+    .carousel-item {
+      min-height: 100vmin !important;
+    } 
+    .display-1 {
+      font-size: 6rem;
+      font-weight: normal;
+    }
+  }
+
+  .carousel-item {
+    transition: transform 2s ease, opacity 1s ease-out;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+    background-blend-mode: soft-light;
+  }
+}

@@ -1,0 +1,197 @@
+/* =============================
+  BASE ELEMENT STYLES
+================================ */
+/* tags --------------------- */
+p, h1, h2, h3, h4, h5, h6 {
+  -webkit-hyphens: auto !important;
+      -ms-hyphens: auto !important;
+          hyphens: auto !important;
+}
+
+footer {
+  min-height: 10rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#navbar-main {
+  -webkit-box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem rgba(0, 0, 0, 0.4);
+          box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem rgba(0, 0, 0, 0.4);
+  min-height: 5rem;
+  text-transform: uppercase !important;
+}
+
+#navbar-main .navbar-brand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 1;
+}
+
+#navbar-main .navbar-brand span {
+  display: block;
+}
+
+#navbar-main .navbar-brand span:first-child {
+  font-size: 1.6rem;
+  text-transform: uppercase !important;
+  font-weight: 700;
+}
+
+#navbar-main .navbar-brand span:last-child {
+  text-transform: uppercase !important;
+  font-weight: 300;
+  font-size: 1.0rem;
+}
+
+#gatsby-focus-wrapper {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#gatsby-focus-wrapper .main-layout-wrapper {
+  -webkit-box-flex: 5;
+      -ms-flex-positive: 5;
+          flex-grow: 5;
+}
+
+#carousel-hero .display-1 {
+  font-size: 4rem;
+}
+
+#carousel-hero .carousel-item {
+  min-height: 100vh !important;
+  background-color: #7d7f96;
+  background-blend-mode: soft-light;
+}
+
+@media (min-width: 768px) {
+  #carousel-hero .carousel-item {
+    min-height: 100vmin !important;
+  }
+}
+
+@media (min-width: 992px) {
+  #carousel-hero .carousel-item {
+    min-height: 100vmin !important;
+  }
+  #carousel-hero .display-1 {
+    font-size: 6rem;
+    font-weight: normal;
+  }
+}
+
+#carousel-hero .carousel-item {
+  -webkit-transition: opacity 1s ease-out, -webkit-transform 2s ease;
+  transition: opacity 1s ease-out, -webkit-transform 2s ease;
+  transition: transform 2s ease, opacity 1s ease-out;
+  transition: transform 2s ease, opacity 1s ease-out, -webkit-transform 2s ease;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  background-blend-mode: soft-light;
+}
+
+/* =============================
+    KONTAKT
+----------------------------- */
+#main-wrapper {
+  background-image: url("https://media.istockphoto.com/photos/plumbers-tools-and-plumbing-materials-banner-with-copy-space-picture-id625280930");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /* WAZNE ZESTAW 1*/
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: luminosity;
+}
+
+#second-wrapper {
+  /* WAZNE ZESTAW 1*/
+  background-color: rgba(49, 49, 49, 0.6);
+  /* WAZNE ZESTAW 2*/
+  /* background-color: rgba(250, 250, 250, 0.7); */
+}
+
+#main {
+  color: white !important;
+  /* color: black !important; */
+}
+
+.full-height {
+  min-height: 90vh;
+}
+
+.map-iframe-mysizes {
+  max-height: 60vmax;
+}
+
+.map-iframe-mysizes::before {
+  padding-top: 100%;
+}
+
+@media (orientation: landscape) {
+  .map-iframe-mysizes {
+    max-height: 95vh;
+  }
+}
+
+@media (min-width: 992px) {
+  .map-iframe-mysizes {
+    max-height: 60vmin;
+  }
+}
+
+/* =============================
+  COMPONENTS BUNDLE 
+================================ */
+.card#centralne-ogrzewanie a {
+  background-color: rgba(255, 192, 74, 0.5);
+}
+
+.card#instalacje-wod-kan a {
+  background-color: rgba(139, 218, 255, 0.5);
+}
+
+.card#fotowoltaika-i-wentylacja a {
+  background-color: rgba(139, 218, 255, 0.5);
+}
+
+.card#roboty-ziemne a {
+  background-color: rgba(139, 218, 255, 0.5);
+}
+
+.card img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 !important;
+  mix-blend-mode: multiply;
+}
+/*# sourceMappingURL=layout.css.map */
