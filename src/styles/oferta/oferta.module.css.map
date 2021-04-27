@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACMA;;6BAE6B;AAE7B,cAAc;AAad,cAAc;AAad,cAAc;AAmCd;;6BAE6B;ADrE7B,AACE,OADK,CACL,OAAO,AAAA,YAAY,CAAC;EAClB,WAAW,EAAE,IAAI;EACjB,cAAc,EAAE,IAAI;CACrB;;AAJH,AAOE,OAPK,CAOL,OAAO,CAAC;EACN,UAAU,EAAE,IAAI;CAMjB;;AAdH,AASI,OATG,CAOL,OAAO,CAEL,EAAE,AAAA,YAAY,CAAE;EACd,SAAS,EAAE,MAAM;EACjB,WAAW,EAAE,GAAG;EAChB,WAAW,EAAE,GAAG;CACjB",
+    "sources": [
+        "oferta.module.scss",
+        "../_variables.scss"
+    ],
+    "names": [],
+    "file": "oferta.module.css"
+}

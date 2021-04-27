@@ -1,4 +1,5 @@
 import React from 'react'
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 
 
@@ -14,17 +15,20 @@ const items = [
   {
     title: 'Solary i Fotowoltaika', 
     text: 'Oferujemy montaż instalacji fotowoltaicznych i solarów słonecznych', 
-    image: 'https://media.istockphoto.com/photos/electrician-mounting-solar-panel-on-roof-of-modern-house-picture-id1127159370?s=2048x2048'
+    image: 'https://media.istockphoto.com/photos/electrician-mounting-solar-panel-on-roof-of-modern-house-picture-id1127159370?s=2048x2048',
+    to: '/oferta#fotowoltaika-i-wentylacja'
   },
   {
     title: 'Materiały instalacyjne', 
     text: 'Oferujemy szeroki asortyment materiałów instalacyjnych', 
-    image: 'https://media.istockphoto.com/photos/plumbers-tools-and-plumbing-materials-banner-with-copy-space-picture-id625280930'
+    image: 'https://media.istockphoto.com/photos/plumbers-tools-and-plumbing-materials-banner-with-copy-space-picture-id625280930',
+    to: '/oferta#materiały-instalacyjne'
   },
   {
     title: 'Instalacje CO', 
     text: 'Zobacz naszą ofertę kotłów gazowych i węglowych', 
-    image: 'https://media.istockphoto.com/photos/boiler-gas-heater-water-picture-id946869444?s=2048x2048'
+    image: 'https://media.istockphoto.com/photos/boiler-gas-heater-water-picture-id946869444?s=2048x2048',
+    to: '/oferta#instalacje-co'
   }
 ]
 
@@ -92,8 +96,10 @@ const CarouselItem = (props) => (
     <div className="carousel-caption d-flex h-100 align-items-center justify-content-center">
       <div className="col-xs mt-5  text-center">
         <h2 className="display-1 mt-5">{props.title}</h2>
-        <p className="lead text-center">{props.text}</p>
-        <button className="btn btn-large btn-secondary">Zobacz więcej</button>
+        <p className="lead">{props.text}</p>
+        <div className="text-right">
+          <AnchorLink className="btn btn-large btn-secondary rounded-0" to={props.to} role="button">Zobacz więcej</AnchorLink>
+        </div>
       </div>             
     </div>
   </div>
@@ -114,7 +120,10 @@ const CarouselHero = () => {
     }
     
     return(
-      <CarouselItem key={idx} id={`carousel-item-${idx}`} title={item.title} text={item.text} image={item.image} active={itemActive}/>
+      <CarouselItem 
+        key={idx} id={`carousel-item-${idx}`} title={item.title} text={item.text} 
+        image={item.image} active={itemActive} to={item.to}
+      />
     )
   })
   

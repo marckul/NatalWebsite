@@ -6,10 +6,10 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-anchor-links',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        offset: -90,
-        duration: 500,
+        name: `pages`,
+        path: `${__dirname}/src/pages-markdown`,
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -39,5 +39,13 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    `gatsby-transformer-remark`,
+    {
+      resolve: 'gatsby-plugin-anchor-links',
+      options: {
+        offset: -90,
+        duration: 500,
+      },
+    },
   ],
 }

@@ -3,14 +3,95 @@
 // _nazwaPliku powoduje że plik nie jset kompilowany z live sass compiler
 
 
+
+/* =======================
+        MY PALETTE
+ ------------------------- */ 
+
+/* SCSS HEX */
+// $raisin-black: #242833ff;
+// $queen-blue: #456d96ff;
+// $pale-cerulean: #accfe9ff;
+// $gainsboro: #d9dedfff;
+// $ghost-white: #f4f4f9ff;
+// $timberwolf: #e3e0dbff;
+// $liver-chestnut: #9d7c61ff;
+// $liver-chestnut-2: #8c6c5aff;
+// $coffee: #815d4aff;
+// $jet: #393939ff;
+
+
+/* SCSS RGB */
+// $raisin-black: rgba(36, 40, 51, 1);
+// $queen-blue: rgba(69, 109, 150, 1);
+// $pale-cerulean: rgba(172, 207, 233, 1);
+// $gainsboro: rgba(217, 222, 223, 1);
+// $ghost-white: rgba(244, 244, 249, 1);
+// $timberwolf: rgba(227, 224, 219, 1);
+// $liver-chestnut: rgba(157, 124, 97, 1);
+// $liver-chestnut-2: rgba(140, 108, 90, 1);
+// $coffee: rgba(129, 93, 74, 1);
+// $jet: rgba(57, 57, 57, 1);
+
+
+/* SCSS HSL */
+// $raisin-black: hsla(224, 17%, 17%, 1);
+// $queen-blue: hsla(210, 37%, 43%, 1);
+// $pale-cerulean: hsla(206, 58%, 79%, 1);
+// $gainsboro: hsla(190, 9%, 86%, 1);
+// $ghost-white: hsla(240, 29%, 97%, 1);
+// $timberwolf: hsla(38, 12%, 87%, 1);
+// $liver-chestnut: hsla(27, 24%, 50%, 1);
+// $liver-chestnut-2: hsla(22, 22%, 45%, 1);
+// $coffee: hsla(21, 27%, 40%, 1);
+// $jet: hsla(0, 0%, 22%, 1);
+
+$marckul-color-primary: hsla(224, 17%, 17%, 1);
+$marckul-color-primary-medium: hsla(224, 17%, 17%, .75);
+
+$marckul-color-secondary: rgba(5, 15, 44, 0.9);
+$marckul-color-secondary-medium: rgba(24, 41, 87, 0.75);
+
+$queen-blue: hsla(210, 37%, 43%, 1);
+$pale-cerulean: hsla(206, 58%, 79%, 1);
+$gainsboro: hsla(190, 9%, 86%, 1);
+$ghost-white: hsla(240, 29%, 97%, 1);
+$timberwolf: hsla(38, 12%, 87%, 1);
+$liver-chestnut: hsla(27, 24%, 50%, 1);
+$liver-chestnut-2: hsla(22, 22%, 45%, 1);
+$coffee: hsla(21, 27%, 40%, 1);
+$jet: hsla(0, 0%, 22%, 1);
+
+
+
+$marckul-secondary-color-dark: $queen-blue;
+
+
+
+
+/* =======================
+        ELEMENTS COLORS
+ ------------------------- */ 
+
 // Chromatic Colors  ----------------------- //
-$comment-mockup-color:  hsla(220, 2%, 51%, 0.2);
+// $comment-mockup-color:  hsla(220, 2%, 51%, 0.2);
 
 $text-white: hsla(220, 20%, 90%, 0.7);
+$text-dark: $marckul-color-secondary;
 
 // background 
 $gray-transparent: rgba(73, 73, 73, 0.9);
+$lightShadow: rgba(0, 0, 0, 0.1);
 $hardShadow: rgba(0, 0, 0, 0.4);
+
+$shadow-color: (
+  light: rgba(0, 0, 0, 0.25),
+  medium: rgba(0, 0, 0, 0.5),
+  hard: rgba(0, 0, 0, 0.75)
+);
+
+
+
 
 
 // Saturated Colors  ----------------------- //
@@ -31,9 +112,11 @@ $font-weight-brand: $font-weight-normal;
 
 
 // Layout   ----------------------- //
+$shadow-xs: 0 0.125rem 0.12rem;
 $shadow-sm: 0 0.125rem 0.25rem;
 $shadow-md: 0 0.125rem 0.5rem;
 $shadow: 0 0.5rem 1rem;
+
 $opacity-medium: .35;
 $opacity-hard: .5;
 
@@ -53,5 +136,7 @@ $display-font-sizes: (
   5: 3rem,
   6: 2.5rem
 );
+
+
 
 

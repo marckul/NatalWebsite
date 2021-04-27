@@ -1,7 +1,25 @@
+/* =======================
+        MY PALETTE
+ ------------------------- */
+/* SCSS HEX */
+/* SCSS RGB */
+/* SCSS HSL */
+/* =======================
+        ELEMENTS COLORS
+ ------------------------- */
 /* =============================
   BASE ELEMENT STYLES
 ================================ */
 /* tags --------------------- */
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+p {
+  text-align: justify;
+}
+
 p, h1, h2, h3, h4, h5, h6 {
   -webkit-hyphens: auto !important;
       -ms-hyphens: auto !important;
@@ -18,14 +36,9 @@ footer {
           justify-content: center;
 }
 
-html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
 #navbar-main {
-  -webkit-box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem rgba(0, 0, 0, 0.4);
-          box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0 0.125rem 0.12rem 0.01rem rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0.125rem 0.12rem 0.01rem rgba(0, 0, 0, 0.25);
   min-height: 5rem;
   text-transform: uppercase !important;
 }
@@ -60,6 +73,24 @@ html {
   font-size: 1.0rem;
 }
 
+#navbar-main.bg-light {
+  background-color: #e3e0db80 !important;
+}
+
+#navbar-main.bg-dark {
+  background: #242833 !important;
+}
+
+.bg-dark {
+  background-color: #242833 !important;
+}
+
+.btn-secondary {
+  background-color: #242833 !important;
+  border-color: #242833 !important;
+  border-radius: 25% / 50%;
+}
+
 #gatsby-focus-wrapper {
   min-height: 100vh;
   display: -webkit-box;
@@ -80,13 +111,31 @@ html {
           flex-grow: 5;
 }
 
+/* =======================
+        MY PALETTE
+ ------------------------- */
+/* SCSS HEX */
+/* SCSS RGB */
+/* SCSS HSL */
+/* =======================
+        ELEMENTS COLORS
+ ------------------------- */
 #carousel-hero .display-1 {
   font-size: 4rem;
 }
 
+#carousel-hero .carousel-caption {
+  text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+}
+
+#carousel-hero #carousel-item-0 {
+  background-color: #ff5b0234;
+  background-blend-mode: soft-light;
+}
+
 #carousel-hero .carousel-item {
   min-height: 100vh !important;
-  background-color: #7d7f96;
+  background-color: #E3E0DB77;
   background-blend-mode: soft-light;
 }
 
@@ -115,7 +164,6 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;
-  background-blend-mode: soft-light;
 }
 
 /* =============================
@@ -170,22 +218,6 @@ html {
 /* =============================
   COMPONENTS BUNDLE 
 ================================ */
-.card#centralne-ogrzewanie a {
-  background-color: rgba(255, 192, 74, 0.5);
-}
-
-.card#instalacje-wod-kan a {
-  background-color: rgba(139, 218, 255, 0.5);
-}
-
-.card#fotowoltaika-i-wentylacja a {
-  background-color: rgba(139, 218, 255, 0.5);
-}
-
-.card#roboty-ziemne a {
-  background-color: rgba(139, 218, 255, 0.5);
-}
-
 .card img {
   -o-object-fit: cover;
      object-fit: cover;

@@ -13,14 +13,30 @@ const NavLink = (props) => (
   <Link className="nav-link" activeClassName="active" to={props.to}>{props.children}</Link>
 )
 
+const NavBrand1 = () => (
+  <Link className="navbar-brand " to="/">
+    <span>Natal</span>
+    <span>instalacje</span>
+  </Link>
+)
+
+  
+const NavBrand2 = () => (
+  <Link className="navbar-brand flex-row" to="/" style={{fontSize: '1rem'}}>
+    <div style={{fontSize: '2.8em', fontWeight: 'bold', paddingBottom: '0.05em'}}>N</div> 
+    <div>
+    <span>atal</span>
+    <span style={{fontSize: '.8em'}}>instalacje</span>
+    </div>
+  </Link>
+)
+
+
 const Header = ({ siteTitle }) => (
   <header>
-    <nav id="navbar-main" className="navbar fixed-top navbar-expand-md navbar-dark bg-dark ">
+    <nav id="navbar-main" className="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
       <div className="container-fluid">
-        <Link className="navbar-brand " to="/">
-          <span>Natal</span>
-          <span>instalacje</span>
-        </Link>
+        <NavBrand1/>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

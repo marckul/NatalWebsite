@@ -26,7 +26,7 @@ import excavatorDraw from '../assets/images/excavator-draw.png'
 
 
 const IndexPage = () => (
-  <Layout>
+  <Layout id="index-page">
     <section id="start">
       <CarouselHero />
         <div className="container py-md-5 my-5">
@@ -40,26 +40,26 @@ const IndexPage = () => (
       <p className="lead">Prowadzimy działalność w zakresie <strong>sprzedaży, wykonastwa i serwisu</strong> w poniższych dziedzinach</p>
 
       <Row justifyContent="around">
-        <Card id="centralne-ogrzewanie" to="/oferta" src={gasBoiler} alt="image mockup" small=''>
+        <Card id="centralne-ogrzewanie" to="/oferta#instalacje-co" src={gasBoiler} alt="image mockup" small=''>
           <CardTitle>Centralne Ogrzewanie</CardTitle>
           <CardText>Dolorem labore facilis alias consequuntur, quas voluptates ratione, consequatur nobis quibusdam harum veritatis.</CardText>
         </Card>
 
-        <Card id="instalacje-wod-kan" to="/oferta" src={tapSketch} alt="image mockup" small=''>
+        <Card id="instalacje-wod-kan" to="/oferta#instalacje-wod-kan" src={tapSketch} alt="image mockup" small=''>
           <CardTitle>Instalacje WOD-KAN</CardTitle>
           <CardText>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum exercitationem incidunt aperiam ratione autem a ullam debitis! Dolorem labore facilis alias consequuntur, quas voluptates ratione, consequatur nobis quibusdam harum veritatis.
           </CardText>
         </Card>
 
-        <Card id="fotowoltaika-i-wentylacja" to="/oferta" src={imageMockup} alt="image mockup" small=''>
+        <Card id="fotowoltaika-i-wentylacja" to="/oferta#fotowoltaika-wentylacja" src={imageMockup} alt="image mockup" small=''>
           <CardTitle>Fotowoltaika i Wentylacja</CardTitle>
           <CardText>
             Est beatae libero quia non tempora perferendis fugiat maxime? Aliquid eaque cupiditate nemo quia ad dolores unde. Est, quia totam. Laudantium neque, quod ea architecto sint sed eaque, cumque repellendus voluptates cupiditate in aliquid.
           </CardText>
         </Card>
 
-        <Card id="roboty-ziemne" to="/oferta" src={excavatorDraw} alt="image mockup" small=''>
+        <Card id="roboty-ziemne" to="/oferta#roboty-ziemne" src={excavatorDraw} alt="image mockup" small=''>
           <CardTitle>Roboty Ziemne</CardTitle>
           <CardText>
             Oferujemy wynajem minikoparki  Kubota KX018-4  wraz z operatorem.

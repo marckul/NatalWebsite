@@ -9,9 +9,23 @@
 
 /* tags --------------------- */
 
+html {
+  box-sizing: border-box;
+  // scroll-behavior: auto; ! NIE MOŻE byc z wtyczką gatsby-plugin-anchor-links
+}
+
+p {
+  text-align: justify;
+}
+
 p, h1, h2, h3, h4, h5, h6 {
   hyphens: auto !important;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  // color: $text-dark !important;
+}
+
 
 footer {
   min-height: 10rem;
@@ -20,14 +34,12 @@ footer {
 }
 
 
-html {
-  box-sizing: border-box;
-  // scroll-behavior: auto; ! NIE MOŻE byc z wtyczką gatsby-plugin-anchor-links
-}
+
 
 // HEADER
 #navbar-main { //to był .navbar
-  box-shadow: .1rem .1rem .2rem .1rem $hardShadow;
+  box-shadow: $shadow-xs .01rem map-get($shadow-color, light);
+
   min-height: 5rem;
   text-transform: uppercase !important;
   
@@ -51,6 +63,46 @@ html {
     }
   }
 }
+
+// ===============================================
+// 23.04.2021
+#navbar-main { 
+  &.bg-light {
+    // background-color: #f8f9fa8f !important;
+    background-color: #e3e0db80 !important;
+
+    // background-color: #E3E0DB !important;
+    
+    
+  }
+  &.bg-dark {
+    // background: #1a293800 !important;
+    background: $marckul-color-primary !important;
+    
+    // background: #2D4762 !important;
+    // ZESTAW 1
+    // background: #242833 !important;
+    // background: linear-gradient(130deg, #242833 0%, #2a4055 100%) !important;
+
+    // background: -moz-linear-gradient(90deg, hsla(203, 37%, 22%, 1) 0%, hsla(162, 23%, 49%, 1) 100%) !important;
+    // background: -webkit-linear-gradient(90deg, hsla(203, 37%, 22%, 1) 0%, hsla(162, 23%, 49%, 1) 100%) !important;
+
+    // filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#233d4d", endColorstr="#619B8A", GradientType=1 ) !important;
+  }
+}
+
+.bg-dark {
+  background-color: $marckul-color-primary !important;
+}
+
+.btn-secondary {
+  background-color: $marckul-color-primary !important;
+  border-color: $marckul-color-primary !important;
+  border-radius: 25% / 50%;
+}
+
+// ===============================================
+
 
 // LAYOUT
 #gatsby-focus-wrapper {
@@ -126,19 +178,19 @@ html {
 .card {
   
   &#centralne-ogrzewanie a {
-    background-color: rgba(255, 192, 74, 0.5);
+    // background-color: rgba(255, 192, 74, 0.5);
   }
 
   &#instalacje-wod-kan a {
-    background-color: rgba(139, 218, 255, .5);
+    // background-color: rgba(139, 218, 255, .5);
   }
   
   &#fotowoltaika-i-wentylacja a {
-    background-color: rgba(139, 218, 255, .5);
+    // background-color: rgba(139, 218, 255, .5);
   }
 
   &#roboty-ziemne a {
-    background-color: rgba(139, 218, 255, .5);
+    // background-color: rgba(139, 218, 255, .5);
   }
   
   img {

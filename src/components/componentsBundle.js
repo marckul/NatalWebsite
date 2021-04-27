@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { StaticImage } from "gatsby-plugin-image"
 
 
@@ -24,7 +25,7 @@ const Card = (props) => {
   return(
     <div className="d-flex col-md-6 col-lg-5 p-md-1">
       <div id={props.id} className="card flex-fill shadow mb-5 p-lg-3">
-        <Link to={props.to} className="hover-light"><img src={props.src} alt={props.alt} className="card-img-top"/></Link>
+        <AnchorLink to={props.to} className="hover-light"><img src={props.src} alt={props.alt} className="card-img-top"/></AnchorLink>
         <div className="card-body text-center d-flex flex-column justify-content-between">
           <div>{props.children}</div>
           <p className="card-text"><small className="text-muted font-italic">{props.small}</small></p>

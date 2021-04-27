@@ -1,0 +1,24 @@
+/* =======================
+        MY PALETTE
+ ------------------------- */
+/* SCSS HEX */
+/* SCSS RGB */
+/* SCSS HSL */
+/* =======================
+        ELEMENTS COLORS
+ ------------------------- */
+.oferta section:first-child {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+.oferta section {
+  min-height: 50vh;
+}
+
+.oferta section h1:first-child {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+/*# sourceMappingURL=oferta.module.css.map */

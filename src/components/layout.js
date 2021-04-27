@@ -13,7 +13,7 @@ import Header from "./header"
 import Footer from "./footer"
 import "../styles/layout.css"
 
-const Layout = ({ children }) => {
+const Layout = ( props) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -27,10 +27,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <span id="page-top"></span>
-      <div className="main-layout-wrapper">
-        <Header siteTitle={`Natal Instalacje`} />
-        <main>
-          {children}
+      <div id={props.id} className={`main-layout-wrapper ${props.className}`}>
+        <Header siteTitle={data.site.siteMetadata.title} />
+        <main className="d-flex flex-column">
+          {props.children}
         </main>
       </div>
       <Footer/>

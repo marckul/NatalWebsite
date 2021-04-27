@@ -1,17 +1,49 @@
-
+@import '../variables/';
 
 
 #carousel-hero {
+  
   
   .display-1 {
     font-size: 4rem;
   }
 
+  .carousel-caption {
+    // color: #343a40 !important;
+    // text-shadow: $shadow-sm rgba(31, 29, 29, 0.75);
+    text-shadow: $shadow-sm map-get($shadow-color, medium);
+    
+  }
+  #carousel-item-0 {
+    background-color: #ff5b0234; // POMARANCZ
+    background-blend-mode: soft-light;
+
+    // background-color: #a07d6a73; // COLOR2
+    // background-blend-mode: soft-light;
+
+    // background-color: rgba(221, 224, 253, 0.5); // COLOR2 ten byl wczesniej
+    // background-blend-mode: soft-light;
+
+
+
+    // background-color: #393939d0; // BRAZ 1
+    // background-blend-mode: soft-light;
+  }
+  
   .carousel-item {
     min-height: 100vh !important;
-    background-color: rgba(125, 127, 150, 1);
-    // mix-blend-mode: soft-light;
+    
+    background-color: #E3E0DB77; // COLOR2
     background-blend-mode: soft-light;
+
+
+    // background-color: rgba(221, 224, 253, 0.5); // COLOR2 ten byl wczesniej
+    
+    // background-color: rgba(125, 127, 150, 1); // COLOR1
+    
+    // background-color: rgba(98, 255, 216, 0.3); // COLOR3
+    // background-color: rgba(166, 222, 255, 0.3); // COLOR5
+    // background-color: rgba(16, 167, 255, 0.3); // COLOR4
   } 
 
   @media (min-width: map-get($screen-size, md)) {
@@ -36,6 +68,5 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: scroll;
-    background-blend-mode: soft-light;
   }
 }
