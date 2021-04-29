@@ -14,6 +14,22 @@ import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Scrollspy from 'react-scrollspy'
 
+const myReplaceAllSpaces = (string = ' ', repl = '-') => {
+  let allWords = string.split(" ");
+  let words = [];
+  let k = 0;
+
+  for (let idx = 0; idx < allWords.length; idx++) {
+    if (allWords[idx] !== "" ) {
+      words[k] = allWords[idx];
+      k++;      
+    }
+  }
+
+  return words.join("-");  
+}
+
+
 let sidebarVisibility="col-3 d-none d-md-block";
 
 const OfferPage = () => {
@@ -68,7 +84,9 @@ const OfferPage = () => {
   let titleArray = [];
   let offerPageContent = data.allContentfulStronaOfertySekcja.edges.map( (edge) => {
     let title = edge.node.title;
-    let id = title.replaceAll(' ', '-').toLowerCase();
+    // let id = title.replaceAll(' ', '-').toLowerCase();
+    let id = myReplaceAllSpaces(title, '-').toLowerCase();
+
     // let jsonBody = JSON.parse(edge.node.offerSectionBody.raw)
     
     idx++;

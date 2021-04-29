@@ -27,6 +27,8 @@ const OfferPage = () => {
   let offerPageContent = data.allMarkdownRemark.edges.map( (edge) => {
     // edge.node.frontmatter.title = '';
     let title = edge.node.frontmatter.title;
+    
+    
     let id = title.replaceAll(' ', '-').toLowerCase();
     
 
