@@ -3,7 +3,32 @@
 
 
 .oferta {
+  
+  .sidebarNav {
+    position: fixed;
+    top: 10rem;
+    nav {
+      z-index: 1030;
+      ul li a {
+        padding-right: 0px !important;
+        // background-color: red;
+      }
+
+      a {
+        z-index: 1030;
+        color: inherit;
+      }
+    }
+
+    
+  }
+
   section:first-child {
+    padding-top: 6rem;
+    // padding-bottom: 6rem;
+  }
+
+  section>div {
     padding-top: 6rem;
     padding-bottom: 6rem;
   }
@@ -12,9 +37,25 @@
   section {
     min-height: 50vh;
     h1:first-child  {
-      font-size: 3.5rem;
-      font-weight: 300;
-      line-height: 1.2;
+      // font-size: 3.5rem;
+      font-weight: normal;
+      // line-height: 1.2;
+    }
+    figure {
+      margin: 2rem 0;
+
+    }
+    img {
+      // display: block;
+      // margin: 0 auto;
+    }
+  }
+
+  ol, ul{
+    li {
+      p {
+        margin: 0;
+      }
     }
   }
 }

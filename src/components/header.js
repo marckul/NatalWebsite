@@ -47,7 +47,7 @@ const Header = ({ siteTitle }) => (
                 <AnchorLink className="nav-link" to="/#start">Start</AnchorLink>
               </li>
               <li className="nav-item order-2">
-                <AnchorLink className="nav-link" to="/#oferta">Oferta</AnchorLink>
+                <AnchorLink className="nav-link" to="/oferta">Oferta</AnchorLink>
               </li>
               <li className="nav-item order-3">
                 <AnchorLink className="nav-link" to="/#o-firmie">O firmie</AnchorLink>

@@ -33,6 +33,11 @@ footer {
   justify-content: center;
 }
 
+.display-1, .display-2, .display-3, .display-4 {
+  font-weight: normal;
+  text-shadow: $shadow-sm map-get($shadow-color, light);
+}
+
 
 
 
@@ -200,6 +205,11 @@ footer {
     aspect-ratio: 1 !important;    
     mix-blend-mode: multiply;
 
+  }
+
+  &:hover {
+    // box-shadow: $shadow-lg map-get($shadow-color, very-light) !important;
+    box-shadow: $shadow-hover map-get($shadow-color, light) !important;
   }
 }
 

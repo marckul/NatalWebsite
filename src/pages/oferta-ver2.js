@@ -98,11 +98,29 @@ const OfferPage = () => {
       
     }
 
+    const myDocumentToReactComponents = (jsonBody) => {
+      console.log("$$$ myDocumentToReactComponents");
+
+      // debugger;
+
+      let array1 = jsonBody.content
+      array1.map( (item) => {
+        return(
+          documentToReactComponents(item, options)
+        )
+      })     
+      
+      return(
+        array1
+      )
+
+    }
+
     return(
       <section id={id}  className="" >
         <div className="container">
           <h1 className="display-3">{edge.node.title}</h1>
-          {documentToReactComponents(JSON.parse(edge.node.offerSectionBody.raw), options)}
+          {myDocumentToReactComponents(JSON.parse(edge.node.offerSectionBody.raw), options)}
         </div>        
       </section>
     )

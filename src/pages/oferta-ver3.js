@@ -1,10 +1,20 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
+/*
+
+    TO JEST WŁASIWA WERSJA OFERTY
+
+*/ 
+
 import * as React from "react"
+import { graphql, Link, useStaticQuery } from "gatsby"
+
 import Layout from '../components/layout'
 import * as ofertaStyles from '../styles/oferta/oferta.module.css'
 
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Scrollspy from 'react-scrollspy'
 
+let sidebarVisibility="col-3 d-none d-md-block";
 
 const OfferPage = () => {
   const data = useStaticQuery(graphql`
@@ -53,17 +63,18 @@ const OfferPage = () => {
 
 
   
-
+  var idx = -1;
+  let idArray = [];
+  let titleArray = [];
   let offerPageContent = data.allContentfulStronaOfertySekcja.edges.map( (edge) => {
     let title = edge.node.title;
     let id = title.replaceAll(' ', '-').toLowerCase();
     // let jsonBody = JSON.parse(edge.node.offerSectionBody.raw)
-
-    // console.log(jsonBody);
-    // debugger;
-    // if (title === "Fotowoltaika i Wentylacja") {
-    //   debugger;
-    // }
+    
+    idx++;
+    idArray[idx] = id;
+    titleArray[idx] = title;
+    
 
     let options = {
       renderNode: {
@@ -101,23 +112,45 @@ const OfferPage = () => {
     return(
       <section id={id}  className="" >
         <div className="container">
-          <h1 className="display-3">{edge.node.title}</h1>
-          {documentToReactComponents(JSON.parse(edge.node.offerSectionBody.raw), options)}
+          <div className="row">
+            <div className={sidebarVisibility}>   </div>
+            <div className="col-md">
+              <h1 className="display-3">{edge.node.title}</h1>
+              {documentToReactComponents(JSON.parse(edge.node.offerSectionBody.raw), options)}
+            </div>
+            <div className={sidebarVisibility}>   </div>        
+          </div>
         </div>        
       </section>
     )
   })
   
-  console.log(ofertaStyles);
+  
+  console.log("\n\n @@@@@@\n", offerPageContent, "@@@@@@\n\n");
+  // debugger;
+
+  // 
+  
+  var idx = -1;
+  let navItems = idArray.map( (elementID) => {
+    idx++;
+    return(
+      <li className="nav-item">
+        <AnchorLink to={`#${elementID}`} className="nav-link" > {titleArray[idx]} </AnchorLink>
+      </li>
+    )
+  })
 
   return(
     <Layout id="oferta" className={ofertaStyles.oferta}>
+      <div className={`${sidebarVisibility} fixed-top ${ofertaStyles.sidebarNav}`}>
+        <nav>
+          <Scrollspy className="nav flex-column" items={idArray} currentClassName="active" offset={-100}>
+            {navItems}
+          </Scrollspy>
+        </nav>
+      </div>
       {offerPageContent}
-      {/* <section id="roboty-ziemne"  className={`container my-5 ${ofertaStyles.robotyZiemne}`}>
-        <h1 className="display-4">Roboty Ziemne</h1>
-        <p>Oferujemy wynajem minikoparki  Kubota KX018-4  wraz z operatorem.</p>
-        <p>Natus inventore, minima consectetur autem voluptatem ab totam illo exercitationem nulla repellendus atque aspernatur fugit corrupti adipisci ad magnam quos? Magnam eos, tempora error ex obcaecati, vitae nam hic asperiores vel labore veritatis, ut facilis earum quos dignissimos! Nemo laudantium exercitationem eius provident quas impedit, facere nisi consequatur voluptatem magni. Porro eligendi omnis est nisi quidem harum odio corrupti saepe beatae deserunt laudantium magni distinctio, consectetur, officiis illo, sunt dolorem. Laborum eaque commodi veniam quam, error deleniti reprehenderit culpa laboriosam neque in mollitia, blanditiis facilis nulla? Optio voluptatum ut pariatur qui quis, nihil nemo delectus culpa. Magnam corporis debitis praesentium ad rem illo quo accusantium laborum quod quis!</p>
-      </section> */}
     </Layout>
   )
 }

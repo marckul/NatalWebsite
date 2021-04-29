@@ -36,6 +36,11 @@ footer {
           justify-content: center;
 }
 
+.display-1, .display-2, .display-3, .display-4 {
+  font-weight: normal;
+  text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
+}
+
 #navbar-main {
   -webkit-box-shadow: 0 0.125rem 0.12rem 0.01rem rgba(0, 0, 0, 0.25);
           box-shadow: 0 0.125rem 0.12rem 0.01rem rgba(0, 0, 0, 0.25);
@@ -225,5 +230,10 @@ footer {
   height: 100%;
   aspect-ratio: 1 !important;
   mix-blend-mode: multiply;
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.25) !important;
+          box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.25) !important;
 }
 /*# sourceMappingURL=layout.css.map */
