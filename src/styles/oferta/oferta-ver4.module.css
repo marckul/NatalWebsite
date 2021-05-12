@@ -1,0 +1,56 @@
+/* =======================
+        MY PALETTE
+ ------------------------- */
+/* SCSS HEX */
+/* SCSS RGB */
+/* SCSS HSL */
+/* =======================
+        ELEMENTS COLORS
+ ------------------------- */
+.oferta .col-md {
+  min-width: 50%;
+}
+
+.oferta section:first-child > div {
+  padding-top: 5rem !important;
+}
+
+.oferta section > div {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  min-height: 60vh;
+}
+
+.oferta section figure {
+  margin: 2rem 0;
+}
+
+.oferta ol li p, .oferta ul li p {
+  margin: 0;
+}
+
+.oferta section > div:first-child {
+  background-color: #025bff34;
+}
+
+.oferta .main-offer-1 {
+  margin-top: 5.2rem !important;
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.oferta .main-offer-2 {
+  margin-top: 5.2rem !important;
+  color: white;
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #3b211277 !important;
+  background-blend-mode: overlay;
+}
+
+.oferta .oferta-style1 {
+  background-color: inherit;
+}
+/*# sourceMappingURL=oferta-ver4.module.css.map */

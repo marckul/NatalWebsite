@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Natal Instalacje`,
-    description: `Instalacje Gazowe, Sanitarne,`, // TUTAJ POWINIEN ZNALEZC SIE OPIS STRONY
+    description: `Sprzedaż i wykonastwo instalacji wodno-kanalizacyjnych, centralnego ogrzewania, gazowych, montaż pomp ciepła, klimatyzacji , wentylacji z rekuperacją, a także fotowoltaiki i kolektorów słonecznych`, // TUTAJ POWINIEN ZNALEZC SIE OPIS STRONY
     author: `@Marcin`,
   },
   plugins: [

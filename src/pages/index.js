@@ -15,10 +15,14 @@ import {Row, CardTitle, CardText, Card} from "../components/componentsBundle"
 import CarouselHero from '../components/CarouselHero'
 
 
+
+/* IMAGES IMPORT */ 
 import imageMockup from '../assets/img-mockup/img-placeholder-512x512.png'
 import gasBoiler from '../assets/images/gas-boiler.png'
 import tapSketch from '../assets/images/tap-sketch.png'
 import excavatorSketch from '../assets/images/excavator-sketch.png'
+
+// import photovoltaicsSketch from '../assets/images/photovoltaics-sketch.jpg'
 import photovoltaicsSketch from '../assets/images/photovoltaics-sketch.jpg'
 
 
@@ -29,6 +33,7 @@ import photovoltaicsSketch from '../assets/images/photovoltaics-sketch.jpg'
 
 const IndexPage = () => (
   <Layout id="index-page">
+    <Seo title="Start"/>
     <section id="start">
       <CarouselHero />
         <div className="container py-md-5 my-5">
@@ -80,11 +85,11 @@ const IndexPage = () => (
     <section id="kontakt">
       <div id="main-wrapper">
         <div id="second-wrapper">
-          <div id="main" class="container d-flex flex-column justify-content-center full-height shadow-none p-5">  
+          <div id="main" class="container d-flex flex-column justify-content-center full-height shadow-none ">  
 
             <div class="row my-5 py-5">
               <div class="col-12">
-                  <h1 class="display-3 text-center text-md-left">Jak nas znaleźć?</h1>
+                  <h1 class="display-3 text-left ">Jak nas znaleźć?</h1>
                   <p class="lead"></p>
 
               </div>

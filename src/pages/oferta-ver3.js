@@ -1,36 +1,26 @@
-/*
-
-    TO JEST WŁASIWA WERSJA OFERTY
-
-*/ 
-
 import * as React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
+import { AnchorLink } from "gatsby-plugin-anchor-links";
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
+import  { getRichTextRenderer, richTextRenderer } from '../components/functions'
 import Layout from '../components/layout'
 import * as ofertaStyles from '../styles/oferta/oferta.module.css'
 
-import { AnchorLink } from "gatsby-plugin-anchor-links";
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import Scrollspy from 'react-scrollspy'
 
-const myReplaceAllSpaces = (string = ' ', repl = '-') => {
-  let allWords = string.split(" ");
-  let words = [];
-  let k = 0;
 
-  for (let idx = 0; idx < allWords.length; idx++) {
-    if (allWords[idx] !== "" ) {
-      words[k] = allWords[idx];
-      k++;      
-    }
-  }
 
-  return words.join("-");  
+const getOfferSectionID = (edge) => {
+  // Założenie tytuł sekcji nie powtarza się w sensie case insensitive
+
+  return getOfferSectionByTitleID(edge.node.title, '-')
+    
 }
 
-
-let sidebarVisibility="col-3 d-none d-md-block";
+const getOfferSectionByTitleID = (string = ' ', repl = '-') => {
+  let allWords = string.split(" ");
+  return allWords.join("-").toLowerCase();  
+}
 
 const OfferPage = () => {
   const data = useStaticQuery(graphql`
@@ -62,6 +52,11 @@ const OfferPage = () => {
                   }
                 }
 
+                ... on ContentfulStronaOfertySekcja {
+                  contentful_id
+                  title
+                }
+
                 ... on ContentfulStronaOfertyPodstrona {
                   contentful_id
                   slug
@@ -75,100 +70,47 @@ const OfferPage = () => {
         }
       }
     }
-  `)
+  `);
 
-
-  
   var idx = -1;
   let idArray = [];
   let titleArray = [];
+
   let offerPageContent = data.allContentfulStronaOfertySekcja.edges.map( (edge) => {
-    let title = edge.node.title;
-    // let id = title.replaceAll(' ', '-').toLowerCase();
-    let id = myReplaceAllSpaces(title, '-').toLowerCase();
+    let title = edge.node.title;    
+    let id = getOfferSectionID(edge);
 
-    // let jsonBody = JSON.parse(edge.node.offerSectionBody.raw)
+    let richText = edge.node.offerSectionBody;
+
+    // let richTextRenderer = getRichTextRenderer();
+    richTextRenderer._constructor(edge.node.offerSectionBody, "/oferta")
     
-    idx++;
-    idArray[idx] = id;
-    titleArray[idx] = title;
-    
-
-    let options = {
-      renderNode: {
-        "embedded-asset-block": () => {
-          console.log('$$$$$$$ ', edge.node.offerSectionBody, '$$$$$$$ ');
-          return(
-            <figure className="my-5">
-              <img src={edge.node.offerSectionBody.references[0].file.url} alt={edge.node.offerSectionBody.references[0].description} className="img-fluid"/>
-            </figure>
-          )
-        },
-        "entry-hyperlink": (node) => {
-          // debugger;
-
-          if (node.data.target.sys.linkType === "Entry") {
-            let slug = ''
-            // node.data.target.sys.id
-            // edge.node.offerSectionBody.references[0].contentful_id
-
-            for (let idx = 0; idx < edge.node.offerSectionBody.references.length; idx++) {
-              const reference = edge.node.offerSectionBody.references[idx];
-              if (reference.contentful_id === node.data.target.sys.id) {
-                slug = reference.slug
-              }
-            }
-            return(
-              <Link to={`/oferta/${slug}`}>{node.content[0].value}</Link>
-            )
-          }
-        }
-      }
-      
-    }
-
+        
     return(
       <section id={id}  className="" >
         <div className="container">
-          <div className="row">
-            <div className={sidebarVisibility}>   </div>
-            <div className="col-md">
-              <h1 className="display-3">{edge.node.title}</h1>
-              {documentToReactComponents(JSON.parse(edge.node.offerSectionBody.raw), options)}
-            </div>
-            <div className={sidebarVisibility}>   </div>        
-          </div>
+          <h1 className="display-3">{edge.node.title}</h1>
+          {documentToReactComponents(
+            JSON.parse(richTextRenderer.richText.raw), 
+            richTextRenderer.options
+          )}
         </div>        
       </section>
     )
-  })
-  
-  
-  console.log("\n\n @@@@@@\n", offerPageContent, "@@@@@@\n\n");
-  // debugger;
 
-  // 
-  
-  var idx = -1;
-  let navItems = idArray.map( (elementID) => {
-    idx++;
-    return(
-      <li className="nav-item">
-        <AnchorLink to={`#${elementID}`} className="nav-link" > {titleArray[idx]} </AnchorLink>
-      </li>
-    )
   })
+  
+
+  console.log(ofertaStyles);
 
   return(
     <Layout id="oferta" className={ofertaStyles.oferta}>
-      <div className={`${sidebarVisibility} fixed-top ${ofertaStyles.sidebarNav}`}>
-        <nav>
-          <Scrollspy className="nav flex-column" items={idArray} currentClassName="active" offset={-100}>
-            {navItems}
-          </Scrollspy>
-        </nav>
-      </div>
       {offerPageContent}
+      {/* <section id="roboty-ziemne"  className={`container my-5 ${ofertaStyles.robotyZiemne}`}>
+        <h1 className="display-4">Roboty Ziemne</h1>
+        <p>Oferujemy wynajem minikoparki  Kubota KX018-4  wraz z operatorem.</p>
+        <p>Natus inventore, minima consectetur autem voluptatem ab totam illo exercitationem nulla repellendus atque aspernatur fugit corrupti adipisci ad magnam quos? Magnam eos, tempora error ex obcaecati, vitae nam hic asperiores vel labore veritatis, ut facilis earum quos dignissimos! Nemo laudantium exercitationem eius provident quas impedit, facere nisi consequatur voluptatem magni. Porro eligendi omnis est nisi quidem harum odio corrupti saepe beatae deserunt laudantium magni distinctio, consectetur, officiis illo, sunt dolorem. Laborum eaque commodi veniam quam, error deleniti reprehenderit culpa laboriosam neque in mollitia, blanditiis facilis nulla? Optio voluptatum ut pariatur qui quis, nihil nemo delectus culpa. Magnam corporis debitis praesentium ad rem illo quo accusantium laborum quod quis!</p>
+      </section> */}
     </Layout>
   )
 }

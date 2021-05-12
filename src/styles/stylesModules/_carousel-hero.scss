@@ -14,20 +14,20 @@
     text-shadow: $shadow-sm map-get($shadow-color, medium);
     
   }
-  #carousel-item-0 {
+
+  #fotowoltaika {
     background-color: #ff5b0234; // POMARANCZ
     background-blend-mode: soft-light;
+  }
 
-    // background-color: #a07d6a73; // COLOR2
+  #nasza-oferta {
+    // background-color: #ff5b0234; // POMARANCZ
     // background-blend-mode: soft-light;
-
-    // background-color: rgba(221, 224, 253, 0.5); // COLOR2 ten byl wczesniej
-    // background-blend-mode: soft-light;
-
-
-
-    // background-color: #393939d0; // BRAZ 1
-    // background-blend-mode: soft-light;
+    
+    /* ======================== */ 
+    // background-color: #812d0034; // POMARANCZ ciemny
+    background-color: #38140036; // POMARANCZ ciemny
+    background-blend-mode: overlay;
   }
   
   .carousel-item {
@@ -35,17 +35,17 @@
     
     background-color: #E3E0DB77; // COLOR2
     background-blend-mode: soft-light;
-
-
-    // background-color: rgba(221, 224, 253, 0.5); // COLOR2 ten byl wczesniej
-    
-    // background-color: rgba(125, 127, 150, 1); // COLOR1
-    
-    // background-color: rgba(98, 255, 216, 0.3); // COLOR3
-    // background-color: rgba(166, 222, 255, 0.3); // COLOR5
-    // background-color: rgba(16, 167, 255, 0.3); // COLOR4
   } 
 
+
+
+  @media (max-width: map-get($screen-size, md)) {
+    #instalacje-co {
+      background-position-x: -190px;     
+      background-size: cover;
+    }
+  }  
+  
   @media (min-width: map-get($screen-size, md)) {
     .carousel-item {
       min-height: 100vmin !important;
@@ -57,7 +57,7 @@
       min-height: 100vmin !important;
     } 
     .display-1 {
-      font-size: 6rem;
+      font-size: 5rem; // BYLO 6rem
       font-weight: normal;
     }
   }
