@@ -13,13 +13,6 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/.pages-markdown`,
-      },
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
