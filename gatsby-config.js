@@ -1,15 +1,16 @@
 module.exports = {
   siteMetadata: {
     title: `Natal Instalacje`,
-    description: `Instalacje Gazowe, Sanitarne,`, // TUTAJ POWINIEN ZNALEZC SIE OPIS STRONY
+    description: `Sprzedaż i wykonastwo instalacji wodno-kanalizacyjnych, centralnego ogrzewania, gazowych, montaż pomp ciepła, klimatyzacji , wentylacji z rekuperacją, a także fotowoltaiki i kolektorów słonecznych`, // TUTAJ POWINIEN ZNALEZC SIE OPIS STRONY
     author: `@Marcin`,
   },
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `gatsby-source-contentful`,
       options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages-markdown`,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -19,6 +20,14 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets-images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
     `gatsby-transformer-sharp`,

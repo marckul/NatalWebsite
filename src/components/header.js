@@ -47,7 +47,7 @@ const Header = ({ siteTitle }) => (
                 <AnchorLink className="nav-link" to="/#start">Start</AnchorLink>
               </li>
               <li className="nav-item order-2">
-                <AnchorLink className="nav-link" to="/#oferta">Oferta</AnchorLink>
+                <AnchorLink className="nav-link" to="/oferta#oferta">Oferta</AnchorLink>
               </li>
               <li className="nav-item order-3">
                 <AnchorLink className="nav-link" to="/#o-firmie">O firmie</AnchorLink>
@@ -56,7 +56,7 @@ const Header = ({ siteTitle }) => (
                 <AnchorLink className="nav-link order-4" to="/#kontakt">Kontakt</AnchorLink>
               </li>
               <li className="nav-item order-4">
-                <NavLink className="nav-link" to="/aktualnosci">Aktualności</NavLink>
+                <AnchorLink className="nav-link" to="/aktualnosci#aktualnosci-top">Aktualności</AnchorLink>
               </li>
 
             </Scrollspy>

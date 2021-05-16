@@ -15,10 +15,16 @@ import {Row, CardTitle, CardText, Card} from "../components/componentsBundle"
 import CarouselHero from '../components/CarouselHero'
 
 
+
+/* IMAGES IMPORT */ 
 import imageMockup from '../assets/img-mockup/img-placeholder-512x512.png'
 import gasBoiler from '../assets/images/gas-boiler.png'
 import tapSketch from '../assets/images/tap-sketch.png'
-import excavatorDraw from '../assets/images/excavator-draw.png'
+import excavatorSketch from '../assets/images/excavator-sketch.png'
+
+// import photovoltaicsSketch from '../assets/images/photovoltaics-sketch.jpg'
+import photovoltaicsSketch from '../assets/images/photovoltaics-sketch.jpg'
+
 
 
 
@@ -27,6 +33,7 @@ import excavatorDraw from '../assets/images/excavator-draw.png'
 
 const IndexPage = () => (
   <Layout id="index-page">
+    <Seo title="Start"/>
     <section id="start">
       <CarouselHero />
         <div className="container py-md-5 my-5">
@@ -40,7 +47,7 @@ const IndexPage = () => (
       <p className="lead">Prowadzimy działalność w zakresie <strong>sprzedaży, wykonastwa i serwisu</strong> w poniższych dziedzinach</p>
 
       <Row justifyContent="around">
-        <Card id="centralne-ogrzewanie" to="/oferta#instalacje-co" src={gasBoiler} alt="image mockup" small=''>
+        <Card id="centralne-ogrzewanie" to="/oferta#centralne-ogrzewanie" src={gasBoiler} alt="image mockup" small=''>
           <CardTitle>Centralne Ogrzewanie</CardTitle>
           <CardText>Dolorem labore facilis alias consequuntur, quas voluptates ratione, consequatur nobis quibusdam harum veritatis.</CardText>
         </Card>
@@ -52,14 +59,14 @@ const IndexPage = () => (
           </CardText>
         </Card>
 
-        <Card id="fotowoltaika-i-wentylacja" to="/oferta#fotowoltaika-wentylacja" src={imageMockup} alt="image mockup" small=''>
+        <Card id="fotowoltaika-i-wentylacja" to="/oferta#fotowoltaika-i-wentylacja" src={photovoltaicsSketch} alt="image mockup" small=''>
           <CardTitle>Fotowoltaika i Wentylacja</CardTitle>
           <CardText>
             Est beatae libero quia non tempora perferendis fugiat maxime? Aliquid eaque cupiditate nemo quia ad dolores unde. Est, quia totam. Laudantium neque, quod ea architecto sint sed eaque, cumque repellendus voluptates cupiditate in aliquid.
           </CardText>
         </Card>
 
-        <Card id="roboty-ziemne" to="/oferta#roboty-ziemne" src={excavatorDraw} alt="image mockup" small=''>
+        <Card id="roboty-ziemne" to="/oferta#roboty-ziemne" src={excavatorSketch} alt="image mockup" small=''>
           <CardTitle>Roboty Ziemne</CardTitle>
           <CardText>
             Oferujemy wynajem minikoparki  Kubota KX018-4  wraz z operatorem.
@@ -78,11 +85,11 @@ const IndexPage = () => (
     <section id="kontakt">
       <div id="main-wrapper">
         <div id="second-wrapper">
-          <div id="main" class="container d-flex flex-column justify-content-center full-height shadow-none p-5">  
+          <div id="main" class="container d-flex flex-column justify-content-center full-height shadow-none ">  
 
             <div class="row my-5 py-5">
               <div class="col-12">
-                  <h1 class="display-3 text-center text-md-left">Jak nas znaleźć?</h1>
+                  <h1 class="display-3 text-left ">Jak nas znaleźć?</h1>
                   <p class="lead"></p>
 
               </div>

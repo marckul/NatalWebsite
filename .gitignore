@@ -53,6 +53,7 @@ typings/
 
 # dotenv environment variable files
 .env*
+.env.development*
 
 # gatsby files
 .cache/
@@ -71,3 +72,11 @@ yarn-error.log
 # ======================
 # My ignore files
 # ----------------------
+*.jstxt
+.snippets.txt
+
+.pages-copy/
+.pages-markdown/
+.ARCHIVE
+
+

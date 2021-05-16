@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAKA,AAAA,wBAAwB,CAAC;EACvB,KAAK,EAAE,KAAK;EAEZ,mBAAmB,EAAE,MAAM;EAC3B,iBAAiB,EAAE,SAAS;EAC5B,eAAe,EAAE,KAAK;EAKtB,gBAAgB,EAAE,wBAAwB;EAC1C,qBAAqB,EAAE,OAAO;CAc/B",
+    "sources": [
+        "offer-subpage.scss"
+    ],
+    "names": [],
+    "file": "offer-subpage.css"
+}
