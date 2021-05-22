@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 import * as React from 'react'
 import Layout from '../components/layout'
 
@@ -72,7 +72,7 @@ const NewsPostTemplate = (props) => {
   let richTextRenderer = getRichTextRenderer();
   richTextRenderer._constructor(data.body, "")
 
-  debugger;
+  // debugger;
   
   
 
@@ -80,6 +80,7 @@ const NewsPostTemplate = (props) => {
     <Layout className="single-post-main-class">
       <Seo title={data.title}/>
       <div className="container mt-5 py-5">
+        <nav><p><Link to="/aktualnosci">&#8592;Powrót</Link></p></nav>
         <article>
           <h1 className="display-3">{data.title}</h1>
           <p className="p ">Opublikowano: {GetPrettyDatePL(data.publishDate)}</p>

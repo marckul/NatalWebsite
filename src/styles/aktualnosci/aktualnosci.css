@@ -12,10 +12,16 @@
 
 .single-post-main-class article {
   padding: 7.5rem 0;
+  margin-left: -3rem !important;
+  margin-right: -3rem !important;
+}
+
+.single-post-main-class article > * {
+  margin-left: 3rem !important;
+  margin-right: 3rem !important;
 }
 
 .single-post-main-class article figure {
   float: right;
-  margin-left: 3rem !important;
 }
 /*# sourceMappingURL=aktualnosci.css.map */

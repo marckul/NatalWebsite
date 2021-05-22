@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  overflow-wrap: break-word;
+  // overflow-wrap: break-word;
   // font-size: 16px;
   @media (min-width: map-get($screen-size, xl)) {
     font-size: 17px;
@@ -43,6 +43,19 @@ ul {
 }
 
 
+a, a:hover {
+  color: #005bbd;  
+}
+
+.bg-dark {
+  a, a:hover {
+    color: #afd6ff;
+  }
+}
+
+.link-light, .link-light:hover {
+  color: #afd6ff;
+}
 
 footer {
   min-height: 10rem;
@@ -74,6 +87,7 @@ footer {
   box-shadow: $shadow-xs .01rem map-get($shadow-color, light);
 
   min-height: 5rem;
+  max-width: 100vw;
   text-transform: uppercase !important;
   
   .navbar-brand {
@@ -126,7 +140,12 @@ footer {
 
 .bg-dark {
   background-color: $marckul-color-primary !important;
+
+  &.bg-opacity-50 {
+    background-color: $marckul-color-primary+55 !important;
+  }
 }
+
 
 .btn-secondary {
   background-color: $marckul-color-primary !important;
@@ -294,6 +313,7 @@ footer {
 
 
 @import '_experimental.scss';
+
 
 
 
