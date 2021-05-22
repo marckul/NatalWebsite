@@ -14,8 +14,6 @@ import Seo from "../components/seo"
 import {Row, CardTitle, CardText, Card} from "../components/componentsBundle"
 import CarouselHero from '../components/CarouselHero'
 
-
-
 /* IMAGES IMPORT */ 
 import imageMockup from '../assets/img-mockup/img-placeholder-512x512.png'
 import gasBoiler from '../assets/images/gas-boiler.png'

@@ -2,7 +2,6 @@ import * as React from 'react'
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 const getOfferSectionByTitleID = (string = ' ', repl = '-') => {
-  console.log("\n\n$$$$ $$$$ $$$$","HELLO I'M getOfferSectionByTitleID");
   let allWords = string.split(" ");
   return allWords.join("-").toLowerCase();  
 }
@@ -252,9 +251,28 @@ richTextRenderer.options = {
 } // options
 
 
+// -----------------
+//    AKTUALNOSCI
+// -----------------
+
+const GetPrettyDatePL = (stringDate) => {  
+  const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const rawPublishDate = new Date(stringDate);
+
+  let publishDate = rawPublishDate.toLocaleDateString('pl-PL', optionsDate)
+  publishDate = publishDate.split(' ').map( (word) => {
+    return word = word[0].toUpperCase() + word.slice(1);
+  })
+
+  return publishDate.join(' ');
+}
 
 
 
 
 
-export { getRichTextRenderer, richTextRenderer, getOfferSectionByTitleID}
+
+
+
+
+export { getRichTextRenderer, richTextRenderer, getOfferSectionByTitleID, GetPrettyDatePL}

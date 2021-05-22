@@ -1,0 +1,21 @@
+.news-page-main-class .jumbotron:first-child {
+  padding-top: 10rem !important;
+}
+
+.news-page-main-class .nav a {
+  color: inherit !important;
+}
+
+.single-post-main-class main div {
+  padding-top: 5rem !important;
+}
+
+.single-post-main-class article {
+  padding: 7.5rem 0;
+}
+
+.single-post-main-class article figure {
+  float: right;
+  margin-left: 3rem !important;
+}
+/*# sourceMappingURL=aktualnosci.css.map */

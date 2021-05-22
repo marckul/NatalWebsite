@@ -38,6 +38,10 @@ h1, h2, h3, h4, h5, h6 {
   // color: $text-dark !important;
 }
 
+ul {
+  overflow: hidden;
+}
+
 
 
 footer {
@@ -166,6 +170,7 @@ footer {
     
   .main-layout-wrapper {
     flex-grow: 5;
+    min-height: 50vh;
   }
 }
 
@@ -261,6 +266,24 @@ footer {
   }
 }
 
+
+
+
+
+
+.jumbotron-hero {
+  &:not(:first-child) {
+    margin-top: 5.2rem !important; // TO DEL
+  }
+  background-color: #025bff34; // SZARO NIEBIESKI
+  background-position: left;  
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  min-height: 50vh;
+}
 
 // @media (max-width: map-get($screen-size, md)) {
 //   c {
