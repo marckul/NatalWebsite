@@ -25,6 +25,12 @@
   background-repeat: no-repeat;
 }
 
+.oferta .jumbotron {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  min-height: 60vh;
+}
+
 .oferta section > div {
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -34,12 +40,6 @@
 .oferta .section-body {
   background-color: white;
   /* inherit */
-}
-
-.oferta .jumbotron {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  min-height: 60vh;
 }
 
 .oferta .col-md {

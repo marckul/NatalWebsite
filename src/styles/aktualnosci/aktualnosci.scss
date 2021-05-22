@@ -1,0 +1,40 @@
+
+
+
+.news-page-main-class {
+  .jumbotron:first-child { // .jumbotron-news-page-top
+    padding-top: 10rem !important;
+    .container {
+      
+    }
+  }
+
+  .nav {
+    a {
+      color: inherit !important;
+    }
+  }
+
+}
+
+
+.single-post-main-class {
+  main {
+    div {
+      padding-top: 5rem !important;
+      
+    }
+  }
+
+  article {
+    padding: 7.5rem 0;
+    figure {
+      float: right;
+      margin-left: 3rem !important;
+    }
+  }
+
+
+
+}
+

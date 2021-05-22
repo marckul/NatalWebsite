@@ -29,11 +29,12 @@
       background-position: left;  
       background-size: cover;
       background-repeat: no-repeat;
-
-  
-    }
-
-    
+    }    
+  }
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    min-height: 60vh;
   }
 
   section {
@@ -49,11 +50,7 @@
     background-color: white; /* inherit */ 
   }
 
-  .jumbotron {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-    min-height: 60vh;
-  }
+
 
   .col-md {
     min-width: 50%;

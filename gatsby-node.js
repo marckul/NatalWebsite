@@ -25,8 +25,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
   // 1. Get path to template
   const offerTemplate = path.resolve('src/templates/oferta-podstrona.js')
 
-
-
   const res = await graphql(`
     query {
       allContentfulStronaOfertyPodstrona {
@@ -42,14 +40,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  // console.log('\n\n@@@@@@@@@@@@@@@\n', JSON.parse(res.data), '\n@@@@@@@@@@@@@@@\n\n');
-
-  // 3. Create pages
-  
-      // node {
-      //   slug
   res.data.allContentfulStronaOfertyPodstrona.edges.forEach( (edge) => {
-    console.log('\n\n@@@@@@@@@@@@@@@\n', edge, '\n@@@@@@@@@@@@@@@\n\n');
+    // console.log('\n\n@@@@@@@@@@@@@@@\n', edge, '\n@@@@@@@@@@@@@@@\n\n');
     
     createPage({
       component: offerTemplate,
@@ -59,4 +51,47 @@ module.exports.createPages = async ({ graphql, actions }) => {
       }
     })
   });
+
+
+    // =============================== //
+   /////     FOR NEWS PAGE      ///////
+  // ============================= //
+
+  // 1. Get path to template
+  const getTitleToSlug = (string = ' ', repl = '-') => {
+    let allWords = string.split(" ");
+    return allWords.join("-").toLowerCase();  
+  }
+
+  const newsTemplate = path.resolve('src/templates/news-post-template.js');
+
+  const resNews = await graphql(`
+    query {
+      allContentfulAktualnosciPost {
+        edges {
+          node {
+            __typename
+            title
+            publishDate
+          }
+        }
+      }
+    }
+  `)
+
+  resNews.data.allContentfulAktualnosciPost.edges.forEach( (edge) => {
+    console.log('\n\n@@@@@@@@@@@@@@@\n', edge, '\n@@@@@@@@@@@@@@@\n\n');
+    // const slug = `data/${getTitleToSlug(edge.node.title)`;
+
+    createPage({
+      component: newsTemplate,
+      path: `/aktualnosci/${edge.node.publishDate}/${getTitleToSlug(edge.node.title)}`,
+      context: {
+        title: edge.node.title,
+        publishDate: edge.node.publishDate
+      }
+    })
+  });
+
+
 }

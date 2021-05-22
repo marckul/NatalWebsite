@@ -219,7 +219,8 @@ const OfferPage = () => {
   columnsFirstSection = columnsFirstSection[0];
 
 
-
+  ofertaStyles.layoutClasses = "d-flex flex-column justify-content-center my-0 jumbotron jumbotron-fluid" 
+  let colClass = `col-md flex-grow-1 ${ofertaStyles.colMd}`;
   /* ================================
         OFERTA - DALSZE SEKCJE
   ----------------------------------- */
@@ -243,10 +244,10 @@ const OfferPage = () => {
       JSON.parse(richTextRenderer.richText.raw), 
       richTextRenderer.options
     )
-
+    
     return(
       <section id={sectionItems.id} className={`${ofertaStyles.section}`} >
-        <div className={`${ofertaStyles.layoutClasses}  ${ofertaStyles.jumbotron} `} >
+        <div className={`${ofertaStyles.layoutClasses}  ${ofertaStyles.jumbotron}`} >
           <div class="container">
             <div className="row">
               <div className="col-md">
@@ -292,8 +293,6 @@ const OfferPage = () => {
   /* ================================
             RENDERING STRONY
   ----------------------------------- */
-  ofertaStyles.layoutClasses = "d-flex flex-column justify-content-center my-0 jumbotron jumbotron-fluid" 
-  let colClass = `col-md flex-grow-1 ${ofertaStyles.colMd}`;
 
   return(
     <Layout id="oferta" className={`${ofertaStyles.oferta} `}>
