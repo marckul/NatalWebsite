@@ -18,10 +18,6 @@ html {
           box-sizing: border-box;
 }
 
-body {
-  overflow-wrap: break-word;
-}
-
 @media (min-width: 1200px) {
   body {
     font-size: 17px;
@@ -48,6 +44,18 @@ ul {
   overflow: hidden;
 }
 
+a, a:hover {
+  color: #005bbd;
+}
+
+.bg-dark a, .bg-dark a:hover {
+  color: #afd6ff;
+}
+
+.link-light, .link-light:hover {
+  color: #afd6ff;
+}
+
 footer {
   min-height: 10rem;
   -webkit-box-align: center;
@@ -70,6 +78,7 @@ footer {
   -webkit-box-shadow: 0 0.125rem 0.12rem 0.01rem rgba(0, 0, 0, 0.25);
           box-shadow: 0 0.125rem 0.12rem 0.01rem rgba(0, 0, 0, 0.25);
   min-height: 5rem;
+  max-width: 100vw;
   text-transform: uppercase !important;
 }
 
@@ -113,6 +122,10 @@ footer {
 
 .bg-dark {
   background-color: #242833 !important;
+}
+
+.bg-dark.bg-opacity-50 {
+  background-color: #5b5f6a !important;
 }
 
 .btn-secondary {
@@ -336,5 +349,13 @@ footer {
   .display-4 {
     font-size: 2rem;
   }
+}
+
+.cookie-consent-button {
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  max-width: 12rem;
+  margin-left: auto;
 }
 /*# sourceMappingURL=layout.css.map */

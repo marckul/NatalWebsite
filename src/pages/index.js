@@ -115,17 +115,17 @@ const IndexPage = () => (
                   </h2>
                   <ul class="">
                     <li >
-                      <a href="tel:500 087 801" class="mr-4">
+                      <a href="tel:500 087 801" class="link-light mr-4">
                         500 087 801 
                       </a>
                     </li>
                     <li>
-                      <a href="tel:500 087 803" class="mr-4">
+                      <a href="tel:500 087 803" class="link-light mr-4">
                         500 087 803 
                       </a>
                     </li>
                     <li>
-                      <a href="tel:32 42 31 129" class="text-nowrap mr-4">
+                      <a href="tel:32 42 31 129" class="link-light text-nowrap mr-4">
                         32&nbsp;42&nbsp;31&nbsp;129 
                       </a>               
                     </li>
