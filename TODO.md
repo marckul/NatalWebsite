@@ -1,3 +1,28 @@
+
+# 2021.05.28
+## Dokończyć rytm
+
+## Jak zdecywujesz jaka czcionka to usun ta druga Prompt / Lato
+
+
+# 2021.05.27
+## Metadane i SEO
+...Processing
+
+1. Podpiąć wszystkie strony
+1. Podpiąć posty aktualności
+
+
+## Dodanie strony informacyjnej nt cookies
+...Processing
+
+
+## dodanie animacji do strzałki w powrocie z  artykułu
+...Processing
+
+
+
+
 # Połączenie z Contentful'em 
 1. index/O firmie
 

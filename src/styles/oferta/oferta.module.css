@@ -7,35 +7,54 @@
 /* =======================
         ELEMENTS COLORS
  ------------------------- */
-.oferta .sidebarNav {
-  position: fixed;
-  top: 10rem;
+/* =======================
+  Fonts, Text
+----------------------- */
+/* =======================
+  Layout
+----------------------- */
+.oferta .main-offer .jumbotron {
+  padding-top: 10rem !important;
+  color: white;
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #3b211277 !important;
+  background-blend-mode: overlay;
 }
 
-.oferta .sidebarNav nav {
-  z-index: 1030;
+.oferta .section .jumbotron {
+  margin-top: 5.2rem !important;
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.oferta .sidebarNav nav ul li a {
-  padding-right: 0px !important;
+.oferta .jumbotron {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  min-height: 60vh;
 }
 
-.oferta .sidebarNav nav a {
-  z-index: 1030;
-  color: inherit;
-}
-
-.oferta section:first-child > div {
-  padding-top: 5rem !important;
+@media (max-width: 768px) {
+  .oferta .jumbotron {
+    text-align: center;
+  }
 }
 
 .oferta section > div {
   padding-top: 6rem;
   padding-bottom: 6rem;
+  min-height: 60vh;
 }
 
-.oferta section > div {
-  min-height: 60vh;
+.oferta .section-body {
+  background-color: white;
+  /* inherit */
+}
+
+.oferta .col-md {
+  min-width: 50%;
 }
 
 .oferta section h1:first-child {
@@ -46,20 +65,7 @@
   margin: 2rem 0;
 }
 
-.oferta ol li p, .oferta ul li p {
+.oferta section ol li p, .oferta section ul li p {
   margin: 0;
-}
-
-.oferta .main-offer {
-  margin-top: 6rem !important;
-  background-position: left;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: rgba(255, 255, 255, 0.25) !important;
-  background-blend-mode: overlay;
-}
-
-.oferta .oferta-style1 {
-  background-color: inherit;
 }
 /*# sourceMappingURL=oferta.module.css.map */

@@ -1,3 +1,18 @@
+/* =======================
+        MY PALETTE
+ ------------------------- */
+/* SCSS HEX */
+/* SCSS RGB */
+/* SCSS HSL */
+/* =======================
+        ELEMENTS COLORS
+ ------------------------- */
+/* =======================
+  Fonts, Text
+----------------------- */
+/* =======================
+  Layout
+----------------------- */
 .news-page-main-class .jumbotron:first-child {
   padding-top: 10rem !important;
 }
@@ -6,22 +21,36 @@
   color: inherit !important;
 }
 
-.single-post-main-class main div {
+figure + p {
+  margin-bottom: 3rem !important;
+}
+
+.single-post-main-class main > div {
   padding-top: 5rem !important;
 }
 
-.single-post-main-class article {
-  padding: 7.5rem 0;
-  margin-left: -3rem !important;
-  margin-right: -3rem !important;
+.single-post-main-class article figure img {
+  min-width: 100%;
+  height: auto;
 }
 
 .single-post-main-class article > * {
-  margin-left: 3rem !important;
-  margin-right: 3rem !important;
+  margin-left: 0;
+  margin-right: 0;
 }
 
-.single-post-main-class article figure {
-  float: right;
+@media (min-width: 992px) {
+  .single-post-main-class article {
+    padding: 7.5rem 0 5rem;
+    margin-left: -3rem !important;
+    margin-right: -3rem !important;
+  }
+  .single-post-main-class article > * {
+    margin-left: 3rem !important;
+    margin-right: 3rem !important;
+  }
+  .single-post-main-class article figure {
+    float: right;
+  }
 }
 /*# sourceMappingURL=aktualnosci.css.map */

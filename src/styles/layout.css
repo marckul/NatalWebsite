@@ -7,15 +7,39 @@
 /* =======================
         ELEMENTS COLORS
  ------------------------- */
+/* =======================
+  Fonts, Text
+----------------------- */
+/* =======================
+  Layout
+----------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap");
 /* =============================
-  BASE ELEMENT STYLES
+        TYPOGRAPHY TEXT
 ================================ */
-/* tags --------------------- */
-@import url("https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,300;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap");
-html {
+*, html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+footer, .small {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6, .small h1, .small h2, .small h3, .small h4, .small h5, .small h6 {
+  font-weight: 500 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+article h1, article h2, article h3, article h4, article h5, article h6 {
+  font-weight: normal;
 }
 
 @media (min-width: 1200px) {
@@ -35,20 +59,58 @@ p {
 }
 
 p, h1, h2, h3, h4, h5, h6 {
-  -webkit-hyphens: auto !important;
-      -ms-hyphens: auto !important;
-          hyphens: auto !important;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+}
+
+.jumbotron p, .display-1, .display-2, .display-3, .display-4 {
+  -webkit-hyphens: manual !important;
+      -ms-hyphens: manual !important;
+          hyphens: manual !important;
+}
+
+/* =============================
+        RYTHM
+================================ */
+article p + h1 {
+  margin-top: 2.4em;
+}
+
+article p + h2 {
+  margin-top: 2.1em;
+}
+
+article p + h3 {
+  margin-top: 1.8em;
+}
+
+article p + h4 {
+  margin-top: 1.5em;
+}
+
+/* =============================
+        BASE ELEMENT STYLES
+================================ */
+/* tags --------------------- */
+html, body, main, header, footer {
+  max-width: 100% !important;
 }
 
 ul {
   overflow: hidden;
 }
 
-a, a:hover {
+a, .fake-link {
   color: #005bbd;
+  cursor: pointer;
 }
 
-.bg-dark a, .bg-dark a:hover {
+a:hover, .fake-link:hover {
+  text-decoration: underline;
+}
+
+.bg-dark a, .bg-dark a:hover, .bg-dark .fake-link:hover {
   color: #afd6ff;
 }
 
@@ -71,9 +133,17 @@ footer {
   text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.25);
 }
 
-/* ============
-  TEXT
- ============== */
+.col-sm, .col-md, .col-lg, .col-xl {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.flex-basis-0 {
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+}
+
 #navbar-main {
   -webkit-box-shadow: 0 0.125rem 0.12rem 0.01rem rgba(0, 0, 0, 0.25);
           box-shadow: 0 0.125rem 0.12rem 0.01rem rgba(0, 0, 0, 0.25);
@@ -83,6 +153,7 @@ footer {
 }
 
 #navbar-main .navbar-brand {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -142,6 +213,23 @@ footer {
   border-color: #242833 !important;
 }
 
+/* =============================
+            LAYOUT
+================================ */
+main {
+  padding-top: 5rem;
+}
+
+#index-page main {
+  padding-top: 0;
+}
+
+@media (max-width: 768px) {
+  .jumbotron {
+    text-align: center;
+  }
+}
+
 #gatsby-focus-wrapper {
   min-height: 100vh;
   display: -webkit-box;
@@ -163,6 +251,9 @@ footer {
   min-height: 50vh;
 }
 
+/* =============================
+  COMPONENTS BUNDLE 
+================================ */
 /* =======================
         MY PALETTE
  ------------------------- */
@@ -172,10 +263,12 @@ footer {
 /* =======================
         ELEMENTS COLORS
  ------------------------- */
-#carousel-hero .display-1 {
-  font-size: 4rem;
-}
-
+/* =======================
+  Fonts, Text
+----------------------- */
+/* =======================
+  Layout
+----------------------- */
 #carousel-hero .carousel-caption {
   text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
 }
@@ -215,7 +308,6 @@ footer {
     min-height: 100vmin !important;
   }
   #carousel-hero .display-1 {
-    font-size: 5rem;
     font-weight: normal;
   }
 }
@@ -231,24 +323,46 @@ footer {
   background-attachment: scroll;
 }
 
+.card img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100%;
+  aspect-ratio: 1 !important;
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.25) !important;
+          box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.25) !important;
+}
+
+.jumbotron-hero {
+  padding: 10rem 0;
+  min-height: 60vh;
+  background-color: #f9eada;
+  background-position: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.jumbotron-hero:not(:first-child) {
+  margin-top: 5.2rem !important;
+}
+
+main + .jumbotron-hero {
+  padding-top: 15rem !important;
+  color: red !important;
+}
+
 /* =============================
     KONTAKT
 ----------------------------- */
 #main-wrapper {
-  background-image: url("https://media.istockphoto.com/photos/plumbers-tools-and-plumbing-materials-banner-with-copy-space-picture-id625280930");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   /* WAZNE ZESTAW 1*/
-  background-color: rgba(0, 0, 0, 0.6);
-  background-blend-mode: luminosity;
-}
-
-#second-wrapper {
-  /* WAZNE ZESTAW 1*/
-  background-color: rgba(49, 49, 49, 0.6);
-  /* WAZNE ZESTAW 2*/
-  /* background-color: rgba(250, 250, 250, 0.7); */
+  background-color: rgba(0, 0, 0, 0.65);
+  background-blend-mode: multiply;
 }
 
 #main {
@@ -257,7 +371,7 @@ footer {
 }
 
 .full-height {
-  min-height: 90vh;
+  min-height: 95vh;
 }
 
 .map-iframe-mysizes {
@@ -280,63 +394,68 @@ footer {
   }
 }
 
-/* =============================
-  COMPONENTS BUNDLE 
-================================ */
-.card img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 1 !important;
-  mix-blend-mode: multiply;
-}
-
-.card:hover {
-  -webkit-box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.25) !important;
-          box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.25) !important;
-}
-
-.jumbotron-hero {
-  background-color: #025bff34;
-  background-position: left;
-  background-size: cover;
+.contact-section {
   background-repeat: no-repeat;
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  min-height: 50vh;
+  background-size: cover;
+  background-position: left;
+  /* WAZNE ZESTAW 1*/
+  background-color: rgba(0, 0, 0, 0.65);
+  background-blend-mode: multiply;
 }
 
-.jumbotron-hero:not(:first-child) {
-  margin-top: 5.2rem !important;
+.contact-section h2 {
+  font-size: 2em !important;
+}
+
+.contact-section .contact-row {
+  font-weight: normal;
+}
+
+@media (min-width: 768px) {
+  .contact-section .contact-row {
+    font-weight: normal !important;
+    font-size: 1.1rem !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .contact-section .contact-row {
+    font-size: 1.25rem !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .contact-section .contact-row {
+    font-size: 1.5rem !important;
+  }
 }
 
 /* =================
     TEXT, FONTS
  =================== */
 .display-1, .display-2, .display-3, .display-4 {
-  font-family: 'Prompt', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold !important;
   text-transform: uppercase;
-  font-weight: normal !important;
 }
 
 .display-1 {
-  font-size: 6rem;
+  font-size: 2.9rem;
 }
 
 .display-2 {
-  font-size: 5rem;
+  font-size: 2.4rem;
 }
 
 .display-3 {
-  font-size: 4rem;
+  font-size: 2rem;
 }
 
 .display-4 {
-  font-size: 2.5rem;
+  font-size: 1.6rem;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 576px) {
   .display-1 {
     font-size: 3.6rem;
   }
@@ -351,11 +470,72 @@ footer {
   }
 }
 
+@media (min-width: 992px) {
+  .display-1 {
+    font-size: 5.5rem;
+  }
+  .display-2 {
+    font-size: 4.5rem;
+  }
+  .display-3 {
+    font-size: 3.5rem;
+  }
+  .display-4 {
+    font-size: 2.5rem;
+  }
+}
+
 .cookie-consent-button {
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
   max-width: 12rem;
   margin-left: auto;
+}
+
+.top-nav-margin {
+  padding-top: 10rem !important;
+}
+
+@-webkit-keyframes arrowLinkMoove {
+  0% {
+  }
+  100% {
+  }
+}
+
+@keyframes arrowLinkMoove {
+  0% {
+  }
+  100% {
+  }
+}
+
+.arrow-link {
+  display: inline-block;
+  position: relative;
+  -webkit-transform: translateX(0) 0.25s ease;
+          transform: translateX(0) 0.25s ease;
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
+}
+
+.arrow-link::before {
+  visibility: visible;
+  color: inherit !important;
+  position: relative;
+  content: '\2190';
+  min-width: 5rem;
+}
+
+.arrow-link:hover {
+  -webkit-transform: translateX(-0.5rem);
+          transform: translateX(-0.5rem);
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+  -webkit-transition-timing-function: ease;
+          transition-timing-function: ease;
 }
 /*# sourceMappingURL=layout.css.map */

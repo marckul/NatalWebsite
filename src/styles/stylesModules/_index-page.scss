@@ -1,0 +1,86 @@
+
+
+/* =============================
+    KONTAKT
+----------------------------- */
+
+#main-wrapper {
+  // background-image: url("https://media.istockphoto.com/photos/plumbers-tools-and-plumbing-materials-banner-with-copy-space-picture-id625280930");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  /* WAZNE ZESTAW 1*/
+  background-color:  rgba(0, 0, 0, 0.65); // $queen-blue+a0;
+  background-blend-mode: multiply; 
+}
+
+
+
+#main {
+  color: white !important;
+  /* color: black !important; */
+}
+
+.full-height {
+  min-height: 95vh;
+}
+
+
+// MAPS
+.map-iframe-mysizes {
+  max-height: 60vmax;
+  &::before {
+    padding-top: 100%;
+  }
+  @media (orientation: landscape) {
+    max-height: 95vh;
+  }
+
+  @media (min-width: map-get($screen-size, lg)){
+    max-height: 60vmin;
+    // max-height: 75vmin;
+    // max-height: 100vh;
+  }
+}
+
+
+.contact-section {
+  // background-image: url("https://media.istockphoto.com/photos/plumbers-tools-and-plumbing-materials-banner-with-copy-space-picture-id625280930");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left;
+  // background-attachment: fixed;
+
+  /* WAZNE ZESTAW 1*/
+  background-color:  rgba(0, 0, 0, 0.65); // $queen-blue+a0;
+  background-blend-mode: multiply; 
+  
+  h2 {
+    font-size: 2em !important;
+  }
+  .contact-row {
+    font-weight: normal;
+  }  
+
+  @media (min-width: map-get($screen-size, md )) {
+    
+    .contact-row {
+      font-weight: normal !important;
+      font-size: 1.1rem !important;
+    }  
+  }
+
+  @media (min-width: map-get($screen-size, lg )) {
+    .contact-row {
+      font-size: 1.25rem !important;
+    }  
+  }
+
+  @media (min-width: map-get($screen-size, xl )) {
+    .contact-row {
+      font-size: 1.5rem !important;
+    }  
+  }
+  
+}

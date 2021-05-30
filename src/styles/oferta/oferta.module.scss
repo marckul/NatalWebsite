@@ -1,103 +1,85 @@
+
 @import '../variables/';
 
 
-
 .oferta {
-  
-  // TYLKO W JEDNEJ WERSJI
-  .sidebarNav {
-    position: fixed;
-    top: 10rem;
-    nav {
-      z-index: 1030;
-      ul li a {
-        padding-right: 0px !important;
-        // background-color: red;
-      }
 
-      a {
-        z-index: 1030;
-        color: inherit;
-      }
+  .main-offer {
+    .jumbotron {
+      padding-top: 10rem !important;
+      color: white;
+
+      background-position: left;  
+      background-size: cover;
+      background-repeat: no-repeat;
+  
+      background-color: #3b211277 !important; // POMARANCZ ciemny !to
+      background-blend-mode: overlay;
+  
     }    
   }
 
-  // ======================================
+  .section {
+    .jumbotron {
+      margin-top: 5.2rem !important; // TO DEL
 
-  section:first-child {
-    &>div {
-      padding-top: 5rem !important;
-    }
-    // padding-top: 5rem !important;
-    // padding-bottom: 6rem;
+      // background-color: #025bff34; // SZARO NIEBIESKI
+      background-position: left;  
+      background-size: cover;
+      background-repeat: no-repeat;
+    }    
   }
+  .jumbotron {
+    @media (max-width: map-get($screen-size, md )) {
+      text-align: center;
+    }
 
-  section>div {
     padding-top: 6rem;
     padding-bottom: 6rem;
+    min-height: 60vh;
+    
   }
-
 
   section {
     
     &>div {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
       min-height: 60vh;
     }
+  }
+
+  .section-body { 
+    background-color: white; /* inherit */ 
+  }
+
+
+
+  .col-md {
+    min-width: 50%;
+  }
+
+  section {
     h1:first-child  {
-      // font-size: 3.5rem;
       font-weight: normal;
-      // line-height: 1.2;
     }
+
     figure {
       margin: 2rem 0;
-
     }
-    img {
-      // display: block;
-      // margin: 0 auto;
-    }
-  }
 
-  ol, ul{
-    li {
-      p {
-        margin: 0;
+    ol, ul{
+      li {
+        p {
+          margin: 0;
+        }
       }
     }
-  }
-
-  // .main-offer {
-  //   background-position: right;  
-  //   background-size: contain;
-  //   background-repeat: no-repeat;
-  //   background-blend-mode: soft-light;
-  //   background-color: $marckul-color-3-light !important;
-  // }
-
-  .main-offer {
-    margin-top: 6rem !important; // TO DEL
-
-    background-position: left;  
-    background-size: cover;
-    background-repeat: no-repeat;
-
-    background-color: rgba(255, 255, 255, 0.25) !important;    
-    background-blend-mode: overlay;
-  }
-
-
-  .oferta-style1 {
-    // background-color: $marckul-color-3-light;
-    background-color: inherit;
 
     
   }
 
-  .oferta-style2 {
-    // background-color: $marckul-color-3-light;
-    // background-color: inherit;
 
-  }
 }
 
 
