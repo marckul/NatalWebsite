@@ -13,8 +13,22 @@
 /* =======================
   Layout
 ----------------------- */
-.oferta .col-md {
-  min-width: 50%;
+.oferta .sidebarNav {
+  position: fixed;
+  top: 10rem;
+}
+
+.oferta .sidebarNav nav {
+  z-index: 1030;
+}
+
+.oferta .sidebarNav nav ul li a {
+  padding-right: 0px !important;
+}
+
+.oferta .sidebarNav nav a {
+  z-index: 1030;
+  color: inherit;
 }
 
 .oferta section:first-child > div {
@@ -24,7 +38,14 @@
 .oferta section > div {
   padding-top: 6rem;
   padding-bottom: 6rem;
+}
+
+.oferta section > div {
   min-height: 60vh;
+}
+
+.oferta section h1:first-child {
+  font-weight: normal;
 }
 
 .oferta section figure {
@@ -35,28 +56,16 @@
   margin: 0;
 }
 
-.oferta section > div:first-child {
-  background-color: #025bff34;
-}
-
-.oferta .main-offer-1 {
-  margin-top: 5.2rem !important;
+.oferta .main-offer {
+  margin-top: 6rem !important;
   background-position: left;
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-.oferta .main-offer-2 {
-  margin-top: 5.2rem !important;
-  color: white;
-  background-position: left;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #3b211277 !important;
+  background-color: rgba(255, 255, 255, 0.25) !important;
   background-blend-mode: overlay;
 }
 
 .oferta .oferta-style1 {
   background-color: inherit;
 }
-/*# sourceMappingURL=oferta-ver4.module.css.map */
+/*# sourceMappingURL=oferta.module0.css.map */

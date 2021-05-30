@@ -11,7 +11,7 @@ import Seo from "../components/seo"
 // import CardText from "../components/componentsBundle"
 // import Card from "../components/componentsBundle"
 
-import {Row, CardTitle, CardText, Card, Phone} from "../components/componentsBundle"
+import {Row, CardTitle, CardText, Card} from "../components/componentsBundle"
 import CarouselHero from '../components/CarouselHero'
 
 /* IMAGES IMPORT */ 
@@ -31,7 +31,7 @@ const IndexPage = (props) => {
   // debugger;
 
   return(
-    <Layout id="index-page" currentPath={props.path}>
+    <Layout id="index-page">
       <Seo title="Start"/>
       <section id="start">
         <CarouselHero />
@@ -81,69 +81,35 @@ const IndexPage = (props) => {
       </section>
 
       {/* POSPRZATAC KONTAKT */}
-      <section id="kontakt" >
-        <div  className="py-5 contact-section full-height d-flex flex-column justify-content-center" style={{backgroundImage: `url(${pipesImg})`}}>
-          <div  className="container text-white py-5 my-5" >
-            <div className="row col-12 col-xl-8 mx-auto contact-row ">
-              <div className="col-12">
-                <h1 className="display-2 text-left mb-5">Jak nas znaleźć?</h1>
-              </div>
-              <div className="col-md">
-                <h2>Nasz adres</h2>
-                <address className="">                      
-                    Miejska 13, 44-200 Rybnik <br/>
-                    Natalia Kula "Natal" PHU <br/>
-                </address>  
-                {/* <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi alias non iure sed suscipit voluptatem facilis, minima praesentium amet reiciendis maiores voluptate ex quia saepe architecto odit doloribus qui eveniet quaerat quo laudantium? Commodi quibusdam facilis et facere cumque quod provident dolorem quia nobis repellat deleniti, ipsa illo doloremque natus nesciunt soluta, eaque consequuntur nihil delectus quidem? Sit id dolores et quisquam hic ab voluptas enim voluptatem veritatis quae similique voluptates cum, recusandae in, mollitia a illo. Corrupti harum laborum veritatis, aspernatur adipisci soluta quaerat, facere asperiores fuga est numquam omnis fugit eligendi ut aut exercitationem delectus porro error architecto nostrum aliquam et magnam. Magni et tempore, quod maxime nihil itaque harum. Iste harum, dolores eligendi provident qui autem commodi nemo laboriosam illum praesentium illo, cum ratione itaque. Possimus necessitatibus modi a autem fuga odit est ex neque nemo placeat. Quisquam voluptatem iste voluptate eligendi voluptatibus eos explicabo numquam perspiciatis sint blanditiis aliquam dicta, obcaecati dolorem, praesentium repellendus esse voluptas accusamus. Autem perferendis et, minus porro libero asperiores iste aliquid suscipit nam dignissimos iure reiciendis natus delectus ducimus perspiciatis odio explicabo quibusdam consequatur? Ab ullam et animi totam? Sed exercitationem perspiciatis magni soluta aspernatur consequuntur est illum sunt odio, distinctio, repellat cupiditate placeat molestias incidunt corporis beatae dolorum odit provident id quos voluptates perferendis. In delectus, sequi eos sint natus doloribus. Dolorem minus facilis, corrupti cum modi voluptatum vero at nostrum dolorum tempore ratione nihil quos debitis esse nisi cupiditate accusamus! Animi rerum quia, modi expedita laboriosam repellat necessitatibus adipisci explicabo nisi porro exercitationem commodi sint velit itaque cupiditate non rem, dicta, totam distinctio! Eveniet ducimus odit facilis at qui obcaecati omnis ratione accusantium magnam esse! Perspiciatis sit et cum! Veniam, eveniet! Officia, similique eius vel adipisci quos eum corrupti natus atque qui nihil itaque numquam veniam rerum aliquam cum?</p> */}
-
-              </div>
-              <div className="col-md flex-grow-0">
-                <h2>
-                  Telefon
-                </h2>
-                <div className="">
-                  <Phone size="1em" tel="500 087 801">500 087 801</Phone>
-                  <Phone size="1em" tel="500 087 803">500 087 803</Phone>
-                  <Phone size="1em" tel="32 42 31 129">32&nbsp;42&nbsp;31&nbsp;129</Phone>
-                </div>
-                
-                <div>
-                  
-                </div>
-
-  
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="embed-responsive map-iframe-mysizes  shadow-lg">
-          <iframe className="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3947.521810683705!2d18.540439660763354!3d50.09281379742586!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x448e4c006b68ed07!2sSprzeda%C5%BC%20i%20wykonawstwo%20instalacji%20-%20Natal%20Instalacje!5e0!3m2!1spl!2spl!4v1622279430446!5m2!1spl!2spl" width="800" height="600" loading="lazy"></iframe>
-          {/* <iframe className="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d639.9226760850963!2d18.541558678448304!3d50.09207745939281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47114ed847610965%3A0x448e4c006b68ed07!2ssprzeda%C5%BC%20i%20wykonawstwo%20instalacji%20Natal%20instalacje!5e0!3m2!1spl!2spl!4v1615914861528!5m2!1spl!2spl"></iframe> */}
-        </div>
-
-        
-      </section>
       
-      
-      {/* <section id="kontakt" className="contact-section">
+      <section id="kontakt">
         <div id="main-wrapper" style={{backgroundImage: `url(${pipesImg})`}}>
 
           <div id="second-wrapper">
-            <div id="main" className="container d-flex flex-column justify-content-center full-height shadow-none my-5 py-5">  
-              <h1 className="display-3 text-left ">Jak nas znaleźć?</h1>
-              <div className="row ">
+            <div id="main" className="container d-flex flex-column justify-content-center full-height shadow-none ">  
+
+              <div className="row my-5 py-5">
+                <div className="col-12">
+                    <h1 className="display-3 text-left ">Jak nas znaleźć?</h1>
+                    <p className="lead"></p>
+
+                </div>
+                
                 <div className="col-md-6 d-flex py-5">
-                  <div className="mx-auto lead ">
+                  <div className="mx-auto lead font-weight-normal">
                     <h2>Nasz adres</h2>
-                    <address className="">                      
+                    <address>
+                      
                         Miejska 13, 44-200 Rybnik <br/>
                         Natalia Kula "Natal" PHU <br/>
+                      
                     </address>        
                   </div>
+                  
                 </div>
 
                 <div className="col-md-6 d-flex py-5">
-                  <div className="mx-auto lead">
+                  <div className="mx-auto lead font-weight-normal">
                     <h2>
                       <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" className="bi bi-telephone-fill" viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
@@ -168,17 +134,19 @@ const IndexPage = (props) => {
                       </li>
                     </ul>  
                   </div>
-                </div>  
 
+                </div>  
               </div>
             </div>
           </div>
-        </div>   */}
+        </div>   {/* <!-- #main-wrapper --> */}
 
 
+        <div className="embed-responsive map-iframe-mysizes  shadow-lg">
+          <iframe className="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d639.9226760850963!2d18.541558678448304!3d50.09207745939281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47114ed847610965%3A0x448e4c006b68ed07!2ssprzeda%C5%BC%20i%20wykonawstwo%20instalacji%20Natal%20instalacje!5e0!3m2!1spl!2spl!4v1615914861528!5m2!1spl!2spl"></iframe>
+        </div>
 
-
-      {/* </section> */}
+      </section>
     </Layout>
   )
 }

@@ -1,6 +1,55 @@
 import * as React from 'react'
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
+
+
+// ZMIANA TEKSTU NA SLUG
+function slugify(text) {
+  text = text.toString().toLowerCase().trim();
+
+  const sets = [
+    {to: 'a', from: '[ÀÁÂÃÄÅÆĀĂĄẠẢẤẦẨẪẬẮẰẲẴẶἀ]'},
+    {to: 'c', from: '[ÇĆĈČ]'},
+    {to: 'd', from: '[ÐĎĐÞ]'},
+    {to: 'e', from: '[ÈÉÊËĒĔĖĘĚẸẺẼẾỀỂỄỆ]'},
+    {to: 'g', from: '[ĜĞĢǴ]'},
+    {to: 'h', from: '[ĤḦ]'},
+    {to: 'i', from: '[ÌÍÎÏĨĪĮİỈỊ]'},
+    {to: 'j', from: '[Ĵ]'},
+    {to: 'ij', from: '[Ĳ]'},
+    {to: 'k', from: '[Ķ]'},
+    {to: 'l', from: '[ĹĻĽŁ]'},
+    {to: 'm', from: '[Ḿ]'},
+    {to: 'n', from: '[ÑŃŅŇ]'},
+    {to: 'o', from: '[ÒÓÔÕÖØŌŎŐỌỎỐỒỔỖỘỚỜỞỠỢǪǬƠ]'},
+    {to: 'oe', from: '[Œ]'},
+    {to: 'p', from: '[ṕ]'},
+    {to: 'r', from: '[ŔŖŘ]'},
+    {to: 's', from: '[ßŚŜŞŠȘ]'},
+    {to: 't', from: '[ŢŤ]'},
+    {to: 'u', from: '[ÙÚÛÜŨŪŬŮŰŲỤỦỨỪỬỮỰƯ]'},
+    {to: 'w', from: '[ẂŴẀẄ]'},
+    {to: 'x', from: '[ẍ]'},
+    {to: 'y', from: '[ÝŶŸỲỴỶỸ]'},
+    {to: 'z', from: '[ŹŻŽ]'},
+    {to: '-', from: '[·/_,:;\']'}
+  ];
+
+  sets.forEach(set => {
+    text = text.replace(new RegExp(set.from,'gi'), set.to)
+  });
+
+  return text
+    .replace(/\s+/g, '-')    // Replace spaces with -
+    //.replace(/[^-a-zа-я\u0370-\u03ff\u1f00-\u1fff]+/g, '') // Remove all non-word chars
+    .replace(/--+/g, '-')    // Replace multiple - with single -
+    .replace(/^-+/, '')      // Trim - from start of text
+    .replace(/-+$/, '')      // Trim - from end of text
+}
+
+
+
+
 const getOfferSectionByTitleID = (string = ' ', repl = '-') => {
   let allWords = string.split(" ");
   return allWords.join("-").toLowerCase();  
@@ -79,7 +128,7 @@ const getRichTextRenderer = () => {
         }
         
         return(
-          <figure className="my-5">
+          <figure className="my-2">
             <img src={imageUrl} alt={imageDescription} className="img-fluid"/>
           </figure>
         )
@@ -256,6 +305,17 @@ richTextRenderer.options = {
 // -----------------
 
 const GetPrettyDatePL = (stringDate) => {  
+  /*
+    TODO: Add publicDate in polish as context in gatsby-node.js
+          Now  date is render to polish format on client side
+
+          
+    Issues with Node DATE.toLocaleDateString
+
+      NodeJS not applying date locales properly
+      https://github.com/nodejs/node/issues/8500
+
+  */ 
   const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const rawPublishDate = new Date(stringDate);
 
@@ -275,4 +335,4 @@ const GetPrettyDatePL = (stringDate) => {
 
 
 
-export { getRichTextRenderer, richTextRenderer, getOfferSectionByTitleID, GetPrettyDatePL}
+export {slugify, getRichTextRenderer, richTextRenderer, getOfferSectionByTitleID, GetPrettyDatePL}

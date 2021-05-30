@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, Link, useStaticQuery } from 'gatsby'
 
 import Layout from '../components/layout'
 import Seo from '../components/seo'
@@ -19,7 +19,27 @@ const GetNewsData = () => {
   let data = useStaticQuery(
     graphql`
       query {
-        allContentfulAktualnosciPost(sort: {fields: publishDate, order: DESC}) {
+
+        allSitePage(
+          filter: {
+            componentChunkName: {
+              eq: "component---src-templates-news-post-template-js"
+            }
+          }
+          sort: { fields: context___publishDate, order: DESC }
+        ) {
+          nodes {
+            path
+            context {
+              publishDate
+            }
+          }
+        }
+
+        allContentfulAktualnosciPost(
+          sort: {fields: publishDate, order: DESC}
+          filter: {title: {ne: "MODEL_DANYCH"}}
+        ) {
           edges {
             node {
               __typename
@@ -80,9 +100,38 @@ const TitleToNewsPostSlug = (publishDate, title) => {
 }
 
 
+/*
+const SideBar = () => {
+  return(
+    <div className="my-sidebar col-md-3 col-xl-2 d-none d-md-block m-0 pl-4 pr-0">
+      <div className="content-break"></div>
+      <div id="TOC" className="TOC d-none d-md-block mr-auto ml-0">
+        <nav>
+          <ul className="nav flex-column text-dark">
+            <li className="nav-item dropdown">
+              <a className="nav-link text-dark" href="#">Kwiecień 2021</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link text-dark" href="#">Marzec 2021</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Luty 2021</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Styczeń 2021</a>
+            </li>
+          </ul>        
+        </nav>
+      </div>  
+    </div> 
+  )
+}
+*/ 
+
 
 const NewsPagePost = (props) => {
   const publishDate = GetPrettyDatePL(props.publishDate)
+  
 
   // debugger;
   return(
@@ -92,7 +141,7 @@ const NewsPagePost = (props) => {
         <p class="font-weight-lighter text-muted">Opublikowano: {publishDate}</p>
         <p>{`${props.intercept}...`}</p>
         <div class="text-right">
-          <a href={TitleToNewsPostSlug(`${props.publishDate}`,`${props.title}`)} class="btn rounded-0 btn-outline-info py-1 px-3 small">Czytaj więcej</a>
+          <Link to={props.path} class="btn rounded-0 btn-outline-info py-1 px-3 small">Czytaj więcej</Link>
         </div>
       </div>
     </div> 
@@ -101,10 +150,10 @@ const NewsPagePost = (props) => {
 
 
 
-const NewsPage = () => {
+const NewsPage = (props) => {
 
-  const data = GetNewsData();
-
+  const {allSitePage, allContentfulAktualnosciPost} = GetNewsData();
+  // debugger;
 
   
 
@@ -116,69 +165,43 @@ const NewsPage = () => {
 
   let allNewsPagePost = [];
   let idx = 0;
-  data.allContentfulAktualnosciPost.edges.forEach( (edge) => {
-    
-    // contentProps.title = edge.node.title;
-    // contentProps.publishDate = edge.node.publishDate;
-    // edge.node.intercept;
-    
-    if (edge.node.title !== "MODEL_DANYCH") {
-      // debugger;
-      allNewsPagePost[idx] = NewsPagePost(edge.node);
 
-      idx++;
-    }
-  })
+  if (allContentfulAktualnosciPost.edges.length === allSitePage.nodes.length) {
+    allContentfulAktualnosciPost.edges.forEach( (edge) => {
+    
+      // contentProps.title = edge.node.title;
+      // contentProps.publishDate = edge.node.publishDate;
+      // edge.node.intercept;
+      
+      if (edge.node.title !== "MODEL_DANYCH") {
+        // debugger;
+        if (edge.node.publishDate === allSitePage.nodes[idx].context.publishDate) {
+          edge.node.path = allSitePage.nodes[idx].path;
+          // debugger;
+          allNewsPagePost[idx] = NewsPagePost(edge.node);
+          idx++;
+        } 
+      }
+    })    
+  } else {
+    console.warn("Number of allContentfulAktualnosciPost edges in not equal number of post pages (Probablu problem with MODEL_DANYCH post)");
+  }
+  
+  // debugger;
 
   return(
-    <Layout className={`news-page-main-class container-flex`} id="aktualnosci-top">
-      <Seo title="Aktualności"/>
-      <div className={`${CSS.layoutClasses} jumbotron jumbotron-hero`}>
+    <Layout className={`news-page-main-class container-flex`} id="" currentPath={props.path} >
+      {/* strona-aktualnosci */}
+      <Seo title="Aktualności" url="aktualnosci"/>
+      <div className={`${CSS.layoutClasses} jumbotron jumbotron-hero`} id="top">
         <div className="container">
           <h1 class="display-2" >Aktualności</h1>
         </div>
       </div>
-      <div class="container-fluid d-flex flex-wrap py-5">
-
-        
-
-        <div className="my-sidebar col-md-3 col-xl-2 d-none d-md-block m-0 pl-4 pr-0">
-          <div className="content-break"></div>
-          {/* <div id="TOC" className="TOC d-none d-md-block mr-auto ml-0">
-            <nav>
-              <ul className="nav flex-column text-dark">
-                <li className="nav-item dropdown">
-                  <a className="nav-link text-dark" href="#">Kwiecień 2021</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link text-dark" href="#">Marzec 2021</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">Luty 2021</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">Styczeń 2021</a>
-                </li>
-              </ul>        
-            </nav>
-          </div>   */}
-        </div>
-
+      <div class="container-fluid d-flex flex-wrap py-5 px-0">
         <div class="container archive">
           {allNewsPagePost}
-          {/* <NewsPagePost 
-            title='Godziny otwarcia w trakcie długiego weekendu' 
-            publishDate='29 kwiecień 2021' 
-            intercept='W związku z zbliżającą sie majówką, chcieiśmy ogłosić, że godziny otwarcia naszego sklepu ulegną zmianie. W poniedziałek 3 maja sklep jest oczywiście zamknięty natomiast we wtorek' 
-          /> */}
-          Quasi aspernatur magnam nam in tempore officia ullam, fugiat asperiores recusandae consectetur deserunt tenetur perferendis ipsa totam accusamus quos aliquid temporibus iusto, sunt vero fuga alias blanditiis. Obcaecati, vero rem quo beatae laudantium quis, blanditiis eligendi nisi asperiores odit placeat, molestias tenetur culpa. Assumenda impedit tempora reprehenderit dolor porro sunt recusandae repellat ratione iusto nulla beatae, voluptates quae numquam quia ducimus maxime dolore! Tempore minus ut modi pariatur a at perferendis quaerat. Impedit odit optio, quod consequatur officiis asperiores tenetur, maxime deserunt nemo excepturi neque cupiditate dolorem blanditiis soluta reprehenderit minus veniam necessitatibus ab molestias. Libero consequatur voluptatum quaerat totam inventore consectetur repellendus quasi ipsa odio nostrum consequuntur eos quod, magnam hic officia aperiam eum quam sunt quibusdam officiis ut ad minus fuga magni? Officia sapiente vel quisquam fuga labore ex consectetur, ducimus soluta dicta enim fugiat ea beatae minus sequi amet explicabo autem dolore harum? Nihil odit nulla consectetur error, fuga vero, sed nobis nemo optio inventore nisi! Molestiae inventore quisquam temporibus. Ullam doloribus tempore et harum quos distinctio sit, ut asperiores. Dignissimos sint rerum illo perspiciatis minus neque corporis reprehenderit quaerat doloremque, delectus magnam labore atque harum fugiat commodi saepe, porro aperiam veniam sit, nihil facere blanditiis excepturi numquam consequuntur. Dolores sequi, aut quasi veritatis hic delectus et quo natus consequatur quia voluptatum, pariatur vel, dolor quisquam consequuntur? Dicta molestias incidunt dolor, doloremque a sunt. Quae tenetur natus nobis quibusdam id fugit expedita minima, aperiam corrupti temporibus dicta numquam, eos magni tempora sed deleniti harum aut accusantium blanditiis consequatur, saepe suscipit alias. Iusto, in? Quasi minima enim rem, earum ea eum aliquid sapiente dicta doloribus quam harum saepe voluptatibus voluptates voluptas eligendi sint laudantium aperiam maxime et eveniet necessitatibus! Repudiandae veritatis vel impedit dolore assumenda, repellendus nam iure consequuntur similique!
-    
-          
-   
         </div>
-
-        <div class="d-none d-lg-block  col-xl-2"></div>
-
       </div>
 
     </Layout>

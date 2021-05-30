@@ -19,7 +19,17 @@ import * as ofertaStyles from '../styles/oferta/oferta.module.css'
 // import zaworyRysunek from '../assets/images/zawory-krawedzie2048x2048.jpg'
 import zaworyRysunek from '../assets/images/offer-page/Rurki2-rysunek-mockup.jpg'
 import pipes2Img from '../assets/images/natal-pipes-2.jpg'
+import CarouselHero from "../components/CarouselHero";
+import { Card, CardText, CardTitle, Row } from "../components/componentsBundle";
+
+/* IMAGES IMPORT */ 
+import imageMockup from '../assets/img-mockup/img-placeholder-512x512.png'
 import gasBoiler from '../assets/images/gas-boiler.png'
+import tapSketch from '../assets/images/tap-sketch.png'
+import excavatorSketch from '../assets/images/excavator-sketch.png'
+
+import pipesImg from '../assets/images/natal-pipes.jpg'
+import photovoltaicsSketch from '../assets/images/photovoltaics-sketch.jpg'
 
 
 
@@ -32,7 +42,7 @@ const getOfferSectionID = (edge) => {
 
 
 
-const OfferPage = (props) => {
+const IndexPage = () => {
   
   const data = useStaticQuery(graphql`
     query {
@@ -219,7 +229,7 @@ const OfferPage = (props) => {
   columnsFirstSection = columnsFirstSection[0];
 
 
-  ofertaStyles.layoutClasses = "d-flex flex-column justify-content-center my-0" 
+  ofertaStyles.layoutClasses = "d-flex flex-column justify-content-center my-0 jumbotron jumbotron-fluid" 
   let colClass = `col-md flex-grow-1 ${ofertaStyles.colMd}`;
   /* ================================
         OFERTA - DALSZE SEKCJE
@@ -247,7 +257,7 @@ const OfferPage = (props) => {
     
     return(
       <section id={sectionItems.id} className={`${ofertaStyles.section}`} >
-        <div className={`jumbotron jumbotron-fluid jumbotron-hero ${ofertaStyles.layoutClasses}  ${ofertaStyles.jumbotron}`} >
+        <div className={`${ofertaStyles.layoutClasses}  ${ofertaStyles.jumbotron}`} >
           <div class="container">
             <div className="row">
               <div className="col-md">
@@ -294,11 +304,14 @@ const OfferPage = (props) => {
   /* ================================
             RENDERING STRONY
   ----------------------------------- */
+
   return(
-    <Layout id="oferta" className={`${ofertaStyles.oferta} `} currentPath={props.path} >
-      
-      
+    <Layout id="oferta" className={`${ofertaStyles.oferta} `}>
       <Seo title="Oferta" url="oferta" didLoad={didLoad} />
+
+      <CarouselHero />
+
+
 
       <section id="nasza-oferta"  className={`${ofertaStyles.mainOffer}`} >
 
@@ -329,6 +342,35 @@ const OfferPage = (props) => {
           </div>        
         </div>
       </section> 
+      <section id="oferta" className="container py-md-5 my-5">      
+        <h1 className="display-3">Oferta</h1>
+        <p className="lead">Prowadzimy działalność w zakresie <strong>sprzedaży, wykonastwa i serwisu</strong> w poniższych dziedzinach</p>
+
+        <Row justifyContent="around">
+          <div className="col-md-6 shadow">
+            <h1>Centralne Ogrzewanie</h1>
+            <img src={gasBoiler} alt="" className="img-fluid"/>
+
+          </div>
+          <div className="col-md-6 shadow">
+            <h1>Centralne Ogrzewanie</h1>
+            <img src={tapSketch} alt="" className="img-fluid"/>
+
+          </div>
+          <div className="col-md-6 shadow">
+            <h1>Centralne Ogrzewanie</h1>
+            <img src={photovoltaicsSketch} alt="" className="img-fluid"/>
+
+          </div>
+          <div className="col-md-6 shadow">
+            <h1>Centralne Ogrzewanie</h1>
+            <img src={excavatorSketch} alt="" className="img-fluid"/>
+
+          </div>
+
+          
+        </Row>
+      </section>  
       {columnsRestSection}
 
 
@@ -372,4 +414,4 @@ const OfferPage = (props) => {
 }
 
 
-export default OfferPage
+export default IndexPage

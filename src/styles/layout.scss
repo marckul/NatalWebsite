@@ -1,18 +1,39 @@
-
-// @import 'ignoreIt/_variables.scss';
 @import '_variables.scss';
 
+// PROMPT - NAGŁÓWKI 
+// @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,300;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap');
 
 /* =============================
-  BASE ELEMENT STYLES
+        TYPOGRAPHY TEXT
 ================================ */
 
-/* tags --------------------- */
 
-html {
+* ,html {
   box-sizing: border-box;
-  // scroll-behavior: auto; ! NIE MOŻE byc z wtyczką gatsby-plugin-anchor-links
 }
+
+// h1,h2,h3,h4, p, #navbarMain { // html, body, 
+html, body { // 
+  font-family: $lato-font-family;
+}
+footer, .small {
+  font-family: $bootstrap-font-family;
+  h1,h2,h3,h4, h5, h6 {
+    font-weight: 500 !important;
+  }  
+}
+
+h1,h2,h3,h4, h5, h6 {
+  font-weight: bold;
+}
+article {
+  h1,h2,h3,h4, h5, h6 {
+    font-weight: normal;
+  }
+}
+
 
 body {
   // overflow-wrap: break-word;
@@ -31,31 +52,74 @@ p {
 }
 
 p, h1, h2, h3, h4, h5, h6 {
-  hyphens: auto !important;
+  hyphens: auto;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  // color: $text-dark !important;
+.jumbotron p, .display-1, .display-2, .display-3, .display-4 {
+  hyphens: manual !important;
+}
+
+
+
+/* =============================
+        RYTHM
+================================ */
+// .h2, h2 {
+//   font-size: 2rem;
+// }
+
+// p: 1.5em,    h6: 1.5em*1.5, h5: 1.5em*2, h4: 1.5em*2.5, h3: 1.5em*3, h2: 1.5em*3.5, h1: 1.5em*4
+
+article {
+  p + h1 {
+    margin-top: 1.2em*2; //
+  }
+  p + h2 {
+    margin-top: 1.2em*1.75; //
+  }
+  p + h3 {
+    margin-top: 1.2em*1.5; //
+  }
+  p + h4 {
+    margin-top: 1.2em*1.25; //
+  }
+}
+
+/* =============================
+        BASE ELEMENT STYLES
+================================ */
+
+/* tags --------------------- */
+
+
+html, body, main, header, footer {
+  max-width: 100% !important; 
 }
 
 ul {
   overflow: hidden;
 }
 
+//  LINKI 
 
-a, a:hover {
+a, .fake-link {
   color: #005bbd;  
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+
 }
 
 .bg-dark {
-  a, a:hover {
+  a, a:hover, .fake-link:hover {
     color: #afd6ff;
   }
 }
-
 .link-light, .link-light:hover {
   color: #afd6ff;
 }
+
 
 footer {
   min-height: 10rem;
@@ -68,14 +132,14 @@ footer {
   text-shadow: $shadow-sm map-get($shadow-color, light);
 }
 
+.col-sm, .col-md, .col-lg, .col-xl {
+  width: fit-content;
+}
 
 
-/* ============
-  TEXT
- ============== */ 
-// .text-opacity-50 {
-//   color: rgba(0, 0, 0, 0.5);
-// }
+.flex-basis-0 {
+  flex-basis: 0;
+}
 
 
 
@@ -91,6 +155,7 @@ footer {
   text-transform: uppercase !important;
   
   .navbar-brand {
+    font-family: $brand-font-family;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,26 +180,10 @@ footer {
 // 23.04.2021
 #navbar-main { 
   &.bg-light {
-    // background-color: #f8f9fa8f !important;
     background-color: #e3e0db80 !important;
-
-    // background-color: #E3E0DB !important;
-    
-    
   }
   &.bg-dark {
-    // background: #1a293800 !important;
     background: $marckul-color-primary !important;
-    
-    // background: #2D4762 !important;
-    // ZESTAW 1
-    // background: #242833 !important;
-    // background: linear-gradient(130deg, #242833 0%, #2a4055 100%) !important;
-
-    // background: -moz-linear-gradient(90deg, hsla(203, 37%, 22%, 1) 0%, hsla(162, 23%, 49%, 1) 100%) !important;
-    // background: -webkit-linear-gradient(90deg, hsla(203, 37%, 22%, 1) 0%, hsla(162, 23%, 49%, 1) 100%) !important;
-
-    // filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#233d4d", endColorstr="#619B8A", GradientType=1 ) !important;
   }
 }
 
@@ -162,25 +211,30 @@ footer {
   border-color: $marckul-color-primary !important;  
 }
 
-// .btn-outline-light {
-//   font-weight: bold;
-//   border-width: .15rem;
-//   &:hover {
-//     color: $pale-cerulean !important;
-//     background-color:  unset !important;  
-//     border-color:  white !important;
-//     // box-shadow: $shadow-md map-get($shadow-color, medium);
-
-//     // color: $marckul-color-primary !important;
-//     // background-color: unset !important;  
-//     // border-color:  $marckul-color-primary !important;
-//   }
-// }
-
-// ===============================================
 
 
-// LAYOUT
+/* =============================
+            LAYOUT
+================================ */
+$nav-height: 5rem;
+$jumbotron-hero-padding: 10rem;
+
+main {
+  padding-top: $nav-height;
+}
+
+#index-page {
+  main {
+    padding-top: 0;
+  }
+}
+
+.jumbotron {
+  @media (max-width: map-get($screen-size, md )) {
+    text-align: center;
+  }
+}
+
 #gatsby-focus-wrapper {
   min-height: 100vh;
   display: flex;
@@ -193,90 +247,24 @@ footer {
   }
 }
 
-@import 'stylesModules/_carousel-hero.scss';
-
-
-/* =============================
-    KONTAKT
------------------------------ */
-
-#main-wrapper {
-  background-image: url("https://media.istockphoto.com/photos/plumbers-tools-and-plumbing-materials-banner-with-copy-space-picture-id625280930");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-
-  /* WAZNE ZESTAW 1*/
-  background-color: rgba(0, 0, 0, .6); 
-  background-blend-mode: luminosity; 
-  
-}
-
-#second-wrapper {
-  /* WAZNE ZESTAW 1*/
-  background-color: rgba(49, 49, 49, 0.6);
-
-  /* WAZNE ZESTAW 2*/
-  /* background-color: rgba(250, 250, 250, 0.7); */
-}
-
-#main {
-  color: white !important;
-  /* color: black !important; */
-}
-.full-height {
-  min-height: 90vh;
-}
-
-
-// MAPS
-.map-iframe-mysizes {
-  max-height: 60vmax;
-  &::before {
-    padding-top: 100%;
-  }
-  @media (orientation: landscape) {
-    max-height: 95vh;
-  }
-
-  @media (min-width: map-get($screen-size, lg)){
-    max-height: 60vmin;
-  }
-}
-
-
 
 
 /* =============================
   COMPONENTS BUNDLE 
 ================================ */
 
+@import 'stylesModules/_carousel-hero.scss';
+@import 'stylesModules/_components-bundle.scss';
+
+
 // CARD
 .card {
-  
-  &#centralne-ogrzewanie a {
-    // background-color: rgba(255, 192, 74, 0.5);
-  }
 
-  &#instalacje-wod-kan a {
-    // background-color: rgba(139, 218, 255, .5);
-  }
-  
-  &#fotowoltaika-i-wentylacja a {
-    // background-color: rgba(139, 218, 255, .5);
-  }
-
-  &#roboty-ziemne a {
-    // background-color: rgba(139, 218, 255, .5);
-  }
-  
   img {
-    object-fit: cover;
-    width: 100%;
+    object-fit: contain;
     height: 100%;
     aspect-ratio: 1 !important;    
-    mix-blend-mode: multiply;
-
+    // mix-blend-mode: multiply NIE DZIAŁA W FIREFOX
   }
 
   &:hover {
@@ -286,32 +274,64 @@ footer {
 }
 
 
+// CIEMNY BŁĘKIT
+// $x: 6;
+// $jumbotron-color: ($queen-blue + $x*#ffffff)/($x+1);//$timberwolf+a1;
+
+// JASNY BŁĘKIT
+// $x: 2;
+// $jumbotron-color: ($pale-cerulean + $x*#ffffff)/($x + 1);//$timberwolf+a1;
+
+// CIEPŁE KOLORY 
+// // $pale-cerulean-medium
+// $x: 3;
+// $jumbotron-color: ($liver-chestnut + $x*#ffffff)/($x+1);//$timberwolf+a1;
+
+// JASNY PIASEK
+// $x: 6; //$x: 0.25;
+// $y: 0; //$x: 0.25;
+// $jumbotron-color: ($banana + $x*#fff + $y*#000)/($x + $y + 1);//$timberwolf+a1;
+
+// JASNY PIASKOWIEC 1
+// $x: 6; //$x: 0.25;
+// $y: 0; //$x: 0.25;
+// $jumbotron-color: ($mango + $x*#fff + $y*#000)/($x + $y + 1);//$timberwolf+a1;
+
+// // JASNY PIASKOWIEC 2
+// $x: 5; // $x: 6
+// $y: 0; 
+// $jumbotron-color: ($orange + $x*#fff + $y*#000)/($x + $y + 1);//$timberwolf+a1;
+
+$jumbotron-color: #f9eada;
 
 
 
 
 .jumbotron-hero {
+  padding: $jumbotron-hero-padding 0;
+  min-height: 60vh;
+  // &:first-of-type {
+  //   // padding-top: $jumbotron-hero-padding + 5rem !important;
+  // }
   &:not(:first-child) {
     margin-top: 5.2rem !important; // TO DEL
   }
-  background-color: #025bff34; // SZARO NIEBIESKI
+
+  // background-color: #025bff34; // SZARO NIEBIESKI
+  background-color: $jumbotron-color; // SZARO NIEBIESKI
   background-position: left;  
   background-size: cover;
   background-repeat: no-repeat;
-
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  min-height: 50vh;
 }
 
-// @media (max-width: map-get($screen-size, md)) {
-//   c {
-//     font-size: 3rem;
-//   }
-// }
+
+main + .jumbotron-hero {
+  padding-top: $jumbotron-hero-padding + 5rem !important;
+  color: red !important;
+}
 
 
-
+@import './stylesModules/_index-page.scss';
 @import '_experimental.scss';
 
 

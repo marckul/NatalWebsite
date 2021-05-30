@@ -1,12 +1,11 @@
 
+@import '../_variables.scss';
+
 
 
 .news-page-main-class {
   .jumbotron:first-child { // .jumbotron-news-page-top
     padding-top: 10rem !important;
-    .container {
-      
-    }
   }
 
   .nav {
@@ -14,29 +13,45 @@
       color: inherit !important;
     }
   }
-
 }
 
+figure + p { 
+  margin-bottom: 3rem !important; 
+}
 
 .single-post-main-class {
   main {
-    div {
+    &>div {
       padding-top: 5rem !important;
       
     }
   }
 
   article {
-    padding: 7.5rem 0;
-    margin-left: -3rem !important;
-    margin-right: -3rem !important;
+    figure {
+      img { 
+        min-width: 100%;
+        height: auto;
+      }
+    }
     
     &>* {
-      margin-left: 3rem !important;
-      margin-right: 3rem !important;
+      margin-left: 0;
+      margin-right: 0;
     }
-    figure {
-      float: right;     
+    
+    @media (min-width: map-get($screen-size, lg)) {
+      padding: 7.5rem 0 5rem;
+      margin-left: -3rem !important;
+      margin-right: -3rem !important;
+      
+      &>* {
+        margin-left: 3rem !important;
+        margin-right: 3rem !important;
+      }
+      figure {
+        float: right;  
+      }
     }
   }
 

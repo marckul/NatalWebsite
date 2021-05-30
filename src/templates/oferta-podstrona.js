@@ -15,6 +15,7 @@ export const query = graphql`
   query( $slug: String! ) {
     contentfulStronaOfertyPodstrona ( slug: {eq: $slug} ) {
       title
+      slug
       leadText
       body {
         raw
@@ -64,14 +65,12 @@ const OfferTemplate = (props) => {
   richTextRenderer._constructor(data.contentfulStronaOfertyPodstrona.body, props.path)
   // debugger;
   console.log('\n\n$$$$$$$$$$$$ richTextRenderer.richText', richTextRenderer.richText);
-  
-  
 
   // data.contentfulStronaOfertyPodstrona.body.raw
 
   return(
-    <Layout className="" >
-      <Seo title={`${data.contentfulStronaOfertyPodstrona.title}`} />
+    <Layout className="" currentPath="/oferta/">
+      <Seo title={data.contentfulStronaOfertyPodstrona.title}  url={props.path} />
       <div class="jumbotron jumbotron-fluid offer-subpage-jumbotron" style={{ backgroundImage: `url(${cockImg})` }}>
         <div class="container py-5 my-5">
           <h1 className="pt-5 mt-5 display-2"> {data.contentfulStronaOfertyPodstrona.title} </h1>    
@@ -81,7 +80,6 @@ const OfferTemplate = (props) => {
       <div className="container my-5 py-5">
         {documentToReactComponents(JSON.parse(richTextRenderer.richText.raw), richTextRenderer.options)}
       </div>
-      
     </Layout>
   )
 }

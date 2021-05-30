@@ -10,23 +10,151 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function Seo({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
+class StaticSeoSettings { 
+  constructor() {
+    // Cala Witryna, Strona Oferty, Strona Aktualnosci
+    // this.slug = slug;
+  }
+  #slug = "/";
+  set slug(slug) {
+    // SLUG CLEANING
+    if (slug === "") {
+      console.log("slug === \"\"");
+
+    } else if (slug === undefined) {
+      slug = ""
+
+    } else {
+      console.log("hello");
+
+      if ( slug[0] !== '/' ) {
+        slug = '/' + slug;
+      }
+    }
+    // return slug;
+
+    this.#slug = slug;
+  }
+  get slug() {
+    return this.#slug;
+  }
+  // slugCleaning(slug) {
+  //   if (slug === "") {
+  //     console.log("slug === \"\"");
+  //     return slug;
+
+  //   } else if (slug !== undefined) {
+  //     console.log("hello");
+
+  //     if ( slug[0] !== '/' ) {
+  //       slug = '/' + slug;
+  //     }
+
+  //   } else {
+  //     slug = "/"
+  //   }
+  //   return slug;
+  // }
+  // Field
+  #isForPageAll = {
+    "": "Cala Strona", 
+    "/": "Cala Strona", 
+    "/oferta": "Strona Oferty", 
+    "/aktualnosci": "Strona Aktualnosci"
+  };
+  // Getter
+  get isForPage() {
+    return this.getIsForPage();
+  }
+  get isForPageAll() {
+    return this.#isForPageAll;
+  }
+  // Method
+  getIsForPage() {
+    return this.#isForPageAll[this.slug];
+  }
+}
+
+const seoSettings = new StaticSeoSettings();
+
+
+
+
+
+
+function Seo( { description, keywords, title, url, type, meta, lang } ) {
+
+  // const seoSettings = new SeoSettings(url);
+  
+
+  seoSettings.slug = url;
+  let isForPage = seoSettings.isForPage;
+  // debugger;
+  
+  const metadaneStronyPreprocessing = (contentfulMetadaneStrony) => {
+    
+    // tylko za 1-szym razem
+    if (contentfulMetadaneStrony.description.hasOwnProperty("description")) {
+      contentfulMetadaneStrony.description = contentfulMetadaneStrony.description.description;
+      contentfulMetadaneStrony.keywords = contentfulMetadaneStrony.keywords.join(", ")
+    } 
+    return contentfulMetadaneStrony;    
+  }
+  
+  // let isForPage = "Cala Witryna";
+  // if (url !== undefined) {
+  //   if (url[0] !== '/') {
+  //     url = '/' + url;
+  //   }
+    
+  //   if (url === "/oferta") {
+  //     let isForPage = "Strona Oferty";    
+  //   }
+
+  // } 
+
+  
+
+
+  const { site, allContentfulMetadaneStrony } = useStaticQuery(
     graphql`
-      query {
+      query ($isForPage: String) {
+        
         site {
           siteMetadata {
-            title
             description
+            keywords
+            title
+            url
             author
           }
         }
+
+        allContentfulMetadaneStrony(filter: { isForPage: { eq: $isForPage } }) {
+          nodes {
+            isForPage
+            description {
+              description
+            }
+            keywords
+            title
+            url
+          }
+        }
+
       }
     `
-  )
+  );
+  const contentfulMetadaneStrony = metadaneStronyPreprocessing(allContentfulMetadaneStrony.nodes[0]);
+  // debugger;
 
-  const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const metaDescription = description || contentfulMetadaneStrony.description || site.siteMetadata.description;
+  const metaKeywords = keywords || contentfulMetadaneStrony.keywords || site.siteMetadata.keywords;
+  const defaultTitle = contentfulMetadaneStrony.title || site.siteMetadata?.title;
+
+  const domainName = contentfulMetadaneStrony.url || site.siteMetadata.url;
+  const metaUrl = seoSettings.slug ? `${domainName}${seoSettings.slug}` : domainName;
+
 
   return (
     <Helmet
@@ -37,38 +165,37 @@ function Seo({ description, lang, meta, title }) {
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
       meta={[
         {
-          name: `description`,
-          content: metaDescription,
+          name: `description`, content: metaDescription,
         },
         {
-          property: `og:title`,
-          content: title,
+          name: `keywords`, content: metaKeywords,
         },
         {
-          property: `og:description`,
-          content: metaDescription,
+          property: `og:title`, content: title,
         },
         {
-          property: `og:type`,
-          content: `website`,
+          property: `og:type`, content: type || `website`,
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
+          property: `og:description`, content: metaDescription,
         },
         {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
+          property: `og:locale`, content: "pl_PL",
         },
         {
-          name: `twitter:title`,
-          content: title,
+          property: `og:url`, content: metaUrl,
         },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
+        // { name: `twitter:card`, content: `summary`, },
+        // { name: `twitter:creator`, content: site.siteMetadata?.author || ``, },
+        // { name: `twitter:title`, content: title, },
+        // { name: `twitter:description`, content: metaDescription, },
       ].concat(meta)}
+      link = {[
+        {
+          rel: `canonical`, href: metaUrl,
+
+        }
+      ]}
     />
   )
 }
