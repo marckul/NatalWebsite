@@ -8,10 +8,11 @@ import Scrollspy from 'react-scrollspy'
 
 
 
-
+/*
 const NavLink = (props) => (
   <Link className="nav-link" activeClassName="active" to={props.to}>{props.children}</Link>
 )
+*/ 
 
 const MyAnchorLink = ({children, to, thisPath, currentPath}) => {
   // debugger;
@@ -28,7 +29,7 @@ const NavBrand1 = () => (
   </Link>
 )
 
-  
+/*
 const NavBrand2 = () => (
   <Link className="navbar-brand flex-row" to="/" style={{fontSize: '1rem'}}>
     <div style={{fontSize: '2.8em', fontWeight: 'bold', paddingBottom: '0.05em'}}>N</div> 
@@ -38,6 +39,7 @@ const NavBrand2 = () => (
     </div>
   </Link>
 )
+*/ 
 
 
 const Header = ({ siteTitle, currentPath }) => {
@@ -68,10 +70,7 @@ const Header = ({ siteTitle, currentPath }) => {
                 <li className="nav-item order-4" >
                   <MyAnchorLink currentPath={currentPath} thisPath="/aktualnosci/" to="/aktualnosci#top">Aktualności</MyAnchorLink>
                 </li>
-
-
               </Scrollspy>
-
             </div>
           </div>
         </div>
@@ -79,7 +78,6 @@ const Header = ({ siteTitle, currentPath }) => {
     </header>
   )
 }
-
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

@@ -1,9 +1,6 @@
 import React from 'react'
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
-// import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-// import  { richTextRenderer } from '../components/functions'
-
 import photovoltaicsImg from '../assets/images/fotowoltaika-hero-2000x.jpg'
 import boilerImg from '../assets/images/kociol-2000x.jpg'
 import pipes2Img from '../assets/images/natal-pipes-2.jpg'
@@ -11,7 +8,7 @@ import pipes2Img from '../assets/images/natal-pipes-2.jpg'
 
 
 
-console.log('@@@@@@ FOTO', photovoltaicsImg);
+// console.log('@@@@@@ FOTO', photovoltaicsImg);
 
 
 // Linki do obrazów /**/ 
@@ -37,31 +34,14 @@ const items = [
     text: 'Zobacz naszą ofertę kotłów gazowych i węglowych', 
     image: boilerImg,
     to: '/oferta#instalacje-co'
-  }
-  
+  } 
 ]
 
 
 const Carousel = ({children}) => {
-
   const count = React.Children.count(children);
   let carouselIndicators = Array(count);
   let className = 'active';
-
-  console.log("@@@@@@@@@@@@@\n","LICZBA DZIECI W KARUZELI", count, "@@@@@@@@@@@@@\n");
-
-  // let idx = -1;
-  // const array = [0,1,2,3];
-  // let carouselIndicators2 = array.map( () => {
-  //   idx++;
-  //   if (idx > 0) {
-  //     className = '';
-  //   }
-
-  //   return(
-  //     <li data-target="#carousel-hero" data-slide-to={idx} className={className}></li>      
-  //   )
-  // }) 
 
   const makeIndicator = (idx, className) => {
     return(
@@ -118,7 +98,6 @@ const CarouselItem = (props) => {
 }
 
 const CarouselHero = () => {
-  console.log("\n\n\n", "CarouselHero", "\n")
 
   let idx = -1;
   let itemActive = '';
