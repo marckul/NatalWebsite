@@ -6,7 +6,7 @@
 
   .main-offer {
     .jumbotron {
-      padding-top: 10rem !important;
+      // padding-top: 10rem !important;
       color: white;
 
       background-position: left;  
@@ -21,7 +21,8 @@
 
   .section {
     .jumbotron {
-      margin-top: 5.2rem !important; // TO DEL
+      // margin-top: 5.2rem !important; // TO DEL
+      // margin-bottom: 3rem !important; 
 
       // background-color: #025bff34; // SZARO NIEBIESKI
       background-position: left;  
@@ -38,18 +39,23 @@
     padding-bottom: 6rem;
     min-height: 60vh;
     
+    
   }
 
-  section {
-    
+  section {    
     &>div {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
+      // padding-top: 6rem;
+      // padding-bottom: 6rem;
       min-height: 60vh;
     }
   }
 
   .section-body { 
+    .container {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+    }
+    margin-top: 0;    
     background-color: white; /* inherit */ 
   }
 
@@ -65,7 +71,7 @@
     }
 
     figure {
-      margin: 2rem 0;
+      margin: 0rem 0;
     }
 
     ol, ul{

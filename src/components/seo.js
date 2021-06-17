@@ -11,10 +11,6 @@ import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
 class StaticSeoSettings { 
-  constructor() {
-    // Cala Witryna, Strona Oferty, Strona Aktualnosci
-    // this.slug = slug;
-  }
   #slug = "/";
   set slug(slug) {
     // SLUG CLEANING
@@ -38,24 +34,6 @@ class StaticSeoSettings {
   get slug() {
     return this.#slug;
   }
-  // slugCleaning(slug) {
-  //   if (slug === "") {
-  //     console.log("slug === \"\"");
-  //     return slug;
-
-  //   } else if (slug !== undefined) {
-  //     console.log("hello");
-
-  //     if ( slug[0] !== '/' ) {
-  //       slug = '/' + slug;
-  //     }
-
-  //   } else {
-  //     slug = "/"
-  //   }
-  //   return slug;
-  // }
-  // Field
   #isForPageAll = {
     "": "Cala Strona", 
     "/": "Cala Strona", 
@@ -74,22 +52,10 @@ class StaticSeoSettings {
     return this.#isForPageAll[this.slug];
   }
 }
-
 const seoSettings = new StaticSeoSettings();
 
-
-
-
-
-
 function Seo( { description, keywords, title, url, type, meta, lang } ) {
-
-  // const seoSettings = new SeoSettings(url);
-  
-
   seoSettings.slug = url;
-  let isForPage = seoSettings.isForPage;
-  // debugger;
   
   const metadaneStronyPreprocessing = (contentfulMetadaneStrony) => {
     
@@ -100,21 +66,6 @@ function Seo( { description, keywords, title, url, type, meta, lang } ) {
     } 
     return contentfulMetadaneStrony;    
   }
-  
-  // let isForPage = "Cala Witryna";
-  // if (url !== undefined) {
-  //   if (url[0] !== '/') {
-  //     url = '/' + url;
-  //   }
-    
-  //   if (url === "/oferta") {
-  //     let isForPage = "Strona Oferty";    
-  //   }
-
-  // } 
-
-  
-
 
   const { site, allContentfulMetadaneStrony } = useStaticQuery(
     graphql`

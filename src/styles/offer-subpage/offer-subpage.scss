@@ -4,28 +4,15 @@
 
 
 .offer-subpage-jumbotron {
-  color: black;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-
+  color: white;
 
   // WERSJA 1 = WERSJA 2 //  ****
-  background-color: rgba(255, 255, 255, 0.5);
+  // background-color: rgba(255, 255, 255, 0.5);
+  // background-blend-mode: overlay;
+  background-position: left bottom;  
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  background-color: #73635a !important; // POMARANCZ ciemny !to
   background-blend-mode: overlay;
-
-  // // WERSJA 3 // TO!! *
-  // background-color: rgba(255, 221, 128, 0.6);
-  // background-blend-mode: color;
-
-  // // WERSJA 4 // ***
-  // background-color: rgba(255, 240, 203, 0.999);
-  // background-blend-mode: multiply;
-
-  // // WERSJA 5 // ***
-  // background-color: rgba(255, 238, 193, 0.7);
-  // background-blend-mode: lighten;
-
 }

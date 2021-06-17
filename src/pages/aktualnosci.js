@@ -4,15 +4,16 @@ import { graphql, Link, useStaticQuery } from 'gatsby'
 import Layout from '../components/layout'
 import Seo from '../components/seo'
 
-import  { getOfferSectionByTitleID, GetPrettyDatePL } from '../components/functions'
+import  { GetPrettyDatePL } from '../components/functions'
 
 import '../styles/aktualnosci/aktualnosci.css'
 
 // ------------
 
 
-let CSS = {}
-CSS.layoutClasses = "d-flex flex-column justify-content-center my-0 jumbotron jumbotron-fluid" 
+const CSS = {
+  layoutClasses: "d-flex flex-column justify-content-center my-0 jumbotron jumbotron-fluid" 
+}
 
 
 const GetNewsData = () => {
@@ -94,10 +95,7 @@ const GetNewsData = () => {
   return data;
 }
 
-const TitleToNewsPostSlug = (publishDate, title) => {
-  const titleSlug = getOfferSectionByTitleID(title);
-  return `/aktualnosci/${publishDate}/${titleSlug}`
-}
+
 
 
 /*
@@ -131,17 +129,15 @@ const SideBar = () => {
 
 const NewsPagePost = (props) => {
   const publishDate = GetPrettyDatePL(props.publishDate)
-  
 
-  // debugger;
   return(
-    <div class="row my-5 py-1  py-3 ">
-      <div class="col-12">
-        <h2 class="display-6 font-weight-normal">{props.title}</h2>
-        <p class="font-weight-lighter text-muted">Opublikowano: {publishDate}</p>
+    <div className="row my-5 py-1  py-3 ">
+      <div className="col-12">
+        <h2 className="display-6 font-weight-normal">{props.title}</h2>
+        <p className="font-weight-lighter text-muted">Opublikowano: {publishDate}</p>
         <p>{`${props.intercept}...`}</p>
-        <div class="text-right">
-          <Link to={props.path} class="btn rounded-0 btn-outline-info py-1 px-3 small">Czytaj więcej</Link>
+        <div className="text-right">
+          <Link to={props.path} className="btn rounded-0 btn-outline-info py-1 px-3 small">Czytaj więcej</Link>
         </div>
       </div>
     </div> 
@@ -153,26 +149,10 @@ const NewsPagePost = (props) => {
 const NewsPage = (props) => {
 
   const {allSitePage, allContentfulAktualnosciPost} = GetNewsData();
-  // debugger;
-
-  
-
-  const contentProps = {
-    title: "",
-    publishDate: "",
-    intercept: "Tutaj bedzie skrót tresci",
-  }
-
-  let allNewsPagePost = [];
-  let idx = 0;
+  let allNewsPagePost = [], idx = 0;
 
   if (allContentfulAktualnosciPost.edges.length === allSitePage.nodes.length) {
     allContentfulAktualnosciPost.edges.forEach( (edge) => {
-    
-      // contentProps.title = edge.node.title;
-      // contentProps.publishDate = edge.node.publishDate;
-      // edge.node.intercept;
-      
       if (edge.node.title !== "MODEL_DANYCH") {
         // debugger;
         if (edge.node.publishDate === allSitePage.nodes[idx].context.publishDate) {
@@ -183,11 +163,10 @@ const NewsPage = (props) => {
         } 
       }
     })    
-  } else {
+  } 
+  else {
     console.warn("Number of allContentfulAktualnosciPost edges in not equal number of post pages (Probablu problem with MODEL_DANYCH post)");
   }
-  
-  // debugger;
 
   return(
     <Layout className={`news-page-main-class container-flex`} id="" currentPath={props.path} >
@@ -195,18 +174,15 @@ const NewsPage = (props) => {
       <Seo title="Aktualności" url="aktualnosci"/>
       <div className={`${CSS.layoutClasses} jumbotron jumbotron-hero`} id="top">
         <div className="container">
-          <h1 class="display-2" >Aktualności</h1>
+          <h1 className="display-2" >Aktualności</h1>
         </div>
       </div>
-      <div class="container-fluid d-flex flex-wrap py-5 px-0">
-        <div class="container archive">
+      <div className="container-fluid d-flex flex-wrap py-5 px-0">
+        <div className="container archive">
           {allNewsPagePost}
         </div>
       </div>
-
     </Layout>
   )
 }
-
-
 export default NewsPage

@@ -94,10 +94,11 @@ const getRichTextRenderer = () => {
   richTextRenderer.options = {
     renderNode: {
       "embedded-asset-block": (node) => {
+        const imageSize = '?w=1280';
   
         let richText = richTextRenderer.richText;
   
-        console.log('$$$$$$$ ', richTextRenderer.hello, '$$$$$$$ ');
+        // console.log('$$$$$$$ ', richTextRenderer.hello, '$$$$$$$ ');
 
         let references = [];
 
@@ -128,8 +129,8 @@ const getRichTextRenderer = () => {
         }
         
         return(
-          <figure className="my-2">
-            <img src={imageUrl} alt={imageDescription} className="img-fluid"/>
+          <figure className="">
+            <img src={`${imageUrl}${imageSize}`} alt={imageDescription} className="img-fluid"/>
           </figure>
         )
       },
@@ -205,7 +206,14 @@ const getRichTextRenderer = () => {
         );
 
       }
-    } // renderNode
+    }, // renderNode
+    renderText: text => {
+      // Source:
+      // https://www.contentful.com/blog/2021/05/27/rich-text-field-tips-and-tricks/#heading-1051
+      return text.split('\n').reduce((children, textSegment, index) => {
+        return [...children, index > 0 && <br key={index} />, textSegment];
+      }, []);
+    }
   } // options
 
   return richTextRenderer; 
@@ -329,10 +337,53 @@ const GetPrettyDatePL = (stringDate) => {
 
 
 
+  
+
+function arrayContains(item, array) {
+  return (array.indexOf(item) > -1);
+}
+/* Tworzy i dodaje id do nagłówków na podstawie ich treści  */ 
+  class IdFromTitleClass {
+    static itemsType = ["h1", "h2", "h3", "h4", "h5"];
+    static AddToContent(pageContent) {
+      let newPageContent = pageContent.map( node => {
+        let newNode = null;
+  
+        if (arrayContains(node.type, this.itemsType)) {
+          let nodeContent = node.props.children;
+          let nodeText = "";
+          // if (node.type === "h2") {
+          //   debugger;          
+          // }
+          
+          if (Array.isArray(nodeContent)) {
+            nodeContent = nodeContent[0] 
+            for (let i = 0; i < nodeContent.length; i++) {
+              if (typeof nodeContent[i] === "string") {
+                nodeText += nodeContent[i];
+              }            
+            }
+            // nodeContent = nodeContent.join(" ");       
+          } else {
+            nodeText = nodeContent
+          }
+          newNode = React.cloneElement(node, {id: slugify(nodeText)});
+  
+        } else {
+          newNode = node;
+        }
+        return newNode;
+      }); 
+      return newPageContent;
+    }
+  }
 
 
-
-
-
-
-export {slugify, getRichTextRenderer, richTextRenderer, getOfferSectionByTitleID, GetPrettyDatePL}
+export {
+  slugify, 
+  getRichTextRenderer, 
+  richTextRenderer, 
+  getOfferSectionByTitleID, 
+  GetPrettyDatePL, 
+  IdFromTitleClass
+}

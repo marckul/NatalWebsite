@@ -1,7 +1,6 @@
 import * as React from 'react'
-// import { Link } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links";
-import { StaticImage } from "gatsby-plugin-image"
+// import { StaticImage } from "gatsby-plugin-image"
 import { navigate } from 'gatsby';
 
 

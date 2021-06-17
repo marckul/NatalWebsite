@@ -1,4 +1,4 @@
-import { graphql, Link, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import * as React from 'react'
 import Layout from '../components/layout'
 
@@ -76,12 +76,11 @@ const NewsPostTemplate = (props) => {
 
   
 
-
+  debugger;
   return(
     <Layout id="strona-aktualnosci" className="single-post-main-class" currentPath="/aktualnosci/">
       <Seo title={data.title} type="article" url={props.path} />
       <div className="container mt-5 py-5">
-        {/* <nav><p><Link to="/aktualnosci">&#8592;Powrót</Link></p></nav> */}
         <nav><GoBackLink/></nav>
         
         <article>
