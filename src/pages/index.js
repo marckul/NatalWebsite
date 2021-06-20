@@ -20,36 +20,44 @@ const IndexPage = (props) => {
       <section id="start">
         <CarouselHero />
           <div className="container py-md-5 my-5">
-            <h1 className="display-4">Natal Instalacje</h1>
-            <p className="lead">Tutaj powinien znaleźć się jakiś <strong>krótki</strong> slogan na temat firmy</p>
+            <h1 className="display-3 ">Natal Instalacje</h1>
+            <p className="lead-normal font-weight-bold">
+              Zajmujemy się kompleksowym wykonawstwem robót instalacyjnych w domach, mieszkaniach, obiektach użyteczności publicznej i innych oraz sprzedażą materiałów instalacyjnych. 
+              <br/>Nasze doświadczenie w branży sięga 30 lat.
+            </p>
+            <p className="lead-normal">
+              Jesteśmy w stanie wykonać każdą instalację podejmując się nawet najtrudniejszych zadań. Współpracujemy również z zaufanymi projektantami instalacji, którzy projektują dla nas instalacje gazowe oraz inne, załatwiając wszelkie formalności za klienta, włącznie z nadzorem kierownika budowy.
+            </p>
           </div>
       </section>
 
       <section id="oferta" className="container py-md-5 my-5">      
         <h1 className="display-3">Oferta</h1>
-        <p className="lead">Prowadzimy działalność w zakresie <strong>sprzedaży, wykonastwa i serwisu</strong> w poniższych dziedzinach</p>
+        <p className="lead-normal">Prowadzimy działalność w zakresie <strong>sprzedaży, wykonastwa i serwisu</strong> w poniższych dziedzinach</p>
 
         <Row justifyContent="around">
           <Card id="centralne-ogrzewanie" to="/oferta#centralne-ogrzewanie" src={gasBoiler} alt="image mockup" small=''>
             <CardTitle>Centralne Ogrzewanie</CardTitle>
-            <CardText>Dolorem labore facilis alias consequuntur, quas voluptates ratione, consequatur nobis quibusdam harum veritatis.</CardText>
+            <CardText>
+              W naszej ofercie znajdziecie państwo kotły kondensacyjne, pomy ciepła, ogrzewanie podłogowe oraz inne rozwiązania zapewniające właściwe ogrzanie budynku, które stosuje się  w nowoczesnym budownictwie. 
+            </CardText>
           </Card>
           <Card id="instalacje-wod-kan" to="/oferta#instalacje-wod-kan" src={tapSketch} alt="image mockup" small=''>
             <CardTitle>Instalacje WOD-KAN</CardTitle>
             <CardText>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum exercitationem incidunt aperiam ratione autem a ullam debitis! Dolorem labore facilis alias consequuntur, quas voluptates ratione, consequatur nobis quibusdam harum veritatis.
+              Wykonujemy przyłącza wodne i kanalizacyjne. Dzięki stałej współpracy z projektantami instalacji jesteśmy w stanie zapewnić również projekt wykonywanej instalacji przyłącza
             </CardText>
           </Card>
           <Card id="fotowoltaika-i-wentylacja" to="/oferta#fotowoltaika-i-wentylacja" src={photovoltaicsSketch} alt="image mockup" small=''>
             <CardTitle>Fotowoltaika i Wentylacja</CardTitle>
             <CardText>
-              Est beatae libero quia non tempora perferendis fugiat maxime? Aliquid eaque cupiditate nemo quia ad dolores unde. Est, quia totam. Laudantium neque, quod ea architecto sint sed eaque, cumque repellendus voluptates cupiditate in aliquid.
+              Zajmujemy się sprzedażą i montażem ogniw fotowoltaicznych i solarów, a także instalacją systemów wentylacji z rekuperacją.
             </CardText>
           </Card>
           <Card id="roboty-ziemne" to="/oferta#roboty-ziemne" src={excavatorSketch} alt="image mockup" small=''>
             <CardTitle>Roboty Ziemne</CardTitle>
             <CardText>
-              Oferujemy wynajem minikoparki  Kubota KX018-4  wraz z operatorem.
+              Oferujemy wynajem minikoparki  Kubota KX018-4  wraz z wykwalifikowanym operatorem. Wykonujemy wykopy zarówno pod instalacje wodno-kanalizacyjne, gazowe jak i inne wykopy związane z remontem i budową domu
             </CardText>
           </Card>    
         </Row>
@@ -57,25 +65,44 @@ const IndexPage = (props) => {
 
       <section id="o-firmie"  className="container my-5 py-5">
         <h1 className="display-3">O firmie</h1>
-        <p>Maiores rerum eum porro eius ipsa libero cupiditate voluptatum, perspiciatis nisi nobis molestiae aliquam minus corrupti explicabo autem, distinctio dolorem. Aut suscipit necessitatibus fuga aspernatur dicta ipsam quibusdam, repellat ratione. Animi cumque autem optio deserunt quo, a illo eos repellendus hic dolor vel eius repudiandae culpa cum. Rerum dicta deserunt in iusto laborum. Dicta debitis, amet nesciunt perferendis corrupti quaerat nihil inventore ipsum, earum exercitationem saepe placeat illo officiis aliquam et dolorem. Unde cum molestiae quos eum voluptatum error aperiam eos, voluptate quae necessitatibus. Aperiam quae corporis odio, voluptate voluptatem quidem autem alias nisi atque nesciunt praesentium quibusdam quo placeat ducimus deleniti? Tenetur, blanditiis provident exercitationem in magni tempora id esse explicabo minima reiciendis officia. Error suscipit architecto blanditiis.</p>
-        <p> Enim fugit similique maxime dolorem totam aut natus iste debitis expedita dicta est exercitationem necessitatibus aspernatur molestiae, labore eius optio, at voluptatum vero, iusto corporis sapiente illo doloribus! Dignissimos qui perferendis eius eos ratione modi beatae libero minima tenetur, amet hic placeat explicabo voluptas impedit voluptatum deleniti nostrum alias aspernatur.</p>
+        <div className="lead-normal">
+          <p>
+            Przedsiębiorstwo Natal PHU rozpoczęło swoją działalność w 1993 r. w Żorach od sprzedaży i montażu elektrycznych kabli grzewczych duńskiej firmy DEVI- wiodącego producenta tego produktu na świecie. W tym czasie byliśmy jednym z kilku dystrybutorów tego produktu w kraju a jedną z dwóch firm na śląsku. Z czasem w miarę rozwoju firmy, rozpoczęliśmy montaż ogrzewania podłogowego wodnego oraz wykonawstwo instalacji centralnego ogrzewania oraz gazu.
+          </p>
+          <p>
+            Kolejnym krokiem było otwarcie sklepu z materiałami instalacyjnymi w Rybniku z roku na rok poszerzając asortyment i związując się z wiodącymi producentami na świecie. Obecnie zajmujemy się kompleksowym wykonawstwem robót instalacyjnych w obiektach użyteczności publicznej, mieszkaniowych i innych oraz sprzedażą materiałów instalacyjnych.
+          </p>
+          <p>
+            Jesteśmy w stanie wykonać każdą instalację podejmując się nawet najtrudniejszych zadań. Współpracujemy z projektantami którzy projektują dla nas instalacje gazowe oraz inne załatwiając wszelkie formalności za klienta, włącznie z nadzorem kierownika budowy.
+          </p>
+          <p>
+            Zlecone prace realizujemy terminowo, w najnowocześniejszych technologiach dostępnych na rynku. Zatrudniamy wysoko kwalifikowanych pracowników, z długoletnią praktyką zawodową, co pozwala na utrzymanie wysokiego poziomu wykonawstwa. Nasza firma posiada wszelkie wymagane uprawnienia do prowadzenia wykonywanych prac. Podczas realizacji prac instalacyjnych podejmujemy stałą współpracę ze zleceniodawcami w celu najefektywniejszej realizacji kontraktu.
+          </p>
+        </div>
+
+
+      </section>
+      <section id="godziny-otwarcia"  className="container my-5 py-5">
+        <div className="row">
+
+      </div>
       </section>
 
       <section id="kontakt" >
         <div  className="py-5 contact-section full-height d-flex flex-column justify-content-center" style={{backgroundImage: `url(${pipesImg})`}}>
           <div  className="container text-white py-5 my-5" >
-            <div className="row col-12 col-xl-8 mx-auto contact-row ">
-              <div className="col-12">
+            <div className="row mx-auto px-0 contact-row justify-content-between">
+              <div className="col-12 ">
                 <h1 className="display-2 text-left mb-5">Jak nas znaleźć?</h1>
               </div>
-              <div className="col-md">
+              <div className="col-md-4 col-lg-3 mb-5">
                 <h2>Nasz adres</h2>
                 <address className="">                      
                     Miejska 13, 44-200 Rybnik <br/>
                     Natalia Kula "Natal" PHU <br/>
                 </address>  
               </div>
-              <div className="col-md flex-grow-0">
+              <div className="col-md-3 col-lg-2 mb-5">
                 <h2>
                   Telefon
                 </h2>
@@ -86,6 +113,57 @@ const IndexPage = (props) => {
                 </div>
                 {/* <div></div> */}
               </div>
+                                                  
+              <div className=" col-md col-lg-5">
+                  <h2 className="">Godziny otwarcia</h2>
+                  <table className="openning-hours ">
+                    <tbody>
+                      <li>
+                        <tr>
+                          <th>poniedziałek</th>
+                          <td>08:30–16:00</td>
+                        </tr>
+                      </li>
+                      <li>
+                        <tr>
+                          <th>wtorek</th>
+                          <td>08:30–16:00</td>
+                        </tr>
+                      </li>
+                      <li>
+                        <tr>
+                          <th>środa</th>
+                          <td>08:30–16:00</td>
+                        </tr>
+                      </li>
+                      <li>
+                        <tr>
+                          <th>czwartek </th>
+                          <td>08:30–16:00</td>
+                        </tr>
+                      </li>
+                      <li>
+                        <tr>
+                          <th>piątek</th>
+                          <td>08:30–16:00</td>
+                        </tr>
+                      </li>
+                      <li>
+                        <tr>
+                          <th>sobota</th>
+                          <td>09:00–12:00</td>
+                        </tr>
+                      </li>
+                      <li>
+                        <tr>
+                          <th>niedziela </th>
+                          <td>Zamknięte</td>
+                        </tr>
+                      </li>
+                    </tbody>
+                  </table>
+                </div>
+            
             </div>
           </div>
         </div>

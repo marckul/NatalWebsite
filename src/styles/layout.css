@@ -74,8 +74,12 @@ p, h1, h2, h3, h4, h5, h6 {
           hyphens: manual !important;
 }
 
+.lead-normal {
+  font-size: 1.25rem;
+}
+
 /* =============================
-        RYTHM
+        RYTHM, TEXT
 ================================ */
 article p + h1, .article p + h1 {
   margin-top: 2.4em;
@@ -120,6 +124,60 @@ a, .fake-link {
 
 a:hover, .fake-link:hover {
   text-decoration: underline;
+}
+
+blockquote {
+  border-left: solid 0.25rem #456e96;
+  padding-left: 1rem;
+}
+
+table li {
+  list-style: none;
+  list-style-type: none;
+}
+
+tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  #kontakt h2, #kontakt h3, #kontakt address, #kontakt p {
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
+    min-width: max-content;
+  }
+}
+
+.openning-hours tr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+.openning-hours th + td {
+  margin-left: 1rem;
+}
+
+.openning-hours td + td {
+  margin-left: 1rem;
+}
+
+.openning-hours td {
+  font-weight: normal;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+
+.text-color {
+  color: #456e96;
 }
 
 .bg-dark a, .bg-dark a:hover, .bg-dark .fake-link:hover {
@@ -343,6 +401,18 @@ main {
   background-attachment: scroll;
 }
 
+a .card {
+  color: inherit !important;
+}
+
+.card {
+  /* Pre-render the bigger shadow, but hide it */
+  -webkit-transition: -webkit-box-shadow .15s ease-in, -webkit-transform .15s ease-in;
+  transition: -webkit-box-shadow .15s ease-in, -webkit-transform .15s ease-in;
+  transition: box-shadow .15s ease-in, transform .15s ease-in;
+  transition: box-shadow .15s ease-in, transform .15s ease-in, -webkit-box-shadow .15s ease-in, -webkit-transform .15s ease-in;
+}
+
 .card img {
   -o-object-fit: contain;
      object-fit: contain;
@@ -353,6 +423,8 @@ main {
 .card:hover {
   -webkit-box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.25) !important;
           box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.25) !important;
+  -webkit-transform: scale(1.025);
+          transform: scale(1.025);
 }
 
 .jumbotron-hero {
@@ -431,23 +503,8 @@ main + .jumbotron-hero {
   font-weight: normal;
 }
 
-@media (min-width: 768px) {
-  .contact-section .contact-row {
-    font-weight: normal !important;
-    font-size: 1.1rem !important;
-  }
-}
-
-@media (min-width: 992px) {
-  .contact-section .contact-row {
-    font-size: 1.25rem !important;
-  }
-}
-
-@media (min-width: 1200px) {
-  .contact-section .contact-row {
-    font-size: 1.5rem !important;
-  }
+.contact-section .contact-row {
+  font-size: 1.25rem !important;
 }
 
 /* =================
