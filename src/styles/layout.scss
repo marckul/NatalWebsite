@@ -65,10 +65,14 @@ p, h1, h2, h3, h4, h5, h6 {
   hyphens: manual !important;
 }
 
+.lead-normal {
+  font-size: 1.25rem;
+}
+
 
 
 /* =============================
-        RYTHM
+        RYTHM, TEXT
 ================================ */
 // .h2, h2 {
 //   font-size: 2rem;
@@ -126,8 +130,56 @@ a, .fake-link {
   &:hover {
     text-decoration: underline;
   }
-
 }
+
+
+blockquote {
+  border-left: solid .25rem $marckul-secondary-color-dark;
+  padding-left: 1rem;
+}
+
+
+table li {
+  list-style: none;
+  list-style-type: none;
+}
+tr {
+  display: flex;
+  width: 100%;
+}
+
+#kontakt {
+  
+  @media (min-width: map-get($screen-size, sm )) {
+    h2, h3, address, p {
+      min-width: max-content;
+    }
+  }
+  
+}
+.openning-hours {
+  tr {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  th + td {
+    margin-left: 1rem;
+  }
+  td + td {
+    margin-left: 1rem;
+  }
+  td {
+    font-weight: normal;
+    min-width: max-content;
+  }
+}
+
+.text-color {
+  color: $marckul-secondary-color-dark;
+}
+
 
 .bg-dark {
   a, a:hover, .fake-link:hover {
@@ -282,6 +334,11 @@ main {
 
 
 // CARD
+a {
+  .card {
+    color: inherit !important;
+  }
+}
 .card {
 
   img {
@@ -291,9 +348,27 @@ main {
     // mix-blend-mode: multiply NIE DZIAŁA W FIREFOX
   }
 
+
+  /* Pre-render the bigger shadow, but hide it */
+  // &::after {
+  //   // box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  //   content: "";
+  //   box-shadow: $shadow-hover map-get($shadow-color, light) !important;
+  //   opacity: 0;
+  //   transition: opacity 0.3s ease-in-out;
+
+  //   /* Transition to showing the bigger shadow on hover */
+  //   &:hover {
+  //     opacity: 1;
+  //   }
+  // }
+  transition: box-shadow .15s ease-in, transform .15s ease-in;
+  
+
   &:hover {
     // box-shadow: $shadow-lg map-get($shadow-color, very-light) !important;
     box-shadow: $shadow-hover map-get($shadow-color, light) !important;
+    transform: scale(1.025);    
   }
 }
 

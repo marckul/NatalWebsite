@@ -40,6 +40,8 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "build_h": "env-cmd -f .env gatsby build",
+    "develop_h": "env-cmd -f .env gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

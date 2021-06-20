@@ -207,6 +207,12 @@ const OfferPage = (props) => {
   /* ================================
         OFERTA - DALSZE SEKCJE
   ----------------------------------- */
+  richTextRenderer.options.renderNode["heading-2"] = (node) => {
+    return(
+      <h2>{node.content[0].value}</h2>
+    )
+  }
+  
   let columnsRestSection = [];
 
   let renderOfferSection = (edge) => {

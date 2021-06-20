@@ -62,25 +62,30 @@
   .contact-row {
     font-weight: normal;
   }  
+  
 
-  @media (min-width: map-get($screen-size, md )) {
+  // @media (min-width: map-get($screen-size, md )) {
     
-    .contact-row {
-      font-weight: normal !important;
-      font-size: 1.1rem !important;
-    }  
-  }
+  //   .contact-row {
+  //     font-weight: normal !important;
+  //     font-size: 1.1rem !important;
+  //   }  
+  // }
 
-  @media (min-width: map-get($screen-size, lg )) {
-    .contact-row {
-      font-size: 1.25rem !important;
-    }  
-  }
+  // @media (min-width: map-get($screen-size, lg )) {
+  //   .contact-row {
+  //     font-size: 1.25rem !important;
+  //   }  
+  // }
 
-  @media (min-width: map-get($screen-size, xl )) {
-    .contact-row {
-      font-size: 1.5rem !important;
-    }  
-  }
+  // @media (min-width: map-get($screen-size, xl )) {
+  //   .contact-row {
+  //     font-size: 1.5rem !important;
+  //   }  
+  // }
+
+  .contact-row {
+    font-size: 1.25rem !important;
+  }  
   
 }
