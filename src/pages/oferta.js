@@ -40,6 +40,11 @@ const OfferPage = (props) => {
                   contentful_id
                   description
                   id
+                  gatsbyImageData(
+                    layout: CONSTRAINED
+                    placeholder: DOMINANT_COLOR
+                    width: 1280
+                  )
                   file {
                     __typename
                     url
@@ -75,6 +80,11 @@ const OfferPage = (props) => {
                   contentful_id
                   description
                   id
+                  gatsbyImageData(
+                    layout: CONSTRAINED
+                    placeholder: DOMINANT_COLOR
+                    width: 1280
+                  )
                   file {
                     __typename
                     url
@@ -121,6 +131,11 @@ const OfferPage = (props) => {
                   contentful_id
                   description
                   id
+                  gatsbyImageData(
+                    layout: CONSTRAINED
+                    placeholder: DOMINANT_COLOR
+                    width: 1280
+                  )
                   file {
                     __typename
                     url

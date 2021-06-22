@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { AnchorLink } from "gatsby-plugin-anchor-links";
-
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 // ZMIANA TEKSTU NA SLUG
 function slugify(text) {
@@ -118,11 +117,14 @@ const getRichTextRenderer = () => {
 
         let imageUrl = "";
         let imageDescription = "";
+        let image = null;
+
         if (node.data.target.sys.linkType === "Asset") {
           references.forEach( (reference) => { 
             if (node.data.target.sys.id === reference.contentful_id) {
               imageUrl = reference.file.url;
               imageDescription = reference.description;
+              image = getImage(reference);
             }
           })
 
@@ -130,7 +132,8 @@ const getRichTextRenderer = () => {
         
         return(
           <figure className="">
-            <img src={`${imageUrl}${imageSize}`} alt={imageDescription} className="img-fluid"/>
+            <GatsbyImage image={image} alt={imageDescription} className="img-fluid"/>
+            {/* <img src={`${imageUrl}${imageSize}`} alt={imageDescription} className="img-fluid"/> */}
           </figure>
         )
       },

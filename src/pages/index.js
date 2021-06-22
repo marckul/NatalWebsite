@@ -39,13 +39,13 @@ const IndexPage = (props) => {
           <Card id="centralne-ogrzewanie" to="/oferta#centralne-ogrzewanie" src={gasBoiler} alt="image mockup" small=''>
             <CardTitle>Centralne Ogrzewanie</CardTitle>
             <CardText>
-              W naszej ofercie znajdziecie państwo kotły kondensacyjne, pomy ciepła, ogrzewanie podłogowe oraz inne rozwiązania zapewniające właściwe ogrzanie budynku, które stosuje się  w nowoczesnym budownictwie. 
+              W naszej ofercie znajdziecie państwo kotły kondensacyjne, pomy ciepła, ogrzewanie podłogowe oraz inne rozwiązania zapewniające właściwe ogrzewanie budynku, które stosuje się  w nowoczesnym budownictwie. 
             </CardText>
           </Card>
           <Card id="instalacje-wod-kan" to="/oferta#instalacje-wod-kan" src={tapSketch} alt="image mockup" small=''>
             <CardTitle>Instalacje WOD-KAN</CardTitle>
             <CardText>
-              Wykonujemy przyłącza wodne i kanalizacyjne. Dzięki stałej współpracy z projektantami instalacji jesteśmy w stanie zapewnić również projekt wykonywanej instalacji przyłącza
+              Wykonujemy przyłącza wodne i kanalizacyjne. Dzięki stałej współpracy z projektantami instalacji jesteśmy w stanie zapewnić również projekt wykonywanej instalacji przyłącza.
             </CardText>
           </Card>
           <Card id="fotowoltaika-i-wentylacja" to="/oferta#fotowoltaika-i-wentylacja" src={photovoltaicsSketch} alt="image mockup" small=''>
@@ -114,56 +114,47 @@ const IndexPage = (props) => {
                 {/* <div></div> */}
               </div>
                                                   
-              <div className=" col-md col-lg-5">
+              <div className=" col-md col-lg-5 " >
+                <div className="openning-hours">
                   <h2 className="">Godziny otwarcia</h2>
-                  <table className="openning-hours ">
+                  <table className=" ">
                     <tbody>
-                      <li>
                         <tr>
                           <th>poniedziałek</th>
                           <td>08:30–16:00</td>
                         </tr>
-                      </li>
-                      <li>
                         <tr>
                           <th>wtorek</th>
                           <td>08:30–16:00</td>
                         </tr>
-                      </li>
-                      <li>
                         <tr>
                           <th>środa</th>
                           <td>08:30–16:00</td>
                         </tr>
-                      </li>
-                      <li>
                         <tr>
                           <th>czwartek </th>
                           <td>08:30–16:00</td>
                         </tr>
-                      </li>
-                      <li>
                         <tr>
                           <th>piątek</th>
                           <td>08:30–16:00</td>
                         </tr>
-                      </li>
-                      <li>
                         <tr>
                           <th>sobota</th>
                           <td>09:00–12:00</td>
                         </tr>
-                      </li>
-                      <li>
                         <tr>
                           <th>niedziela </th>
                           <td>Zamknięte</td>
                         </tr>
-                      </li>
                     </tbody>
                   </table>
+                  <p className="mt-3 font-italic">W przypadku świąt godziny otwarcia mogły ulec zmianie.  
+                    <a href="https://www.google.com/maps/place/Sprzeda%C5%BC+i+wykonawstwo+instalacji+-+Natal+Instalacje,+Miejska+13,+44-200+Rybnik,+Polska/@50.0921913,18.5426409,19z/data=!4m6!1m3!3m2!1s0x47114ed83d8ed535:0xe8c8f888d50c3781!2sNatal+Instalacje,+Miejska+13,+44-200+Rybnik,+Polska!3m1!1s0x47114ed847610965:0x448e4c006b68ed07" 
+                    target="_blank" className="link-light"> Sprawdź tutaj</a>
+                  </p>
                 </div>
-            
+              </div>
             </div>
           </div>
         </div>
