@@ -144,11 +144,23 @@ tr {
 }
 
 @media (min-width: 576px) {
-  #kontakt h2, #kontakt h3, #kontakt address, #kontakt p {
+  #kontakt h2, #kontakt h3, #kontakt address {
     min-width: -webkit-max-content;
     min-width: -moz-max-content;
     min-width: max-content;
   }
+}
+
+.openning-hours {
+  max-width: 16em;
+}
+
+.openning-hours p {
+  max-width: 100% !important;
+}
+
+.openning-hours table {
+  width: 100%;
 }
 
 .openning-hours tr {
@@ -162,11 +174,11 @@ tr {
 }
 
 .openning-hours th + td {
-  margin-left: 1rem;
+  margin-left: auto;
 }
 
 .openning-hours td + td {
-  margin-left: 1rem;
+  margin-left: 1.5rem;
 }
 
 .openning-hours td {
