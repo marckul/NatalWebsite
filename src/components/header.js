@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 
 import { Link } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links";
+import { SmoothLink } from '../components/componentsBundle'
 // https://www.npmjs.com/package/react-scrollspy
 import Scrollspy from 'react-scrollspy'
 
@@ -14,13 +15,21 @@ const NavLink = (props) => (
 )
 */ 
 
-const MyAnchorLink = ({children, to, thisPath, currentPath}) => {
+const NavLinkActive = ({children, to, thisPath, currentPath}) => {
   // debugger;
   let isActiveClass = thisPath === currentPath ? "active" : "";
   return(
-    <AnchorLink className={`nav-link ${isActiveClass}`} to={to}> {children}</AnchorLink>
+    <SmoothLink className={`nav-link ${isActiveClass}`} to={to}> {children}</SmoothLink>
   )
 }
+
+const NavLinkSpy = ({children, to}) => {
+  // debugger;
+  return(
+    <SmoothLink className="nav-link" to={to}> {children}</SmoothLink>
+  )
+}
+
 
 const NavBrand1 = () => (
   <Link className="navbar-brand " to="/">
@@ -28,18 +37,6 @@ const NavBrand1 = () => (
     <span>instalacje</span>
   </Link>
 )
-
-/*
-const NavBrand2 = () => (
-  <Link className="navbar-brand flex-row" to="/" style={{fontSize: '1rem'}}>
-    <div style={{fontSize: '2.8em', fontWeight: 'bold', paddingBottom: '0.05em'}}>N</div> 
-    <div>
-    <span>atal</span>
-    <span style={{fontSize: '.8em'}}>instalacje</span>
-    </div>
-  </Link>
-)
-*/ 
 
 
 const Header = ({ siteTitle, currentPath }) => {
@@ -56,19 +53,20 @@ const Header = ({ siteTitle, currentPath }) => {
             <div className="navbar-nav ml-auto ">
               <Scrollspy className="navbar-nav"  items={['start', 'oferta', 'o-firmie', 'kontakt', 'strona-aktualnosci']} currentClassName="active" offset={-100}>
                 <li className="nav-item order-1">
-                  <AnchorLink className="nav-link" to="/#top">Start</AnchorLink>
+                  <NavLinkSpy className="nav-link" to="/#top">Start</NavLinkSpy> 
+                  {/* // NavLinkSpy */}
                 </li>
                 <li className="nav-item order-2" >
-                  <MyAnchorLink currentPath={currentPath} thisPath="/oferta/" to="/oferta#top">Oferta</MyAnchorLink>
+                  <NavLinkActive currentPath={currentPath} thisPath="/oferta/" to="/oferta#top">Oferta</NavLinkActive>
                 </li>
                 <li className="nav-item order-3">
-                  <AnchorLink className="nav-link" to="/#o-firmie">O firmie</AnchorLink>
+                  <NavLinkSpy className="nav-link" to="/#o-firmie">O firmie</NavLinkSpy>
                 </li>
                 <li className="nav-item order-5">
-                  <AnchorLink className="nav-link" to="/#kontakt">Kontakt</AnchorLink>
+                  <NavLinkSpy className="nav-link" to="/#kontakt">Kontakt</NavLinkSpy>
                 </li>
                 <li className="nav-item order-4" >
-                  <MyAnchorLink currentPath={currentPath} thisPath="/aktualnosci/" to="/aktualnosci#top">Aktualności</MyAnchorLink>
+                  <NavLinkActive currentPath={currentPath} thisPath="/aktualnosci/" to="/aktualnosci#top">Aktualności</NavLinkActive>
                 </li>
               </Scrollspy>
             </div>

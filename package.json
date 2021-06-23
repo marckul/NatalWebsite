@@ -27,7 +27,8 @@
     "react-cookie-consent": "^6.2.3",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
-    "react-scrollspy": "^3.4.3"
+    "react-scrollspy": "^3.4.3",
+    "scroll-to-element": "^2.0.3"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",

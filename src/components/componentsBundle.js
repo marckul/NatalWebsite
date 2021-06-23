@@ -1,7 +1,9 @@
 import * as React from 'react'
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 // import { StaticImage } from "gatsby-plugin-image"
-import { navigate } from 'gatsby';
+import { Link, navigate } from 'gatsby';
+import scrollToElement from 'scroll-to-element' // https://www.npmjs.com/package/scroll-to-element
+
 
 
 
@@ -10,6 +12,81 @@ const Row = (props) => (
     {props.children}
   </div>
 )
+
+const SmoothLink = (props) => {
+
+
+  /**  AnchorClick
+   * + if current path is identical with target event path function nothing is changing
+   *   window.location.pathname === event.target.pathname
+   *   scroling to the element is performed
+   * 
+   * + if there is no hash (event.target.hash) => performing is default link behavor
+   * 
+   * + if there is a hash:  
+   *   1. function navigate to target page (path)
+   *   2. the function checks in a given time interval whether the element
+   *      has appeared on the page, if so, it scrolls to it 
+   * 
+   * @param {event} event - click event  
+   * 
+   */ 
+  const AnchorClick = (event) => {
+
+    if (typeof window !== 'undefined') {
+      
+      if (!event.target.hash) {
+        return;
+      }
+
+      console.log("RUNNING AnchorClick()");
+
+      const settings = {
+        offset: -100,
+        duration: 500,   
+        interval: 100,  
+      };
+
+      event.preventDefault()
+      if (window.location.pathname === event.target.pathname) {
+        scrollToElement(
+          event.target.hash, {
+            offset: settings.offset,
+            duration: settings.duration
+          }
+        );
+        return;
+      }
+
+      const myNavigate = async function (event) {
+        return( await navigate(event.target.pathname) )
+      }      
+      myNavigate(event).then( () => {        
+          const intervalID = setInterval( () => { // setTimeout
+            const targetElem = document.querySelector(event.target.hash)
+            console.log("myNavigate: Watching for target element...");
+
+            if (targetElem) {
+              console.log("myNavigate: Scrolling launched");
+              scrollToElement(
+                event.target.hash, {
+                  offset: settings.offset,
+                  duration: settings.duration
+                }
+              );
+              clearInterval(intervalID);              
+            }            
+
+          }, settings.interval)
+        }                
+      )
+    }  
+  }
+
+  return(
+    <Link { ...props } onClick={AnchorClick} >{props.children}</Link>
+  )
+}
 
 const CardTitle = ({children}) => (
   <h2 className="card-title">{children}</h2>
@@ -25,7 +102,7 @@ const Card = (props) => {
   return(
     <div className="d-flex col-md-6 col-lg-5 p-md-1">
       <div id={props.id} className="card flex-fill shadow mb-5 p-lg-3">
-        <AnchorLink to={props.to} className="stretched-link"><img src={props.src} alt={props.alt} className="card-img-top"/></AnchorLink>
+        <SmoothLink to={props.to} className="stretched-link"><img src={props.src} alt={props.alt} className="card-img-top"/></SmoothLink>
         <div className="card-body text-center d-flex flex-column justify-content-between">
           <div>{props.children}</div>
           <p className="card-text"><small className="text-muted font-italic">{props.small}</small></p>
@@ -82,7 +159,7 @@ const JumbotronHero = ({title, children}) => {
 }
 
 
-export {Row, CardTitle, CardText, Card, GoBackLink, Phone, JumbotronHero}
+export {Row, CardTitle, CardText, Card, GoBackLink, Phone, JumbotronHero, SmoothLink}
 // export Row
 // export CardTitle
 // export CardText
