@@ -36,10 +36,22 @@ const IndexPage = (props) => {
         <p className="lead-normal">Prowadzimy działalność w zakresie <strong>sprzedaży, wykonastwa i serwisu</strong> w poniższych dziedzinach</p>
 
         <Row justifyContent="around">
-          <Card id="centralne-ogrzewanie" to="/oferta#centralne-ogrzewanie" src={gasBoiler} alt="image mockup" small=''>
+          <Card id="centralne-ogrzewanie" to="/#kontakt" src={gasBoiler} alt="image mockup" small=''>
             <CardTitle>Centralne Ogrzewanie</CardTitle>
             <CardText>
               W naszej ofercie znajdziecie państwo kotły kondensacyjne, pomy ciepła, ogrzewanie podłogowe oraz inne rozwiązania zapewniające właściwe ogrzewanie budynku, które stosuje się  w nowoczesnym budownictwie. 
+            </CardText>
+          </Card>
+          <Card id="roboty-ziemne" to="/oferta#roboty-ziemne" src={excavatorSketch} alt="image mockup" small=''>
+            <CardTitle>Koparka</CardTitle>
+            <CardText>
+              Oferujemy wynajem <strong>minikoparki  Kubota KX018&nbsp;-&nbsp;4</strong>  wraz z wykwalifikowanym operatorem. Wykonujemy wykopy zarówno pod instalacje wodno-kanalizacyjne, gazowe jak i inne wykopy związane z remontem i budową domu
+            </CardText>
+          </Card>   
+          <Card id="fotowoltaika-i-wentylacja" to="/oferta#fotowoltaika-i-wentylacja" src={photovoltaicsSketch} alt="image mockup" small=''>
+            <CardTitle>Fotowoltaika i Wentylacja</CardTitle>
+            <CardText>
+              Zajmujemy się sprzedażą i montażem ogniw fotowoltaicznych i solarów, a także instalacją systemów wentylacji z rekuperacją.
             </CardText>
           </Card>
           <Card id="instalacje-wod-kan" to="/oferta#instalacje-wod-kan" src={tapSketch} alt="image mockup" small=''>
@@ -48,18 +60,6 @@ const IndexPage = (props) => {
               Wykonujemy przyłącza wodne i kanalizacyjne. Dzięki stałej współpracy z projektantami instalacji jesteśmy w stanie zapewnić również projekt wykonywanej instalacji przyłącza.
             </CardText>
           </Card>
-          <Card id="fotowoltaika-i-wentylacja" to="/oferta#fotowoltaika-i-wentylacja" src={photovoltaicsSketch} alt="image mockup" small=''>
-            <CardTitle>Fotowoltaika i Wentylacja</CardTitle>
-            <CardText>
-              Zajmujemy się sprzedażą i montażem ogniw fotowoltaicznych i solarów, a także instalacją systemów wentylacji z rekuperacją.
-            </CardText>
-          </Card>
-          <Card id="roboty-ziemne" to="/oferta#roboty-ziemne" src={excavatorSketch} alt="image mockup" small=''>
-            <CardTitle>Roboty Ziemne</CardTitle>
-            <CardText>
-              Oferujemy wynajem minikoparki  Kubota KX018-4  wraz z wykwalifikowanym operatorem. Wykonujemy wykopy zarówno pod instalacje wodno-kanalizacyjne, gazowe jak i inne wykopy związane z remontem i budową domu
-            </CardText>
-          </Card>    
         </Row>
       </section>  
 
