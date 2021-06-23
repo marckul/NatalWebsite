@@ -16,6 +16,18 @@ const Row = (props) => (
 const SmoothLink = (props) => {
 
 
+  
+  const settings = {
+    offset: -100,
+    duration: 1000,   
+    interval1: 200, // looking for target element with interval1
+    delay: 600, // turn off
+    interval2: null, // repeating scrolling with interval2
+    iterations: 3, // repeating scrolling 3 times
+    idx: 0
+  };
+  settings.interval2 = 1.2*settings.duration/(settings.iterations-1); // ostatnia iteracja wykona się na miejscu
+
   /**  AnchorClick
    * + if current path is identical with target event path function nothing is changing
    *   window.location.pathname === event.target.pathname
@@ -41,11 +53,6 @@ const SmoothLink = (props) => {
 
       console.log("RUNNING AnchorClick()");
 
-      const settings = {
-        offset: -100,
-        duration: 500,   
-        interval: 100,  
-      };
 
       event.preventDefault()
       if (window.location.pathname === event.target.pathname) {
@@ -62,24 +69,36 @@ const SmoothLink = (props) => {
         return( await navigate(event.target.pathname) )
       }      
       myNavigate(event).then( () => {        
-          const intervalID = setInterval( () => { // setTimeout
-            const targetElem = document.querySelector(event.target.hash)
-            console.log("myNavigate: Watching for target element...");
+        console.log("myNavigate: LAUNCHING SET INTERVAL...");
+        const interval1_ID = window.setInterval( () => { // setTimeout
+          const targetElem = document.querySelector(event.target.hash)
+          console.log("myNavigate: Watching for target element...");
 
-            if (targetElem) {
-              console.log("myNavigate: Scrolling launched");
-              scrollToElement(
-                event.target.hash, {
-                  offset: settings.offset,
-                  duration: settings.duration
-                }
-              );
-              clearInterval(intervalID);              
-            }            
+          if (targetElem) {
+            window.clearInterval(interval1_ID);              
+            const interval2_ID = window.setInterval( () => {
+              if (settings.idx < settings.iterations) {
+                console.log(`myNavigate: Scrolling launched index: ${settings.idx}`);                
 
-          }, settings.interval)
-        }                
-      )
+                scrollToElement(
+                  event.target.hash, {
+                    offset: settings.offset,
+                    duration: settings.duration/settings.iterations  // dla iterations = 3 1, 2/3, 1/3
+                  }
+                );   
+                settings.idx++;  
+              } 
+              else {
+                window.clearInterval(interval2_ID);    
+              }
+              
+            }, settings.interval2)
+          }   
+        }, settings.interval1)
+
+        // window.setTimeout( () => { }, settings.delay)
+        
+      })
     }  
   }
 
