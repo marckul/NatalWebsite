@@ -46,7 +46,7 @@ const Layout = (props) => {
           buttonClasses="btn btn-outline-light rounded-0"
           buttonText="Rozumiem i zgadzam się"
         >
-          <p className="py-2 mr-5 m-0">Ta strona używa plików cookie. Korzystając z niej zgadzasz się na ich użycie. <Link to="/regulamin-portalu">Dowiedz się więcej</Link></p>
+          <p className="py-2 mr-5 m-0">Ta strona używa plików cookie. Korzystając z niej zgadzasz się na ich użycie. <Link to="/regulamin-strony">Dowiedz się więcej</Link></p>
         </CookieConsent>
       </div>
 

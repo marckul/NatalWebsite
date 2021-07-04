@@ -44,34 +44,34 @@ const SmoothLink = (props) => {
    * 
    */ 
   const AnchorClick = (event) => {
+    const target = event.target;
 
     if (typeof window !== 'undefined') {
-      
-      if (!event.target.hash) {
+      if (!target.hash) {
         return;
       }
-
       console.log("RUNNING AnchorClick()");
 
-
-      event.preventDefault()
-      if (window.location.pathname === event.target.pathname) {
+      event.preventDefault();
+      if (window.location.pathname === target.pathname) {
         scrollToElement(
-          event.target.hash, {
+          target.hash, {
             offset: settings.offset,
             duration: settings.duration
           }
         );
+        // window.location.assign(target.pathname + target.hash)
         return;
       }
 
       const myNavigate = async function (event) {
-        return( await navigate(event.target.pathname) )
+        return( await navigate(target.pathname) )
       }      
+      
       myNavigate(event).then( () => {        
         console.log("myNavigate: LAUNCHING SET INTERVAL...");
         const interval1_ID = window.setInterval( () => { // setTimeout
-          const targetElem = document.querySelector(event.target.hash)
+          const targetElem = document.querySelector(target.hash)
           console.log("myNavigate: Watching for target element...");
 
           if (targetElem) {
@@ -81,7 +81,7 @@ const SmoothLink = (props) => {
                 console.log(`myNavigate: Scrolling launched index: ${settings.idx}`);                
 
                 scrollToElement(
-                  event.target.hash, {
+                  target.hash, {
                     offset: settings.offset,
                     duration: settings.duration/settings.iterations  // dla iterations = 3 1, 2/3, 1/3
                   }
@@ -91,13 +91,9 @@ const SmoothLink = (props) => {
               else {
                 window.clearInterval(interval2_ID);    
               }
-              
             }, settings.interval2)
           }   
         }, settings.interval1)
-
-        // window.setTimeout( () => { }, settings.delay)
-        
       })
     }  
   }
