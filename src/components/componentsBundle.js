@@ -43,7 +43,8 @@ const SmoothLink = (props) => {
    * @param {event} event - click event  
    * 
    */ 
-  const AnchorClick = ({target}) => {
+  const AnchorClick = (event) => {
+    const target = event.target;
 
     if (typeof window !== 'undefined') {
       if (!target.hash) {

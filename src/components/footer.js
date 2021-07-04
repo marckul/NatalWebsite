@@ -62,7 +62,7 @@ const Footer = () => {
           </div>
         </div>
         <p className="text-center" >Copyright &copy; 2021 NATAL INSTALACJE</p>
-        <p className="text-center" ><Link to="/regulamin-portalu">Regulamin Portalu</Link></p>
+        <p className="text-center" ><Link to="/regulamin-strony">Regulamin Strony</Link></p>
       </div>
     </footer>
   )

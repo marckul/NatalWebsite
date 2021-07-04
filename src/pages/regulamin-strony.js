@@ -10,7 +10,7 @@ import { GoBackLink, JumbotronHero } from '../components/componentsBundle';
 const GetPolicyData = () => {
   let data = useStaticQuery(graphql`
     query {
-      contentfulRegulaminPortalu(title: {eq: "Regulamin Portalu"}) {
+      contentfulRegulaminPortalu(title: {eq: "Regulamin Strony"}) {
         title
         body {
           raw
@@ -38,7 +38,7 @@ const CookieInfoPage = (props) => {
 
   return(
     <Layout>
-      <JumbotronHero title="Regulamin Portalu" />
+      <JumbotronHero title={contentfulRegulaminPortalu.title} />
       <div className="container top-nav-margin my-5 py-5">
         <GoBackLink />
         <article className="article">
