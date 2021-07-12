@@ -93,7 +93,7 @@ const getRichTextRenderer = () => {
   richTextRenderer.options = {
     renderNode: {
       "embedded-asset-block": (node) => {
-        const imageSize = '?w=1280';
+        // const imageSize = '?w=1280';
   
         let richText = richTextRenderer.richText;
   
@@ -113,16 +113,14 @@ const getRichTextRenderer = () => {
           })
         }
 
-        
-
-        let imageUrl = "";
+        // let imageUrl = "";
         let imageDescription = "";
         let image = null;
 
         if (node.data.target.sys.linkType === "Asset") {
           references.forEach( (reference) => { 
             if (node.data.target.sys.id === reference.contentful_id) {
-              imageUrl = reference.file.url;
+              // imageUrl = reference.file.url;
               imageDescription = reference.description;
               image = getImage(reference);
             }

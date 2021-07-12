@@ -2,7 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Natal Instalacje`,
     url: `www.natal-instalacje.pl`,
-    description: `Sprzedaż i wykonastwo instalacji wodno-kanalizacyjnych, centralnego ogrzewania, gazowych, montaż pomp ciepła, klimatyzacji , wentylacji z rekuperacją, a także fotowoltaiki i kolektorów słonecznych w Rybniku`, // TUTAJ POWINIEN ZNALEZC SIE OPIS STRONY
+    description: `Sprzedaż i wykonastwo instalacji `, // TUTAJ POWINIEN ZNALEZC SIE OPIS STRONY
+    // description: `Sprzedaż i wykonastwo instalacji wodno-kanalizacyjnych, centralnego ogrzewania, gazowych, montaż pomp ciepła, klimatyzacji , wentylacji z rekuperacją, a także fotowoltaiki i kolektorów słonecznych w Rybniku`, // TUTAJ POWINIEN ZNALEZC SIE OPIS STRONY
     keywords: `centralne ogrzewanie, fotowoltaika, solary, instalacje wodno kanalizacyjne, pompy ciepła, klimatyzacja, wentylacja z rekuperacją`,
     author: `@Marcin Kula`,
     modelEntityName: `MODEL_DANYCH`,

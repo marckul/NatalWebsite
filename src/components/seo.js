@@ -10,61 +10,128 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-class StaticSeoSettings { 
-  #slug = "/";
-  set slug(slug) {
-    // SLUG CLEANING
-    if (slug === "") {
-      console.log("slug === \"\"");
+class SeoSettings { 
+  /**
+   * 
+   * @param { string } slug 
+   */
+  constructor(slug) {
+    this.slug = slug;
+    this.SetIsForPage()
+    
 
-    } else if (slug === undefined) {
-      slug = ""
+  }
 
-    } else {
-      console.log("hello");
-
-      if ( slug[0] !== '/' ) {
-        slug = '/' + slug;
+  /** @type {string} */
+  #slug = "/"
+  set slug(value) {
+    if (value === undefined) {
+      value = "";
+    } 
+    else {
+      if ( value[0] !== '/' ) {
+        value = '/' + value;
       }
     }
-    // return slug;
 
-    this.#slug = slug;
+    this.#slug = value;
   }
   get slug() {
-    return this.#slug;
+    return this.#slug
   }
-  #isForPageAll = {
-    "": "Cala Strona", 
-    "/": "Cala Strona", 
+  static #isForPageAll = {
+    "": "Cala witryna", 
+    "/": "Cala witryna", 
     "/oferta": "Strona Oferty", 
     "/aktualnosci": "Strona Aktualnosci"
   };
-  // Getter
+  static get isForPageAll() {
+    return this.#isForPageAll
+  };
+
+  #isForPage = "";
+  SetIsForPage() {
+    this.#isForPage = SeoSettings.isForPageAll[this.slug]
+  }
   get isForPage() {
-    return this.getIsForPage();
+    return this.#isForPage
   }
-  get isForPageAll() {
-    return this.#isForPageAll;
-  }
-  // Method
-  getIsForPage() {
-    return this.#isForPageAll[this.slug];
-  }
+
 }
-const seoSettings = new StaticSeoSettings();
+
+// class StaticSeoSettings { 
+//   #slug = "/";
+//   set slug(slug) {
+//     // SLUG CLEANING
+//     if (slug === "") {
+//       console.log("slug === \"\"");
+
+//     } else if (slug === undefined) {
+//       slug = ""
+
+//     } else {
+//       console.log("hello");
+
+//       if ( slug[0] !== '/' ) {
+//         slug = '/' + slug;
+//       }
+//     }
+//     // return slug;
+
+//     this.#slug = slug;
+//   }
+//   get slug() {
+//     return this.#slug;
+//   }
+//   #isForPageAll = {
+//     "": "Cala Strona", 
+//     "/": "Cala Strona", 
+//     "/oferta": "Strona Oferty", 
+//     "/aktualnosci": "Strona Aktualnosci"
+//   };
+//   // Getter
+//   get isForPage() {
+//     return this.getIsForPage();
+//   }
+//   get isForPageAll() {
+//     return this.#isForPageAll;
+//   }
+//   // Method
+//   getIsForPage() {
+//     return this.#isForPageAll[this.slug];
+//   }
+// }
+// const seoSettings = new StaticSeoSettings();
+
+
 
 function Seo( { description, keywords, title, url, type, meta, lang } ) {
-  seoSettings.slug = url;
+  // seoSettings.slug = url;
+
+  const seoSettings = new SeoSettings(url);
+  
+
   
   const metadaneStronyPreprocessing = (contentfulMetadaneStrony) => {
     
-    // tylko za 1-szym razem
-    if (contentfulMetadaneStrony.description.hasOwnProperty("description")) {
-      contentfulMetadaneStrony.description = contentfulMetadaneStrony.description.description;
-      contentfulMetadaneStrony.keywords = contentfulMetadaneStrony.keywords.join(", ")
-    } 
+    if (contentfulMetadaneStrony !== null) {
+      // tylko za 1-szym razem
+      if (contentfulMetadaneStrony.description.hasOwnProperty("description")) {
+        contentfulMetadaneStrony.description = contentfulMetadaneStrony.description.description;
+        contentfulMetadaneStrony.keywords = contentfulMetadaneStrony.keywords.join(", ")
+      } 
+      
+      
+    } else {
+      contentfulMetadaneStrony = {
+        keywords: null,
+        description: null,
+        title: null,
+        url: null,
+      };
+    }
     return contentfulMetadaneStrony;    
+    
   }
 
   const { site, allContentfulMetadaneStrony } = useStaticQuery(
@@ -96,7 +163,17 @@ function Seo( { description, keywords, title, url, type, meta, lang } ) {
       }
     `
   );
-  const contentfulMetadaneStrony = metadaneStronyPreprocessing(allContentfulMetadaneStrony.nodes[0]);
+
+  
+  // const contentfulMetadaneStrony = metadaneStronyPreprocessing(allContentfulMetadaneStrony.nodes[0]);
+  let contentfulMetadaneStrony = null;
+  allContentfulMetadaneStrony.nodes.forEach( node => {
+    if (node.isForPage  === seoSettings.isForPage) {
+      contentfulMetadaneStrony = node;
+    }
+  })
+  // debugger;
+  contentfulMetadaneStrony = metadaneStronyPreprocessing(contentfulMetadaneStrony);
   // debugger;
 
   const metaDescription = description || contentfulMetadaneStrony.description || site.siteMetadata.description;
