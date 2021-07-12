@@ -39,9 +39,9 @@ const CookieInfoPage = (props) => {
   return(
     <Layout>
       <JumbotronHero title={contentfulRegulaminPortalu.title} />
-      <div className="container top-nav-margin my-5 py-5">
+      <div className="container py-5">
         <GoBackLink />
-        <article className="article">
+        <article className="article top-nav-margin">
           {pageContent}
         </article>
       </div>

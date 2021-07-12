@@ -126,6 +126,14 @@ a:hover, .fake-link:hover {
   text-decoration: underline;
 }
 
+button.fake-link {
+  background: inherit;
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
 blockquote {
   border-left: solid 0.25rem #456e96;
   padding-left: 1rem;

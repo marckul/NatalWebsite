@@ -128,12 +128,21 @@ ul {
 
 //  LINKI 
 
+
 a, .fake-link {
   color: #005bbd;  
   cursor: pointer;
   &:hover {
     text-decoration: underline;
   }
+}
+
+button.fake-link {
+  background: inherit;
+  display: block;
+  border: none;
+  margin: 0; 
+  padding: 0;
 }
 
 

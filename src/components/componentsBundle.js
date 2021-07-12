@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { AnchorLink } from "gatsby-plugin-anchor-links";
+// import { AnchorLink } from "gatsby-plugin-anchor-links";
 // import { StaticImage } from "gatsby-plugin-image"
 import { Link, navigate } from 'gatsby';
 import scrollToElement from 'scroll-to-element' // https://www.npmjs.com/package/scroll-to-element
@@ -13,10 +13,9 @@ const Row = (props) => (
   </div>
 )
 
+const wasHere = [];
+
 const SmoothLink = (props) => {
-
-
-  
   const settings = {
     offset: -100,
     duration: 1000,   
@@ -44,13 +43,15 @@ const SmoothLink = (props) => {
    * 
    */ 
   const AnchorClick = (event) => {
+    
     const target = event.target;
+    // console.log(target.hash);
 
     if (typeof window !== 'undefined') {
       if (!target.hash) {
         return;
       }
-      console.log("RUNNING AnchorClick()");
+      // console.log("RUNNING AnchorClick()");
 
       event.preventDefault();
       if (window.location.pathname === target.pathname) {
@@ -60,25 +61,48 @@ const SmoothLink = (props) => {
             duration: settings.duration
           }
         );
-        // window.location.assign(target.pathname + target.hash)
+        
         return;
       }
+      
+      if (target.hash === "#top") {
+        navigate(target.pathname + target.hash);
+        navigate(target.pathname);
+        
+        return;
+      }
+      // TODO: checking if parent element is mounted then scrolling
+      // https://stackoverflow.com/questions/38093760/how-to-access-a-dom-element-in-react-what-is-the-equilvalent-of-document-getele
+      // if (wasHere.includes(target.pathname)) {
+      //   navigate(target.pathname + target.hash);
+      //   navigate(target.pathname);
+
+      //   scrollToElement(
+      //     target.hash, {
+      //       offset: settings.offset,
+      //       duration: settings.duration
+      //     }
+      //   );
+        
+      // } else 
+    
+      wasHere.push(target.pathname)
 
       const myNavigate = async function (event) {
         return( await navigate(target.pathname) )
       }      
       
       myNavigate(event).then( () => {        
-        console.log("myNavigate: LAUNCHING SET INTERVAL...");
+        // console.log("myNavigate: LAUNCHING SET INTERVAL...");
         const interval1_ID = window.setInterval( () => { // setTimeout
           const targetElem = document.querySelector(target.hash)
-          console.log("myNavigate: Watching for target element...");
+          // console.log("myNavigate: Watching for target element...");
 
           if (targetElem) {
             window.clearInterval(interval1_ID);              
             const interval2_ID = window.setInterval( () => {
               if (settings.idx < settings.iterations) {
-                console.log(`myNavigate: Scrolling launched index: ${settings.idx}`);                
+                // console.log(`myNavigate: Scrolling launched index: ${settings.idx}`);                
 
                 scrollToElement(
                   target.hash, {
@@ -132,7 +156,7 @@ const GoBackLink = () => {
 
   // https://stackoverflow.com/questions/53134784/css-transition-to-original-state-after-mouseleave
   return(
-    <a onClick={() => navigate(-1)} className="fake-link arrow-link pr-5 pb-3">Powrót</a>
+    <button onClick={() => navigate(-1)} className="fake-link arrow-link ml-auto ml-md-0 pb-3">Powrót</button>
   )
 }
 

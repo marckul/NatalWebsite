@@ -22,7 +22,7 @@ const IndexPage = (props) => {
           <div className="container py-md-5 my-5">
             <h1 className="display-3 ">Natal Instalacje</h1>
             <p className="lead-normal font-weight-bold">
-              Zajmujemy się kompleksowym wykonawstwem robót instalacyjnych w domach, mieszkaniach, obiektach użyteczności publicznej i innych oraz sprzedażą materiałów instalacyjnych. 
+              Zajmujemy się kompleksowym wykonawstwem robót instalacyjnych w domach, mieszkaniach, obiektach użyteczności publicznej i innych oraz sprzedażą materiałów instalacyjnych w Rybniku. 
               <br/>Nasze doświadczenie w branży sięga 30 lat.
             </p>
             <p className="lead-normal">
@@ -36,7 +36,7 @@ const IndexPage = (props) => {
         <p className="lead-normal">Prowadzimy działalność w zakresie <strong>sprzedaży, wykonastwa i serwisu</strong> w poniższych dziedzinach</p>
 
         <Row justifyContent="around">
-          <Card id="centralne-ogrzewanie" to="/#kontakt" src={gasBoiler} alt="image mockup" small=''>
+          <Card id="centralne-ogrzewanie" to="/oferta/#centralne-ogrzewanie" src={gasBoiler} alt="image mockup" small=''>
             <CardTitle>Centralne Ogrzewanie</CardTitle>
             <CardText>
               W naszej ofercie znajdziecie państwo kotły kondensacyjne, pomy ciepła, ogrzewanie podłogowe oraz inne rozwiązania zapewniające właściwe ogrzewanie budynku, które stosuje się  w nowoczesnym budownictwie. 
@@ -48,7 +48,7 @@ const IndexPage = (props) => {
               Oferujemy wynajem <strong>minikoparki  Kubota KX018&nbsp;-&nbsp;4</strong>  wraz z wykwalifikowanym operatorem. Wykonujemy wykopy zarówno pod instalacje wodno-kanalizacyjne, gazowe jak i inne wykopy związane z remontem i budową domu
             </CardText>
           </Card>   
-          <Card id="fotowoltaika-i-wentylacja" to="/oferta#fotowoltaika-i-wentylacja" src={photovoltaicsSketch} alt="image mockup" small=''>
+          <Card id="fotowoltaika-i-wentylacja" to="/oferta/#fotowoltaika" src={photovoltaicsSketch} alt="image mockup" small=''>
             <CardTitle>Fotowoltaika i Wentylacja</CardTitle>
             <CardText>
               Zajmujemy się sprzedażą i montażem ogniw fotowoltaicznych i solarów, a także instalacją systemów wentylacji z rekuperacją.
@@ -64,14 +64,15 @@ const IndexPage = (props) => {
       </section>  
 
       <section id="o-firmie"  className="container my-5 py-5">
-        <h1 className="display-3">O firmie</h1>
-        <div className="lead-normal">
+        <h2 className="display-3">O firmie</h2>
+        <div className="">
           <p>
             Przedsiębiorstwo Natal PHU rozpoczęło swoją działalność w 1993 r. w Żorach od sprzedaży i montażu elektrycznych kabli grzewczych duńskiej firmy DEVI- wiodącego producenta tego produktu na świecie. W tym czasie byliśmy jednym z kilku dystrybutorów tego produktu w kraju a jedną z dwóch firm na śląsku. Z czasem w miarę rozwoju firmy, rozpoczęliśmy montaż ogrzewania podłogowego wodnego oraz wykonawstwo instalacji centralnego ogrzewania oraz gazu.
           </p>
           <p>
             Kolejnym krokiem było otwarcie sklepu z materiałami instalacyjnymi w Rybniku z roku na rok poszerzając asortyment i związując się z wiodącymi producentami na świecie. Obecnie zajmujemy się kompleksowym wykonawstwem robót instalacyjnych w obiektach użyteczności publicznej, mieszkaniowych i innych oraz sprzedażą materiałów instalacyjnych.
           </p>
+
           <p>
             Jesteśmy w stanie wykonać każdą instalację podejmując się nawet najtrudniejszych zadań. Współpracujemy z projektantami którzy projektują dla nas instalacje gazowe oraz inne załatwiając wszelkie formalności za klienta, włącznie z nadzorem kierownika budowy.
           </p>
@@ -97,10 +98,12 @@ const IndexPage = (props) => {
               </div>
               <div className="col-md-4 col-lg-3 mb-5">
                 <h2>Nasz adres</h2>
-                <address className="">                      
-                    Miejska 13, 44-200 Rybnik <br/>
-                    Natalia Kula "Natal" PHU <br/>
-                </address>  
+                <p>
+                  <address className="mb-0">                      
+                      Miejska 13, 44-200 Rybnik
+                  </address>  
+                  Natalia Kula "Natal" PHU <br/>
+                </p>
               </div>
               <div className="col-md-3 col-lg-2 mb-5">
                 <h2>

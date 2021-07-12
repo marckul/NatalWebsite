@@ -74,17 +74,13 @@ const NewsPostTemplate = (props) => {
   // path
   let data = props.data;
   data = data.allContentfulAktualnosciPost.edges[0].node;
-  // debugger;
 
   let richTextRenderer = getRichTextRenderer();
   richTextRenderer._constructor(data.body, "");
 
-  
-
-  debugger;
   return(
     <Layout id="strona-aktualnosci" className="single-post-main-class" currentPath="/aktualnosci/">
-      <Seo title={data.title} type="article" url={props.path} />
+      <Seo title={data.title} type="article" url={props.path} description={data.intercept}/>
       <div className="container mt-5 py-5">
         <nav><GoBackLink/></nav>
         

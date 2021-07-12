@@ -2,7 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 
 import { Link } from "gatsby"
-import { AnchorLink } from "gatsby-plugin-anchor-links";
+// import { AnchorLink } from "gatsby-plugin-anchor-links";
 import { SmoothLink } from '../components/componentsBundle'
 // https://www.npmjs.com/package/react-scrollspy
 import Scrollspy from 'react-scrollspy'
@@ -33,8 +33,7 @@ const NavLinkSpy = ({children, to}) => {
 
 const NavBrand1 = () => (
   <Link className="navbar-brand " to="/">
-    <span>Natal</span>
-    <span>instalacje</span>
+    <span>Natal</span> <span> instalacje</span>
   </Link>
 )
 
@@ -46,8 +45,11 @@ const Header = ({ siteTitle, currentPath }) => {
       <nav id="navbar-main" className="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
         <div className="container-fluid">
           <NavBrand1/>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
+          {/*  */}
+          <button className="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+            <div className="d-flex flex-row align-items-center">
+              <div className="py-1 text-muted"><small>MENU</small></div> <div className="ml-2 navbar-toggler-icon"></div>
+            </div>
           </button>
           <div className="collapse navbar-collapse" id="navbarMain">
             <div className="navbar-nav ml-auto ">
@@ -57,7 +59,7 @@ const Header = ({ siteTitle, currentPath }) => {
                   {/* // NavLinkSpy */}
                 </li>
                 <li className="nav-item order-2" >
-                  <NavLinkActive currentPath={currentPath} thisPath="/oferta/" to="/oferta#top">Oferta</NavLinkActive>
+                  <NavLinkActive currentPath={currentPath} thisPath="/oferta/" to="/oferta">Oferta</NavLinkActive>
                 </li>
                 <li className="nav-item order-3">
                   <NavLinkSpy className="nav-link" to="/#o-firmie">O firmie</NavLinkSpy>
